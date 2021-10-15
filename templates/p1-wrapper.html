@@ -1,0 +1,617 @@
+<div class="wrapper">
+    {% if g.ip['cookies-message'] %}
+    <div class="cookies-wrapper">
+        <div class="cookies-message">
+            We use cookies on our websites for a number of purposes, 
+            including analytics, performance and website functionality. 
+            <a href="/privacy-policy#cookies">Learn more about N Fit’s use of cookies.</a>
+        </div>
+        <div class="opts">
+            <a class="opt" href="/reject?cookies=0&page=ngun_classic">Reject non-essential</a>
+            <a class="opt" href="/reject?cookies=1&page=ngun_classic" onclick="hideCookies()">Accept all</a>
+        </div>
+    </div>
+    {% endif %}
+    <div class="dimcho"></div>
+    <!-- REFERRAL -->
+    {% if PTM == 0 and g.ip['receiver'] == 0 %}
+    <div class="dimcho2" onclick="referBack('referral' , 'message=close')"></div>
+    <div class="referral">
+        <div class="hicks" onclick="referBack('referral' , 'message=close')">X</div>
+        <div class="ref-title">
+            Give your friend the gift of health!
+        </div>
+        <div class="ref-title2">
+            Refer a friend and get 15% off of any product
+        </div>
+        <div class="ref-img-wrap">
+            <div class="ref1 ref-img"></div>
+            <div class="ref2 ref-img"></div>
+            <div class="ref3 ref-img"></div>
+        </div>
+        <div class="ref-copy">
+            <div class="howitworks">How it works?</div>
+            <br>
+            1. You receive a link.<br>
+            2. Your friend opens the link.<br>
+            3. You both receive a 15% discount code for all our products.
+        </div>
+        <div class="ref-buttons">
+            <div onclick="referBack('referral' , 'message=close')" class="ref-butt" style="background: white; color:rgb(0, 162, 232);">No thanks</div>
+            <div class="ref-butt" onclick="referBack('referral' , 'message=get')">Get the link</div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if Added == 1 %}
+    <div class="top-nav2">
+        {% if Added == 1 %}
+        Successfully added to your bag!
+        {% endif %}
+    </div>
+    {% endif %}
+    <!-- TOP NAVIGATION !-->
+    <nav class="top-nav">
+        <a href="/"><li id="logo" class="top-nav-items"></li></a>
+        <li class="top-nav-items text-items"><a href="/{{g.product['1']['menu-code']}}" style="font-weight: bold;">{{g.product['1']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+        <li id="search" class="top-nav-items" onclick="opensearch()"></li>
+        <li class="top-nav-items search-field">
+            <form onsubmit="return validateSearch()" class="search-formec">
+                <input oninput="searchFunc(0)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                <input type="submit" value="Submit" style="display: none;">
+                <div class="search-box">
+                    {% for i in range(1,5) %}
+                    <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                        <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                        <div class="prod-text">
+                            {{g.product[i|string]['name']}}
+                            <br>
+                            £ {{g.product[i|string]['total']}}
+                            <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                        </div>
+                        
+                    </a>
+                    {% endfor %}
+                </div>
+            </form>
+        </li>
+        <li id="bag" class="top-nav-items" onclick="opencart()">
+            <aside class="triangle"></aside>
+            {% if w_count + b_count != 0 %}
+            <div class="bag-num">
+                {{w_count + b_count}}
+            </div>
+            {% endif %}
+        </li>
+    </nav>
+
+
+    {% if  Added == 1 %}
+    <div class="top-nav2-mobile">
+        {% if Added == 1 %}
+        Successfully added to your bag!
+        {% endif %}
+    </div>
+    {% endif %}
+    <!-- MOBILE !-->
+    <nav class="top-nav-mobile">
+        <li id="linebar" class="top-nav-items" onclick="openmenu()"></li>
+        <a href="/"><li id="logo" class="top-nav-items"></li></a>
+        <li id="bag" class="top-nav-items" onclick="opencart()">
+            {% if w_count + b_count != 0 %}
+            <div class="bag-num">
+                {{w_count + b_count}}
+            </div>
+            {% endif %}
+        </li>
+    </nav>
+    <aside class="buttons-mobile">
+        <li class="top-nav-items search-field">
+            <div class="search-img"></div>
+            <div class="search-box">
+                {% for i in range(1,5) %}
+                <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                    <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                    <div class="prod-text">
+                        {{g.product[i|string]['name']}}
+                        <br>
+                        £ {{g.product[i|string]['total']}}
+                        <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                    </div>
+                    
+                </a>
+                {% endfor %}
+            </div>
+            <form onsubmit="return validateSearch()" class="search-formec">
+                <input oninput="searchFunc(1)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                <input type="submit" value="Submit" style="display: none;">
+            </form>
+        </li>
+        <li class="top-nav-items text-items" style="border-top: none;"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+    </aside>
+
+    
+    <!-- CART !-->
+    <aside class="cart-menu">
+        {% if b_count != 0 %}
+        <div class="cart-menu-items" id="your-bag">You have {{b_count}} 
+            {% if b_count == 1 %}
+            item
+            {% else %}
+            items
+            {% endif %}
+            in your bag.</div>
+        {% else %}
+        <div class="cart-menu-items" id="your-bag">Your Bag is empty.</div>
+        {% endif %}
+        <div class="cart-menu-items"><a href="/bag">
+            <div class="cart-img mini-b">
+                {% if w_count + b_count != 0 and b_count != 0 %}
+                <div class="m-b">
+                    {{b_count}}
+                </div>
+                {% endif %}
+            </div>Bag</a></div>
+        <div class="cart-menu-items"><a href="/wishlist">
+            <div class="cart-img w-list">
+                {% if w_count + b_count != 0 and w_count != 0 %}
+                <div class="w-l">
+                    {{w_count}}
+                </div>
+                {% endif %}
+            </div>Wishlist</a></div>
+        <div class="cart-menu-items">
+            <a href="/account">
+                <div class="cart-img profile"></div>
+                {% if g.ip['user-id'] != 0 %}
+                {{g.user['first-name']}} {{g.user['last-name'][0]}}.
+                {% else %}
+                Account
+                {% endif %}
+            </a>
+        </div>
+        {% if g.ip['user-id'] != 0 %}
+        <div class="cart-menu-items"><a href="/sign-out"><div class="cart-img s-out"></div>Sign out</a></div>
+        {% else %}
+        <div class="cart-menu-items"><a href="/sign-in"><div class="cart-img s-in"></div>Sign in</a></div>
+        {% endif %}
+    </aside>
+
+
+    <!-- MAIN !-->
+    <div class="content">
+        <div class="sub-content">
+            <div class="title-2">{{g.product['1']['name']}}</div>
+            <div class="title-3">{{g.product['1']['sub-name']}}</div>
+            <a href="#review" class="star-box">
+                <div id="one-star" class="stars">&#9733;</div>
+                <div id="two-star" class="stars">&#9733;</div>
+                <div id="three-star" class="stars">&#9733;</div>
+                <div id="four-star" class="stars">&#9733;</div>
+                <div id="five-star" class="stars">&#9733;</div>
+                <div class="ratings" class="stars" style="text-decoration: underline;">{{g.product['1']['ratings']}} ratings</div>
+            </a>
+            <div class="price">
+                <div class="currency">£</div>
+                <div class="value-1">{{g.product['1']['total']}}</div>
+            </div>
+            <div class="top-wrapper">
+                <div class="slider" style="background-image: url('../static/img/products/p1/massager1.png');">
+                    {% if g.ip['user-id'] != 0 and '1' in w_list %}
+                    <button type="button" class="wishlist-box-added" onclick="goBack('mod-wishlist', 'uname=1&act=remove&template=p1-wrapper.html')"></button>
+                    {% endif %}
+                    {% if g.ip['user-id'] != 0 and '1' not in w_list %}
+                    <button type="button" class="wishlist-box" onclick="goBack('mod-wishlist', 'uname=1&act=add&template=p1-wrapper.html')"></button>
+                    {% endif %}
+                    {% if g.ip['user-id'] == 0 %}
+                    <a class="wishlist-box" href="/wishlist"></a>
+                    {% endif %}
+                </div>
+                <div class="thumbnails">
+                    <div onmouseover="changeImage('1', this.id)" ontouchstart="changeImage('1', this.id)" id="one" class="sub-thumbs" style="background-image: url('../static/img/products/p1/massager1.png'); border: 3px solid rgb(0, 162, 232);"></div>
+                    <div onmouseover="changeImage('2', this.id)" ontouchstart="changeImage('2', this.id)" id="two" class="sub-thumbs" style="background-image: url('../static/img/products/p1/massager2.png');"></div>
+                    <div onmouseover="changeImage('3', this.id)" ontouchstart="changeImage('3', this.id)" id="three" class="sub-thumbs" style="background-image: url('../static/img/products/p1/massager3.png');"></div>
+                    <div onmouseover="changeImage('4', this.id)" ontouchstart="changeImage('4', this.id)" id="four" class="sub-thumbs" style="background-image: url('../static/img/products/p1/massager4.png');"></div>
+                </div>
+            </div>
+            <div class="desktop">
+                <div class="title-2-2">{{g.product['1']['name']}}</div>
+                <div class="title-3-3">{{g.product['1']['sub-name']}}</div>
+                <a href="#review" class="star-box-2">
+                    <div id="one-star" class="stars">&#9733;</div>
+                    <div id="two-star" class="stars">&#9733;</div>
+                    <div id="three-star" class="stars">&#9733;</div>
+                    <div id="four-star" class="stars">&#9733;</div>
+                    <div id="five-star" class="stars">&#9733;</div>
+                    <div class="ratings" class="stars" style="text-decoration: underline;">{{g.product['1']['ratings']}} ratings</div>
+                </a>
+                <div class="price-2">
+                    <div class="currency">£</div>
+                    <div class="value-1">{{g.product['1']['total']}}</div>
+                </div>
+                <div class="shipping">
+                    <div class="sub-shipping"><div class="sub-ship-img" style="background-image: url('../static/img/icons/worldwide-black.png'); background-size: 80% 80%;"></div><div class="sub-ship-text"><b>Free</b> Shipping Worldwide</div></div>
+                    <div class="sub-shipping"><div class="sub-ship-img" style="background-image: url('../static/img/icons/inventory.png'); background-size: 80% 80%;"></div><div class="sub-ship-text"><b>Only 6 items</b> left in stock</div></div>
+                </div>
+                <form name="add-cart" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                    <input type="hidden" id="product-price" name="product-price" value="{{g.product['1']['total']}}">
+                    <input id="key" type="hidden" name="key" value="1">
+                    <label class="plug-label">Colour</label>
+                    <div class="plug-type-wrapper">
+                        <select name="properties" class="plug-type" data-index="option1" onchange="changeSelect(1)">
+                            <option value="Black" selected>Black</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Carbon">Carbon</option>
+                        </select>
+                    </div>
+                    <label class="quantity-label">Quantity</label>
+                    <div class="quantity-wrapper">
+                        <button class="minus" type="button" onclick="subquant()">-</button>
+                        <input name="quantity" class="quantity" type="number" min="1" value="1">
+                        <button class="plus"  type="button" onclick="addquant()">+</button>
+                    </div>
+                    <button class="add" type="submit">ADD TO BAG</button>
+                    <div id="paypal-button-container"></div>
+                    <div class="cards"></div>
+                    <div class="collaps">
+                        <div class="sub-collaps">
+                            <button onclick="expand(0)" type="button" class="colls-button">Description</button>
+                            <div class="colls-content">
+                                <p>
+                                    The compact yet powerful iteration of N Fit, the NGun Classic, has established itself as an industry leader in the combination of its price-to-quality ratio and satisfied customers.
+                                </p>
+                                <p>
+                                    Suitable for any place at any time, the NGun Classic can effectively relieve your muscle soreness caused by stiffness as well as relax your muscles after a tough workout to relieve your pain.
+                                </p>
+                                <p>
+                                    Give your body the perfect massage for your shoulders, chest, back muscles, hips and legs.
+                                </p>
+                                <p>
+                                    Level up your recovery game - no more overpaying for overpriced therapists or physicians. The NGun Classic fits best people who want to push it to the limits and then recover.
+                                </p>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="sub-collaps">
+                            <button onclick="expand(1)" type="button" class="colls-button">Specifications</button>
+                            <div class="colls-content">
+                                <p><b>Battery life</b> - The NGun Classic is powered by a 2200 mAh lithium ion rechargeable battery, deliverying hours of use.</p>
+                                <p><b>Replaceable Massage Head</b> - A total of 6 which you can rotate in terms of the muscle group that you want to target and the impact that you want to have.</p>
+                                <p><b>Lightweight</b> - Only 900 grams. The weight of a mini laptop.</p>
+                                <p><b>Quiet Technology</b> - Our device operates at barely 45dbs.</p>
+                                <p><b>Stall Force</b> - 65LBS / 30KG</p>
+                                <p><b>Rotations per Minute</b> - 3200 RPM brushless motor. </p>
+                                <p>
+                                    Package Included:
+                                    <br>1 x NGun Classic
+                                    <br>6 x Replaceable Massage Head
+                                    <br>1 x USB Cable
+                                    <br>1 x Instruction Manual
+                                    <br>1 x Box
+                                </p>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="sub-collaps">
+                            <button onclick="expand(2)" type="button" class="colls-button">How it Works</button>
+                            <div class="colls-content">
+                                <p>The NGun Classic is a full body massaging device which does percussion therapy to help improve blood circulation, relieve muscle stiffness and soreness, prevent muscle damage and reduce lactic acid level.</p>
+                                <p>Did you know that a percussive massage provided by our massage gun can cause muscles to contract 30 times more than normal voluntary contractions?</p>
+                                <p>This then results in muscular and fascial lengthening and strengthening, leading to enhanced muscle strength and improved muscle recovery. The combination results in relieving muscular tightness and reducing the physical stress and discomfort placed on your bones and joints.</p>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="sub-collaps">
+                            <button onclick="expand(3)" type="button" class="colls-button">When to Use It</button>
+                            <div class="colls-content">
+                                <p>It can be used before, during and after training. You will achieve enhanced performance due to the lymph circulation and blood stimulation, as well as warming up your muscle tissues and having an improved elasticity.</p>
+                                <p>You can use it after exercise to deliver more oxygen and nutrients into your muscle and fascial which then results in reduced soreness, fatigue, muscle spasms and prevents muscle pain.</p>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="sub-collaps">
+                            <button onclick="expand(4)" type="button" class="colls-button">Returns & Warranty</button>
+                            <div class="colls-content">
+                                <p>
+                                    1.) If you are not satisfied with the product you may return the goods for exchange or Refund (within 7 days long) but please communicate with us before return.All return items must be in good condition.They must be under resalable condition.Some defects are not guarantee such as broken scratched and so on.
+                                </p>
+                                <p>
+                                    2.) If item is defective in 1 month we will send you a replacement without extra charger or offer refund after we receive the defective item. But Must ensure that not a man-made damage.
+                                </p>
+                                <p>
+                                    3.) If item is defective in 12 months, you can issue a refund for your money. You have to prove that the product is really not working and not broken on purpose. This refund excludes all the possible taxes in its transfer.
+                                </p>
+                                <p>
+                                    Important to notice that we do not offer refunds on discounted products such as our referral system where you and your friend both get 15% off our products.
+                                </p>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="review" class="reviews">
+            <div class="reviews-details">
+                <h1 class="reviews-product">{{g.product['1']['menu-name']}}</h1>
+                <h3 class="reviews-overall">Overall rating</h3>
+                <div class="reviews-rating">
+                    <h1 class="rating-1">4.7</h1>
+                    <h2 class="rating-2">/ 5</h2>
+                </div>
+                <div class="reviews-stars">
+                    <span class="stars-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 31 Reviews
+                </div>
+                <span class="reviews-recc">94.5% of reviewers would recommend to a friend.</span>
+            </div>
+            <div class="reviews-slider">
+                <div class="reviews-previous" onclick="changeSlide(-1)">&#171;</div>
+                <div class="reviews-next" onclick="changeSlide(1)">&#187;</div>
+                <div class="reviews-bubbles">
+                    <div class="bubbles" onclick="changeBub(1)"></div>
+                    <div class="bubbles" onclick="changeBub(2)"></div>
+                    <div class="bubbles" onclick="changeBub(3)"></div>
+                </div>
+                <div class="reviews-window">
+                    <div class="reviews-ss">
+                        <span class="reviews-span">
+                            <div class="reviews-box">
+                                <div class="reviews-date">Reviewed on 15 May 2021</div>
+                                <div class="reviews-body">
+                                    I'm a marathon runner and the Massage Gun has helped me with my recovery. 
+                                    I've been using it on my hamstrings and calves and have seen amazing results so far! 
+                                    I was reluctant at first, but sometimes you just have to try new solutions out.
+                                </div>
+                            </div>
+                            <div class="reviews-triangle"></div>
+                            <h3 class="reviews-name">James Newberry, Newcastle</h3>
+                        </span>
+                        <span class="reviews-span">
+                            <div class="reviews-box">
+                                <div class="reviews-date">Reviewed on 1 May 2021</div>
+                                <div class="reviews-body">
+                                    So I bought this Massager for my husband because he keeps saying how much his shoulders 
+                                    hurt after lifting weights. He loves it! He even brought it to our vacation!
+                                </div>
+                            </div>
+                            <div class="reviews-triangle"></div>
+                            <h3 class="reviews-name">Susan Mawdsley, Manchester</h3>
+                        </span>
+                        <span class="reviews-span">
+                            <div class="reviews-box">
+                                <div class="reviews-date">Reviewed on 19 April 2021</div>
+                                <div class="reviews-body">
+                                    Cannot recommend this enough! I'm a cyclist and I was having trouble with adequate recovery 
+                                    which resulted in tight muscles. I was able to target my pain points with the massage gun and 
+                                    now recovering faster than ever! I feel young again.
+                                </div>
+                            </div>
+                            <div class="reviews-triangle"></div>
+                            <h3 class="reviews-name">Audrey Smith, London</h3>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="desc" class="description">
+            <div class="percussion">
+                <div class="percussion-img per-img1"></div>
+                <div class="percussion-text">
+                    <h1 class="percussion-header">What Is Percussion Therapy</h1>
+                    <p class="percussion-body">
+                        Percussive therapy (what massage guns do) provides rapid bursts of pressure into the body’s muscle tissue as the head of the gun moves back and forth.
+                    </p>
+                    <p class="percussion-body">
+                        This repeated pounding of the muscles leads to increased blood flow, pain relief and range of motion to the muscle that is being treated.
+                    </p>
+                </div>
+            </div>
+            <div class="benefit">
+                <div class="benefit-title">The NGun Effect</div>
+                <div class="benefit-upper">
+                    <div class="benefit-unit">
+                        <div class="benefit-image" style="background-image: url('../static/img/products/p2/benefit1.png');">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#F4ABBA" d="M35.977 16.672c-.25 4.574-8.194 8.248-17.977 8.248-3.285 0-6.352-.422-9-1.145v3.588c2.65 1.023 5.718 1.619 9 1.619 9.941 0 18-5.373 18-12 0-.104-.02-.207-.023-.31zM27 6.6c-2.646-1.024-5.717-1.617-9-1.617-9.018 0-16.465 4.426-17.774 10.194C1.535 11.106 8.982 7.982 18 7.982c3.283 0 6.354.418 9 1.142V6.6z"/><path fill="#DD2E44" d="M24.77 19.715c0-3.757-3.045-6.801-6.801-6.801-2.28 0-4.292 1.125-5.526 2.845-1.234-1.72-3.247-2.845-5.526-2.845-3.756 0-6.801 3.044-6.801 6.801 0 .531.067 1.049.183 1.545.945 5.867 7.468 12.059 12.144 13.758 4.675-1.699 11.2-7.891 12.142-13.756.117-.498.185-1.016.185-1.547zM35.885 5.693c0-2.602-2.109-4.711-4.711-4.711-1.579 0-2.973.78-3.828 1.972-.855-1.191-2.249-1.972-3.827-1.972-2.602 0-4.711 2.109-4.711 4.711 0 .369.047.727.127 1.07.654 4.064 5.173 8.353 8.411 9.529 3.238-1.177 7.758-5.465 8.412-9.528.08-.344.127-.702.127-1.071z"/></svg>
+
+                        </div>
+                        <div class="benefit-header">Improving Blood Circulation</div>
+                        <div class="benefit-text">By increasing your blood flow, extra nutrients and oxygen will travel to the treated area by the massager and that would lead to improved recovery</div>
+                    </div>
+                    <div class="benefit-unit">
+                        <div class="benefit-image" style="background-image: url('../static/img/products/p2/benefit2.png');">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#EF9645" d="M15.977 9.36h3.789c.114-.191.147-.439.058-.673l-3.846-4.705V9.36z"/><path fill="#FFDC5D" d="M12.804 22.277c-.057-.349-.124-.679-.206-.973-.62-2.223-1.14-3.164-.918-5.494.29-1.584.273-4.763 4.483-4.268 1.112.131 2.843.927 3.834.91.567-.01.98-1.157 1.017-1.539.051-.526-.865-1.42-1.248-1.554-.383-.134-2.012-.631-2.681-.824-1.039-.301-.985-1.705-1.051-2.205-.031-.235.084-.467.294-.591.21-.124.375-.008.579.125l.885.648c.497.426-.874 1.24-.503 1.376 0 0 1.755.659 2.507.796.412.075 1.834-1.529 1.917-2.47.065-.74-3.398-4.083-5.867-5.381-.868-.456-1.377-.721-1.949-.694-.683.032-.898.302-1.748 1.03C8.302 4.46 4.568 11.577 4.02 13.152c-2.246 6.461-2.597 9.865-2.677 11.788-.049.59-.076 1.177-.076 1.758.065 0-1 5 0 6s5.326 1 5.326 1c10 3.989 28.57 2.948 28.57-7.233 0-12.172-18.813-10.557-22.359-4.188z"/><path fill="#EF9645" d="M20.63 32.078c-3.16-.332-5.628-1.881-5.767-1.97-.465-.297-.601-.913-.305-1.379s.913-.603 1.38-.308c.04.025 4.003 2.492 7.846 1.467 2.125-.566 3.867-2.115 5.177-4.601.258-.49.866-.676 1.351-.419.488.257.676.862.419 1.351-1.585 3.006-3.754 4.893-6.447 5.606-1.257.332-2.502.374-3.654.253z"/></svg>
+                        
+                        </div>
+                        <div class="benefit-header">Reducing Muscle Pain and Soreness</div>
+                        <div class="benefit-text">Provide pain relief to your sore muscles after a workout. Stimulate recovery and boost mental alertness, concentration and focus</div>
+                    </div>
+                </div>
+                <div class="benefit-lower">
+                    <div class="benefit-unit">
+                        <div class="benefit-image" style="background-image: url('../static/img/products/p2/benefit3.png');">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#FFDC5D" d="M24.854.731c3.633 1.239 4.935 8.505.991 10.297-1.586.72-4.049 1.511-6.185 1.032-2.737-.613-4.721-.238-4.721-.238s4.797 2.19 6.339 6.323c1.542 4.133 1.072 7.171 3.235 9.163 1.708 1.573 2.79 3.7 1.639 4.994-1.545 1.738-3.929-.028-6.1 2.48-1.522 1.758-4.81 1.182-7.088.142-2.879-1.314.807-2.191 1.842-2.297 1.15-.117 5.29-2.348 3.33-5.544-4.196-6.841-8.501-10.544-11.313-12.61-2.514-1.846-2.772-5.313-.147-8.465 1.662-1.996 5.229-3.554 9.253-4.733 2.8-.821 5.973-1.551 8.925-.544z"/><path fill="#EF9645" d="M8.267 13.047l-.042-.02c-.381-.202-.526-.674-.324-1.054 1.154-2.179.472-3.999.443-4.076-.155-.4.041-.852.44-1.01.398-.157.849.033 1.009.432.041.102.993 2.541-.513 5.383-.194.367-.64.515-1.013.345z"/></svg>
+                        
+                        </div>
+                        <div class="benefit-header">Increasing Mobility and Flexibility</div>
+                        <div class="benefit-text">Use the massager after a stretching routine to increase your range of motion</div>
+                    </div>
+                    <div class="benefit-unit">
+                        <div class="benefit-image" style="background-image: url('../static/img/products/p2/benefit4.png');">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#4289C1" d="M33 19c1.187 0 2 .786 2 2 0 1.073-.983 2-2 2H22c-1.496 0-2-.813-2-2 0-.565.632-1.492 1-2l8-12h-7c-1.128 0-2-.843-2-2 0-1.073.929-2 2-2h11c1.639 0 2 1.012 2 2 0 .621-.635 1.519-1 2l-8 12h7zm-16 5c.633 0 1 .353 1 1 0 .573-.458 1-1 1h-6c-.798 0-1-.367-1-1 0-.301.337-.729.533-1L15 18h-4c-.602 0-1-.384-1-1 0-.573.428-1 1-1h6c.874 0 1 .473 1 1 0 .331-.338.877-.533 1.133L13 24h4zm-9 7c.633 0 1 .353 1 1 0 .573-.458 1-1 1H2c-.798 0-1-.367-1-1 0-.301.337-.729.533-1L6 25H2c-.602 0-1-.384-1-1 0-.572.428-1 1-1h6c.874 0 1 .473 1 1 0 .331-.338.877-.533 1.133L4 31h4z"/></svg>
+                        
+                        </div>
+                        <div class="benefit-header">Reducing Stress and Improving Sleep Quality</div>
+                        <div class="benefit-text">Proven to reduce stress levels and improve the quality of your sleep. Wake up fresh and rock your day</div>
+                    </div>
+                    <div class="benefit-unit">
+                        <div class="benefit-image" style="background-image: url('../static/img/products/p2/benefit5.png');">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#77B255" d="M32.551 18.852c-2.093-1.848-6.686-3.264-10.178-3.84 3.492-.577 8.085-1.993 10.178-3.839 2.014-1.776 2.963-2.948 2.141-4.722-.566-1.219-2.854-1.333-4.166-2.491C29.214 2.802 29.083.783 27.7.285c-2.01-.726-3.336.114-5.347 1.889-2.094 1.847-3.698 5.899-4.353 8.98-.653-3.082-2.258-7.134-4.351-8.981C11.634.397 10.308-.441 8.297.285c-1.383.5-1.512 2.518-2.823 3.675S1.872 5.234 1.308 6.454c-.823 1.774.129 2.943 2.14 4.718 2.094 1.847 6.688 3.263 10.181 3.84-3.493.577-8.087 1.993-10.181 3.84-2.013 1.775-2.963 2.945-2.139 4.721.565 1.219 2.854 1.334 4.166 2.49 1.311 1.158 1.444 3.178 2.827 3.676 2.009.727 3.336-.115 5.348-1.889 1.651-1.457 2.997-4.288 3.814-6.933-.262 4.535.528 10.591 3.852 14.262 1.344 1.483 2.407.551 2.822.187.416-.365 1.605-1.414.186-2.822-3.91-3.883-5.266-7.917-5.628-11.14.827 2.498 2.107 5.077 3.657 6.446 2.012 1.775 3.339 2.615 5.351 1.889 1.382-.5 1.512-2.52 2.822-3.676 1.312-1.158 3.602-1.273 4.166-2.494.822-1.774-.13-2.944-2.141-4.717z"/></svg>
+                        
+                        </div>
+                        <div class="benefit-header">Promoting Warm-Up and Recovery</div>
+                        <div class="benefit-text">Benefit from using our massager before a workout to see your increased performance and then use it post-workout to recover faster and stronger</div>
+                    </div>
+                </div>
+            </div>
+            <div class="heads-wrapper">
+                <div class="heads-menu">
+                    <div class="heads hactive" onclick="changeHead(0)">Small</div>
+                    <div class="heads" onclick="changeHead(1)">Shovel</div>
+                    <div class="heads" onclick="changeHead(2)">Ball</div>
+                    <div class="heads" onclick="changeHead(3)">Flat</div>
+                    <div class="heads" onclick="changeHead(4)">Fork</div>
+                    <div class="heads" onclick="changeHead(5)">Bullet</div>
+                </div>
+                <div class="heads-desc active2">
+                    <div class="heads-text">
+                        <p style="color: rgb(0, 162, 232);">Impact Level: 1/10</p>
+                        <h1>Small Round Attachment</h1>
+                        <p>Suitable for internal deep tissue Acupoint massage</p>
+                    </div>
+                    <div style="background-image: url('../static/img/products/p1/power.png');" class="heads-img"></div>
+                </div>
+                <div class="heads-desc">
+                    <div class="heads-text">
+                        <p style="color: rgb(0, 162, 232);">Impact Level: 3/10</p>
+                        <h1>Shovel Attachment</h1>
+                        <p>Suitable for abdominal muscles, line carving and relaxation</p>
+                    </div>
+                    <div style="background-image: url('../static/img/products/p1/shovel.png');" class="heads-img"></div>
+                </div>
+                <div class="heads-desc">
+                    <div class="heads-text">
+                        <p style="color: rgb(0, 162, 232);">Impact Level: 5/10</p>
+                        <h1>Ball Attachment</h1>
+                        <p>Suitable for large muscle groups and ideal attachment for treating Plantar fasciitis</p>
+                    </div>
+                    <div style="background-image: url('../static/img/products/p1/ball.png');" class="heads-img"></div>
+                </div>
+                <div class="heads-desc">
+                    <div class="heads-text">
+                        <p style="color: rgb(0, 162, 232);">Impact Level: 6/10</p>
+                        <h1>Flat Attachment</h1>
+                        <p>Suitable for all parts of the body and ideal attachment for treating Quads, Hamstrings and calves</p>
+                    </div>
+                    <div style="background-image: url('../static/img/products/p1/flat.png');" class="heads-img"></div>
+                </div>
+                <div class="heads-desc">
+                    <div class="heads-text">
+                        <p style="color: rgb(0, 162, 232);">Impact Level: 8/10</p>
+                        <h1>Fork Attachment</h1>
+                        <p>Suitable for the neck and inbetween spine</p>
+                    </div>
+                    <div style="background-image: url('../static/img/products/p1/fork.png');" class="heads-img"></div>
+                </div>
+                <div class="heads-desc">
+                    <div class="heads-text">
+                        <p style="color: rgb(0, 162, 232);">Impact Level: 10/10</p>
+                        <h1>Bullet Attachment</h1>
+                        <p>Used for pinpoint treatment - ideal attachment to release knots</p>
+                    </div>
+                    <div style="background-image: url('../static/img/products/p1/bullet.png');" class="heads-img"></div>
+                </div>
+            </div>
+            <div class="collaps2">
+                <div class="faq-head">Frequently Asked Questions (FAQ)</div>
+                <div class="sub-collaps2">
+                    <button onclick="expand2(0)" type="button" class="colls-button2">
+                        <div class="colls-button2-text">Q: How do you compare in prices with the other massagers?</div>
+                        <div class="colls-button2-img"></div>
+                    </button>
+                    <div class="colls-content2">
+                        <p>
+                            Answer: The N Fit team has always strived to deliver quality products at affordable prices. We have put a price tag enough to feed ourselves while remaining competitive with the other brands such as:
+                        </p>
+                        <b>Theragun: £299.00</b>
+                        <br><b>Recovapro: £229.00</b>
+                        <br><b>Hypervolt: £140.00</b>
+                        <br><br><i>Believe us or not, the benefits are the same.</i>
+                    </div>
+                    <hr>
+                </div>
+                <div class="sub-collaps2">
+                    <button onclick="expand2(1)" type="button" class="colls-button2">
+                        <div class="colls-button2-text">Q: How long will it take to deliver to me?</div>
+                        <div class="colls-button2-img"></div>
+                    </button>
+                    <div class="colls-content2">
+                        <p>Answer: That really depends on where you are and this is why we don't want to overpromise on delivery time. But for the most part, 90% of the UK, the usual shipping time is around 7 to 10 days, where for the other 10% of the parcels would be a little more than that.</p>
+                        <p>You will also receive a tracking code with which you can track your order any time.</p>
+                    </div>
+                    <hr>
+                </div>
+                <div class="sub-collaps2">
+                    <button onclick="expand2(2)" type="button" class="colls-button2">
+                        <diV class="colls-button2-text">Q: Is it too powerful? Can it hurt me?</diV>
+                        <div class="colls-button2-img"></div>
+                    </button>
+                    <div class="colls-content2">
+                        <p>Answer: The short answer is no, they can't.</p>
+                        <p>
+                            Massage guns are often advertised as powerul but that does not mean that they can hurt you. In fact, it is you who is regulating the speed and power of the gun. There are different speed settings and different heads with which you can find your perfect combination for your pain spot.
+                        </p>
+                    </div>
+                    <hr>
+                </div>
+                <div class="sub-collaps2">
+                    <button onclick="expand2(3)" type="button" class="colls-button2">
+                        <diV class="colls-button2-text">Q: How much does the shipping cost?</diV>
+                        <div class="colls-button2-img"></div>
+                    </button>
+                    <div class="colls-content2">
+                        <p>The shipping is completely free. Due to the pandemic situation, we are fully aware that we cannot provide fast next-day shipments so this is why we removed the charge for shipments and completely took care of it.</p>
+                    </div>
+                    <hr>
+                </div>
+                <div class="stco">
+                    <div class="still">Still have an unanswered question?</div>
+                    <a class="cont1" href="/contact-us">Ask us</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER !-->
+    <footer class="footer">
+        <div class="social-media">
+            <div class="sub-social-media">Connect with us</div>
+            <div class="sub-social-media smimg">
+                <div class="media-icons"><a href="https://www.facebook.com/N-Fitness-104132791607635" target="_blank"><div class="social" style="background-image: url('../static/img/social/facebook.webp');"></div></a></div>
+                <div class="media-icons"><a href="https://www.instagram.com/nfit.ig/" target="_blank"><div class="social" style="background-image: url('../static/img/social/instagram.svg');"></div></a></div>
+                <div class="media-icons"><a href="https://www.pinterest.co.uk/nfitpinterest" target="_blank"><div class="social" style="background-image: url('../static/img/social/pinterest.svg');"></div></a></div>
+            </div>
+        </div>
+        <div class="main-menu">
+            <li class="sub-main-menu"><a href="/terms-of-use">Terms of Use</a></li>
+            <li class="sub-main-menu"><a href="/privacy-policy">Privacy Policy</a></li>
+            <li class="sub-main-menu"><a href="/send-feedback">Send Feedback</a></li>
+            <li class="sub-main-menu"><a href="/about-us">Our Mission</a></li>
+            <li class="sub-main-menu"><a href="/contact-us">Contact Us</a></li>
+            <li id="copyright" class="sub-main-menu">Copyright &#169; 2021 N Fitness Technologies. All rights reserved.</li>
+        </div>
+        <div class="contact-infor" style="color: white;">
+            <div>Email: nfitness.business@gmail.com</div>
+            <div>Mobile: +44 7788241596</div>
+            <div>Office: Swanscombe Street 38, Kent, DA10 0BN</div>
+        </div>
+        <div class="disclaimer">
+            Always consult with a qualified healthcare professional prior to using any product or technology. 
+            The products are intended to help you and not harm you in any way, so we recommend you 
+            read the description of the products carefully and seek advice from a medical expert, if needed.
+        </div>
+    </footer>
+
+    
+</div>

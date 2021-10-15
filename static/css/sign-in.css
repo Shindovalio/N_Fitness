@@ -1,0 +1,153 @@
+@media only screen and (orientation: landscape)
+{
+    .signup
+    {
+        border: .1vh solid rgba(0, 162, 232, 1) !important;
+    }
+    .input, .button, .signup
+    {
+        border-radius: 1vh;
+    }
+    .form
+    {
+        width: 60vh;
+    }
+    .legend
+    {
+        font-size: 4vh;
+    }
+    .input, .button, .signup
+    {
+        font-size: 2.5vh;
+    }
+    .button:hover
+    {
+        transition: .5s;
+        opacity: .5;
+    }
+    .signup:hover
+    {
+        color: white;
+        transition: .5s;
+        background: rgba(0, 162, 232, 1);
+    }
+    .forgot-pass
+    {
+        font-size: 3vh;
+        margin: 5% 0;
+    }
+    .email-missing, .password-missing, .missing-random
+    {
+        font-size: 2vh;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .signup
+    {
+        border: .5vw solid rgba(0, 162, 232, 1) !important;
+    }
+    .input, .button, .signup
+    {
+        border-radius: 5vw;
+    }
+    .form
+    {
+        width: 90vw;
+        margin: 20% 0;
+    }
+    .legend
+    {
+        font-size: 10vw;
+    }
+    .input, .button, .signup
+    {
+        font-size: 6vw;
+    }
+    .forgot-pass
+    {
+        font-size: 5vw;
+    }
+    .email-missing, .password-missing, .missing-random
+    {
+        font-size: 4vw;
+    }
+}
+html, body, .wrapper
+{
+    height: 100%;
+}
+.content, form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    outline: none;
+}
+.input, .button, .signup
+{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 5% 10%;
+    margin: 3% 0;
+}
+.legend
+{
+    width: 100%;
+    margin: 3% 0;
+    padding: 0 10%;
+    text-align: center;
+}
+.input:focus
+{
+    border:1px solid rgba(0, 162, 232, 1) !important;
+    background: rgb(241, 241, 241) !important;
+}
+.input
+{
+    background: rgb(241, 241, 241);
+    border: 1px solid rgba(0, 162, 232, 0);
+}
+.button
+{
+    transition: .5s;
+    color: white;
+    cursor: pointer;
+    background: rgba(0, 162, 232, 1);
+    background-size: 10% 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.signup
+{
+    text-decoration: none;
+    transition: .5s;
+    cursor: pointer;
+    text-align: center;
+    color:rgba(0, 162, 232, 1);
+}
+.forgot-pass
+{
+    text-align: center;
+    color:gray;
+    text-decoration: none;
+}
+.forgot-pass:hover
+{
+    text-decoration: underline;
+}
+.email-missing, .password-missing, .missing-random
+{
+    margin-left: 10%;
+    width: 100%;
+    color: red;
+    text-align: left;
+    opacity: 0;
+}
+#html_element div, #html_element
+{
+    width: 100%;
+}

@@ -1,0 +1,385 @@
+@media only screen and (orientation: landscape)
+{
+    .reviews
+    {
+        padding-top: 5%;
+        padding-bottom: 10%;
+    }
+    .reviews-details
+    {
+        width: 25vw;
+    }
+    .rating-1
+    {
+        font-size: 10vh;
+    }
+    .rating-2
+    {
+        font-size: 6vh;
+    }
+    .reviews-slider
+    {
+        width: 50vw;
+    }
+    .reviews-window
+    {
+        width: 40vw;
+    }
+    .reviews-ss
+    {
+        width: 120vw;
+    }
+    .reviews-span
+    {
+        width: 40vw;
+    }
+    .stars-stars
+    {
+        font-size: 4vh;
+    }
+    .reviews-previous, .reviews-next
+    {
+        font-size: 6vh;
+        position: absolute;
+        top: 30%;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+    }
+    .reviews-previous
+    {
+        left: 0;
+        display: none;
+    }
+    .reviews-next
+    {
+        right: 0;
+    }
+    .reviews-previous:active, .reviews-next:active
+    {
+        transform: scale(0.8);
+    }
+    .colls-button
+    {
+        background-size: 8% 75%;
+    }
+    .colls-button2
+    {
+        background-size: 8% 35%;
+    }
+    .reviews-product
+    {
+        font-size: 5vh;
+    }
+    .collaps2
+    {
+        width: 100%;
+        margin: 5% 0;
+    }
+    .sub-collaps2
+    {
+        width: 80%;
+        margin: auto;
+    }
+    .colls-button2-img
+    {
+        width: 5vh;
+        height: 5vh;
+    }
+    .colls-button2-text
+    {
+        width: 80vw;
+    }
+    .faq-head
+    {
+        font-size: 5vh;
+        text-align: center;
+        margin-bottom: 5%;
+        font-weight: bold;
+    }
+    .still, .cont1
+    {
+        
+        display: block;
+    }
+    .cont1
+    {
+        margin-left: 1%;
+        color: rgb(0, 162, 232);
+    }
+    .stco 
+    {
+        width: 80%;
+        margin: 5% auto;
+        display: flex;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .reviews
+    {
+        flex-direction: column;
+        padding-top: 15%;
+        padding-bottom: 50%;
+    }
+    .reviews-product
+    {
+        font-size: 8vw;
+    }
+    .reviews-details
+    {
+        width: 95vw;
+        align-items: center;
+        margin-bottom: 10%;
+    }
+    .rating-1
+    {
+        font-size: 15vw;
+    }
+    .rating-2
+    {
+        font-size: 10vw;
+    }
+    .reviews-slider
+    {
+        width: 95vw;
+    }
+    .reviews-window
+    {
+        width: 95vw;
+    }
+    .reviews-ss, .reviews-span
+    {
+        width: 285vw;
+    }
+    .reviews-span
+    {
+        align-items: center;
+    }
+    .reviews-recc, .reviews-name
+    {
+        text-align: center;
+    }
+    .stars-stars
+    {
+        font-size: 10vw;
+    }
+    .reviews-previous, .reviews-next
+    {
+        opacity: 0;
+    }
+    .colls-button
+    {
+        background-size: 8% 75%;
+        font-size: 6vw;
+    }
+    .colls-button2
+    {
+        background-size: 8% 35%;
+        font-size: 6vw;
+    }
+    .collaps2
+    {
+        width: 100%;
+        margin: 15% 0;
+    }
+    .sub-collaps2
+    {
+        width: 90%;
+        margin: auto;
+    }
+    .colls-button2-img
+    {
+        width: 7vw;
+        height: 7vw;
+    }
+    .colls-button2-text
+    {
+        width: 80vw;
+    }
+    .faq-head
+    {
+        font-size: 8vw;
+        text-align: center;
+        margin-bottom: 10%;
+        font-weight: bold;
+    }
+    .still, .cont1
+    {
+        display: block;
+    }
+    .cont1
+    {
+        color: rgb(0, 162, 232);
+    }
+    .stco
+    {
+        width: 90%; 
+        margin: 10% auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+.reviews
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: rgb(241, 241, 241);
+}
+.reviews-details
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.reviews-rating
+{
+    display: flex;
+    align-items: flex-end;
+}
+.reviews-overall
+{
+    margin: 0;
+}
+.reviews-slider
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.reviews-window
+{
+    overflow: hidden;
+}
+.reviews-ss
+{
+    position: relative;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    transition: 1s;
+}
+.reviews-span
+{
+    display: flex;
+    flex-direction: column;
+}
+.reviews-box
+{
+    background: white;
+    padding: 3%;
+}
+.reviews-date
+{
+    color: cyan;
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+.reviews-triangle
+{
+    margin-left: 2%;
+    border-left: 2vh solid transparent; border-right: 2vh solid transparent; border-top: 2vh solid white;
+    position: relative;
+    width: 0; height: 0;
+}
+.reviews-stars
+{
+    margin-bottom: 5%;
+    display: flex;
+    align-items: center;
+}
+.stars-stars
+{
+    color: orange;
+    margin-right: 2%;
+}
+.reviews-bubbles
+{
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    bottom: -30%;
+}
+.bubbles
+{
+    height: 5vh;
+    width: 5vh;
+    background: white;
+    border-radius: 50%;
+    transition: .5s;
+    cursor: pointer;
+}
+.bubbles:hover
+{
+    background: lightgray;
+}
+.star-box, .star-box-2
+{
+    text-decoration: none;
+}
+.star-box:hover .ratings, .star-box-2:hover .ratings
+{
+    color: black;
+    text-decoration: underline;
+}
+.collaps
+{
+    width: 100%;
+    margin-top: 10%;
+}
+.sub-collaps
+{
+    width: 100%;
+}
+.colls-button
+{
+    text-align: left;
+    padding: 2% 0;
+    outline: none;
+    border: none;
+    background-color: white;
+    width: 100%;
+    background-image: url('../img/icons/down.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.colls-content
+{
+    display: none;
+    overflow: hidden;
+    transition: 1s;
+}
+.colls-button2
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-weight: bolder;
+    padding: 2% 0;
+    outline: none;
+    border: none;
+    background-color: white;
+    width: 100%;
+    cursor: pointer;
+}
+.colls-button2-img
+{
+    background-image: url('../img/icons/down.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.colls-content2
+{
+    display: none;
+    overflow: hidden;
+    transition: 1s;
+}

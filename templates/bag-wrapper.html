@@ -1,0 +1,618 @@
+<div class="wrapper">
+
+    {% if g.ip['cookies-message'] %}
+    <div class="cookies-wrapper">
+        <div class="cookies-message">
+            We use cookies on our websites for a number of purposes, 
+            including analytics, performance and website functionality. 
+            <a href="/privacy-policy#cookies">Learn more about N Fit’s use of cookies.</a>
+        </div>
+        <div class="opts">
+            <a class="opt" href="/reject?cookies=0&page=bag">Reject non-essential</a>
+            <a class="opt" href="/reject?cookies=1&page=bag" onclick="hideCookies()">Accept all</a>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="dimcho"></div>
+
+
+    
+
+
+    <!-- TOP NAVIGATION !-->
+    {% if Applied or Added %}
+    <div class="top-nav2">
+        {% if Applied %}
+        Successfully saved changes.
+        {% endif %}
+        {% if Added %}
+        Successfully added to your bag!
+        {% endif %}
+    </div>
+    {% endif %}
+    <nav class="top-nav">
+        <a href="/"><li id="logo" class="top-nav-items"></li></a>
+        <li class="top-nav-items text-items"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+        <li id="search" class="top-nav-items" onclick="opensearch()"></li>
+        <li class="top-nav-items search-field">
+            <form onsubmit="return validateSearch()" class="search-formec">
+                <input oninput="searchFunc(0)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                <input type="submit" value="Submit" style="display: none;">
+                <div class="search-box">
+                    {% for i in range(1,5) %}
+                    <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                        <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                        <div class="prod-text">
+                            {{g.product[i|string]['name']}}
+                            <br>
+                            £ {{g.product[i|string]['total']}}
+                            <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                        </div>
+                        
+                    </a>
+                    {% endfor %}
+                </div>
+            </form>
+        </li>
+        <li id="bag" class="top-nav-items" onclick="opencart()">
+            <aside class="triangle"></aside>
+            {% if w_count + b_count != 0 %}
+            <div class="bag-num">{{w_count + b_count}}</div>
+            {% endif %}
+            
+        </li>
+    </nav>
+
+
+    <!-- MOBILE !-->
+    {% if Applied or Added %}
+    <div class="top-nav2-mobile">
+        {% if Applied == 1 %}
+        Successfully saved changes.
+        {% endif %}
+        {% if Added %}
+        Successfully added to your bag!
+        {% endif %}
+    </div>
+    {% endif %}
+    <nav class="top-nav-mobile">
+        <li id="linebar" class="top-nav-items" onclick="openmenu()"></li>
+        <a href="/"><li id="logo" class="top-nav-items"></li></a>
+        <li id="bag" class="top-nav-items" onclick="opencart()">
+            {% if w_count + b_count != 0 %}
+            <div class="bag-num">
+                {{w_count + b_count}}
+            </div>
+            {% endif %}
+        </li>
+    </nav>
+    <aside class="buttons-mobile">
+        <li class="top-nav-items search-field">
+            <div class="search-img"></div>
+            <div class="search-box">
+                {% for i in range(1,5) %}
+                <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                    <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                    <div class="prod-text">
+                        {{g.product[i|string]['name']}}
+                        <br>
+                        £ {{g.product[i|string]['total']}}
+                        <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                    </div>
+                    
+                </a>
+                {% endfor %}
+            </div>
+            <form onsubmit="return validateSearch()" class="search-formec">
+                <input oninput="searchFunc(1)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                <input type="submit" value="Submit" style="display: none;">
+            </form>
+        </li>
+        <li class="top-nav-items text-items" style="border-top: none;"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+    </aside>
+
+
+    <!-- CART !-->
+    <aside class="cart-menu">
+        {% if b_count != 0 %}
+        <div class="cart-menu-items" id="your-bag">You have {{b_count}} 
+            {% if b_count == 1 %}
+            item
+            {% else %}
+            items
+            {% endif %}
+            in your bag.</div>
+        {% else %}
+        <div class="cart-menu-items" id="your-bag">Your Bag is empty.</div>
+        {% endif %}
+        <div class="cart-menu-items"><a href="/bag">
+            <div class="cart-img mini-b">
+                {% if w_count + b_count != 0 and b_count != 0 %}
+                <div class="m-b">
+                    {{b_count}}
+                </div>
+                {% endif %}
+            </div>Bag</a></div>
+        <div class="cart-menu-items"><a href="/wishlist">
+            <div class="cart-img w-list">
+                {% if w_count + b_count != 0 and w_count != 0 %}
+                <div class="w-l">
+                    {{w_count}}
+                </div>
+                {% endif %}
+            </div>Wishlist</a></div>
+        <div class="cart-menu-items">
+            <a href="/account">
+                <div class="cart-img profile"></div>
+                {% if g.ip['user-id'] != 0 %}
+                {{g.user['first-name']}} {{g.user['last-name'][0]}}.
+                {% else %}
+                Account
+                {% endif %}
+            </a>
+        </div>
+        {% if g.ip['user-id'] != 0 %}
+        <div class="cart-menu-items"><a href="/sign-out"><div class="cart-img s-out"></div>Sign out</a></div>
+        {% else %}
+        <div class="cart-menu-items"><a href="/sign-in"><div class="cart-img s-in"></div>Sign in</a></div>
+        {% endif %}
+    </aside>
+
+
+    <!-- MAIN !-->
+    <main class="cont">
+        <div class="tit title">Your Bag</div>
+        {% if Bag != [] %}
+        {% if Len >= 1 %}
+        <fieldset>
+            <legend class="express">Express Checkout</legend>
+            <div id="paypal-button-container"></div>
+        </fieldset>
+        
+        <div class="product-container">
+            <a id="one" class="pic" href="/{{g.product[Bag[0]]['menu-code']}}"></a>
+            <a class="name" href="/{{g.product[Bag[0]]['menu-code']}}">{{g.product[Bag[0]]['name']}}</a>
+            <div class="info-wrapper">
+                <form id="change1" action="" method="POST" onsubmit="return validation(0)">
+                    <input name="index" type="hidden" value="{{Bag[0]}}">
+                    <div class="properties">
+                        Colour: 
+                        <select name="properties">
+                            <option value="{{Bag[1]['properties']}}" selected>{{Bag[1]['properties']}}</option>
+                            
+                            {% if Bag[1]['key'] == '1' %}
+
+                            {% if 'Black' not in Bag[1]['properties'] %}
+                            <option value="Black">Black</option>
+                            {% endif %}
+                            {% if 'Gold' not in Bag[1]['properties'] %}
+                            <option value="Gold">Gold</option>
+                            {% endif %}
+                            {% if 'Silver' not in Bag[1]['properties'] %}
+                            <option value="Silver">Silver</option>
+                            {% endif %}
+                            {% if 'Carbon' not in Bag[1]['properties'] %}
+                            <option value="Carbon">Carbon</option>
+                            {% endif %}
+
+                            {% endif %}
+                            
+                            {% if Bag[1]['key'] == '2' %}
+
+                            {% if 'Black' not in Bag[1]['properties'] %}
+                            <option value="Black">Black</option>
+                            {% endif %}
+                            {% if 'Gray' not in Bag[1]['properties'] %}
+                            <option value="Gray">Gray</option>
+                            {% endif %}
+                            {% if 'Red' not in Bag[1]['properties'] %}
+                            <option value="Red">Red</option>
+                            {% endif %}
+                            {% if 'Green' not in Bag[1]['properties'] %}
+                            <option value="Green">Green</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                            {% if Bag[1]['key'] == '3' %}
+
+                            {% if 'Carbon' not in Bag[1]['properties'] %}
+                            <option value="Carbon">Carbon</option>
+                            {% endif %}
+                            {% if 'Blue' not in Bag[1]['properties'] %}
+                            <option value="Blue">Blue</option>
+                            {% endif %}
+                            {% if 'Pink' not in Bag[1]['properties'] %}
+                            <option value="Pink">Pink</option>
+                            {% endif %}
+                            {% if 'White' not in Bag[1]['properties'] %}
+                            <option value="White">White</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                            {% if Bag[1]['key'] == '4' %}
+
+                            {% if 'Blue' not in Bag[1]['properties'] %}
+                            <option value="Blue">Blue</option>
+                            {% endif %}
+                            {% if 'White' not in Bag[1]['properties'] %}
+                            <option value="White">White</option>
+                            {% endif %}
+                            {% if 'Pink' not in Bag[1]['properties'] %}
+                            <option value="Pink">Pink</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                        </select>
+                    </div>
+                    <div class="quantity">Quantity: <input class="qnt" name="quantity" type="number" value="{{Bag[1]['quantity']}}"></div>
+                    <div class="price">Total Price: £{{"%.2f" % (Bag[1]['total-price'])}}</div>
+                </form>
+            </div>
+            <div class="butt-wrapper">
+                <button type="submit" form="change1" class="nfo">Apply</button>
+                <a onclick="goBack('mod-bag', 'uname={{Bag[0]}}&act=remove&template=bag-wrapper.html')"><div class="remove">Remove</div></a>
+            </div>
+        </div>
+        {% endif %}
+        {% if Len >= 2 %}
+        <div class="product-container">
+            <a id="two" class="pic" href="/{{g.product[Bag[2]]['menu-code']}}"></a>
+            <a class="name" href="/{{g.product[Bag[2]]['menu-code']}}">{{g.product[Bag[2]]['name']}}</a>
+            <div class="info-wrapper">
+                <form id="change2" action="" method="POST" onsubmit="return validation(1)">
+                    <input name="index" type="hidden" value="{{Bag[2]}}">
+                    <div class="properties">
+                        Colour: 
+                        <select name="properties">
+                            <option value="{{Bag[3]['properties']}}" selected>{{Bag[3]['properties']}}</option>
+                            
+                            {% if Bag[3]['key'] == '1' %}
+
+                            {% if 'Black' not in Bag[3]['properties'] %}
+                            <option value="Black">Black</option>
+                            {% endif %}
+                            {% if 'Gold' not in Bag[3]['properties'] %}
+                            <option value="Gold">Gold</option>
+                            {% endif %}
+                            {% if 'Silver' not in Bag[3]['properties'] %}
+                            <option value="Silver">Silver</option>
+                            {% endif %}
+                            {% if 'Carbon' not in Bag[3]['properties'] %}
+                            <option value="Carbon">Carbon</option>
+                            {% endif %}
+
+                            {% endif %}
+                            
+                            {% if Bag[3]['key'] == '2' %}
+
+                            {% if 'Black' not in Bag[3]['properties'] %}
+                            <option value="Black">Black</option>
+                            {% endif %}
+                            {% if 'Gray' not in Bag[3]['properties'] %}
+                            <option value="Gray">Gray</option>
+                            {% endif %}
+                            {% if 'Red' not in Bag[3]['properties'] %}
+                            <option value="Red">Red</option>
+                            {% endif %}
+                            {% if 'Green' not in Bag[3]['properties'] %}
+                            <option value="Green">Green</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                            {% if Bag[3]['key'] == '3' %}
+
+                            {% if 'Carbon' not in Bag[3]['properties'] %}
+                            <option value="Carbon">Carbon</option>
+                            {% endif %}
+                            {% if 'Blue' not in Bag[3]['properties'] %}
+                            <option value="Blue">Blue</option>
+                            {% endif %}
+                            {% if 'Pink' not in Bag[3]['properties'] %}
+                            <option value="Pink">Pink</option>
+                            {% endif %}
+                            {% if 'White' not in Bag[3]['properties'] %}
+                            <option value="White">White</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                            {% if Bag[3]['key'] == '4' %}
+
+                            {% if 'Blue' not in Bag[3]['properties'] %}
+                            <option value="Blue">Blue</option>
+                            {% endif %}
+                            {% if 'White' not in Bag[3]['properties'] %}
+                            <option value="White">White</option>
+                            {% endif %}
+                            {% if 'Pink' not in Bag[3]['properties'] %}
+                            <option value="Pink">Pink</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                        </select>
+                    </div>
+                    <div class="quantity">Quantity: <input class="qnt" name="quantity" type="number" value="{{Bag[3]['quantity']}}"></div>
+                    <div class="price">Total Price: £{{"%.2f" % (Bag[3]['total-price'])}}</div>
+                </form>
+            </div>
+            <div class="butt-wrapper">
+                <button type="submit" form="change2" class="nfo">Apply</button>
+                <a onclick="goBack('mod-bag', 'uname={{Bag[2]}}&act=remove&template=bag-wrapper.html')"><div class="remove">Remove</div></a>
+            </div>
+        </div>
+        {% endif %}
+        {% if Len >= 3 %}
+        <div class="product-container">
+            <a id="three" class="pic" href="/{{g.product[Bag[4]]['menu-code']}}"></a>
+            <a class="name" href="/{{g.product[Bag[4]]['menu-code']}}">{{g.product[Bag[4]]['name']}}</a>
+            <div class="info-wrapper">
+                <form id="change3" action="" method="POST" onsubmit="return validation(2)">
+                    <input name="index" type="hidden" value="{{Bag[4]}}">
+                    <div class="properties">
+                        Colour: 
+                        <select name="properties">
+                            <option value="{{Bag[5]['properties']}}" selected>{{Bag[5]['properties']}}</option>
+                            
+                            {% if Bag[5]['key'] == '1' %}
+
+                            {% if 'Black' not in Bag[5]['properties'] %}
+                            <option value="Black">Black</option>
+                            {% endif %}
+                            {% if 'Gold' not in Bag[5]['properties'] %}
+                            <option value="Gold">Gold</option>
+                            {% endif %}
+                            {% if 'Silver' not in Bag[5]['properties'] %}
+                            <option value="Silver">Silver</option>
+                            {% endif %}
+                            {% if 'Carbon' not in Bag[5]['properties'] %}
+                            <option value="Carbon">Carbon</option>
+                            {% endif %}
+
+                            {% endif %}
+                            
+                            {% if Bag[5]['key'] == '2' %}
+
+                            {% if 'Black' not in Bag[5]['properties'] %}
+                            <option value="Black">Black</option>
+                            {% endif %}
+                            {% if 'Gray' not in Bag[5]['properties'] %}
+                            <option value="Gray">Gray</option>
+                            {% endif %}
+                            {% if 'Red' not in Bag[5]['properties'] %}
+                            <option value="Red">Red</option>
+                            {% endif %}
+                            {% if 'Green' not in Bag[5]['properties'] %}
+                            <option value="Green">Green</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                            {% if Bag[5]['key'] == '3' %}
+
+                            {% if 'Carbon' not in Bag[5]['properties'] %}
+                            <option value="Carbon">Carbon</option>
+                            {% endif %}
+                            {% if 'Blue' not in Bag[5]['properties'] %}
+                            <option value="Blue">Blue</option>
+                            {% endif %}
+                            {% if 'Pink' not in Bag[5]['properties'] %}
+                            <option value="Pink">Pink</option>
+                            {% endif %}
+                            {% if 'White' not in Bag[5]['properties'] %}
+                            <option value="White">White</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                            {% if Bag[5]['key'] == '4' %}
+
+                            {% if 'Blue' not in Bag[5]['properties'] %}
+                            <option value="Blue">Blue</option>
+                            {% endif %}
+                            {% if 'White' not in Bag[5]['properties'] %}
+                            <option value="White">White</option>
+                            {% endif %}
+                            {% if 'Pink' not in Bag[5]['properties'] %}
+                            <option value="Pink">Pink</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                        </select>
+                    </div>
+                    <div class="quantity">Quantity: <input class="qnt" name="quantity" type="number" value="{{Bag[5]['quantity']}}"></div>
+                    <div class="price">Total Price: £{{"%.2f" % (Bag[5]['total-price'])}}</div>
+                </form>
+            </div>
+            <div class="butt-wrapper">
+                <button type="submit" form="change3" class="nfo">Apply</button>
+                <a onclick="goBack('mod-bag', 'uname={{Bag[4]}}&act=remove&template=bag-wrapper.html')"><div class="remove">Remove</div></a>
+            </div>
+        </div>
+        {% endif %}
+        {% if Len >= 4 %}
+        <div class="product-container">
+            <a id="four" class="pic" href="/{{g.product[Bag[6]]['menu-code']}}"></a>
+            <a class="name" href="/{{g.product[Bag[6]]['menu-code']}}">{{g.product[Bag[6]]['name']}}</a>
+            <div class="info-wrapper">
+                <form id="change3" action="" method="POST" onsubmit="return validation(2)">
+                    <input name="index" type="hidden" value="{{Bag[6]}}">
+                    <div class="properties">
+                        Colour: 
+                        <select name="properties">
+                            <option value="{{Bag[7]['properties']}}" selected>{{Bag[7]['properties']}}</option>
+                            
+                            {% if Bag[7]['key'] == '1' %}
+
+                            {% if 'Black' not in Bag[7]['properties'] %}
+                            <option value="Black">Black</option>
+                            {% endif %}
+                            {% if 'Gold' not in Bag[7]['properties'] %}
+                            <option value="Gold">Gold</option>
+                            {% endif %}
+                            {% if 'Silver' not in Bag[7]['properties'] %}
+                            <option value="Silver">Silver</option>
+                            {% endif %}
+                            {% if 'Carbon' not in Bag[7]['properties'] %}
+                            <option value="Carbon">Carbon</option>
+                            {% endif %}
+
+                            {% endif %}
+                            
+                            {% if Bag[7]['key'] == '2' %}
+
+                            {% if 'Black' not in Bag[7]['properties'] %}
+                            <option value="Black">Black</option>
+                            {% endif %}
+                            {% if 'Gray' not in Bag[7]['properties'] %}
+                            <option value="Gray">Gray</option>
+                            {% endif %}
+                            {% if 'Red' not in Bag[7]['properties'] %}
+                            <option value="Red">Red</option>
+                            {% endif %}
+                            {% if 'Green' not in Bag[7]['properties'] %}
+                            <option value="Green">Green</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                            {% if Bag[7]['key'] == '3' %}
+
+                            {% if 'Carbon' not in Bag[7]['properties'] %}
+                            <option value="Carbon">Carbon</option>
+                            {% endif %}
+                            {% if 'Blue' not in Bag[7]['properties'] %}
+                            <option value="Blue">Blue</option>
+                            {% endif %}
+                            {% if 'Pink' not in Bag[7]['properties'] %}
+                            <option value="Pink">Pink</option>
+                            {% endif %}
+                            {% if 'White' not in Bag[7]['properties'] %}
+                            <option value="White">White</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                            {% if Bag[7]['key'] == '4' %}
+
+                            {% if 'Blue' not in Bag[7]['properties'] %}
+                            <option value="Blue">Blue</option>
+                            {% endif %}
+                            {% if 'White' not in Bag[7]['properties'] %}
+                            <option value="White">White</option>
+                            {% endif %}
+                            {% if 'Pink' not in Bag[7]['properties'] %}
+                            <option value="Pink">Pink</option>
+                            {% endif %}
+
+                            {% endif %}
+
+                        </select>
+                    </div>
+                    <div class="quantity">Quantity: <input class="qnt" name="quantity" type="number" value="{{Bag[7]['quantity']}}"></div>
+                    <div class="price">Total Price: £{{"%.2f" % (Bag[7]['total-price'])}}</div>
+                </form>
+            </div>
+            <div class="butt-wrapper">
+                <button type="submit" form="change3" class="nfo">Apply</button>
+                <a onclick="goBack('mod-bag', 'uname={{Bag[6]}}&act=remove&template=bag-wrapper.html')"><div class="remove">Remove</div></a>
+            </div>
+        </div>
+        {% endif %}
+        {% if Bag != [] %}
+        <hr>
+        <div class="finals">
+            <div class="text">Subtotal:</div>
+            <div class="digits">
+            {% if Len == 4 %}
+            £ {{ "%.2f" % (Bag[1]['total-price'] + Bag[3]['total-price'] + Bag[5]['total-price'] + Bag[7]['total-price']) }}
+            {% endif %}
+            {% if Len == 3 %}
+            £ {{ "%.2f" % (Bag[1]['total-price'] + Bag[3]['total-price'] + Bag[5]['total-price']) }}
+            {% endif %}
+            {% if Len == 2 %}
+            £ {{ "%.2f" % (Bag[1]['total-price'] + Bag[3]['total-price']) }}
+            {% endif %}
+            {% if Len == 1 %}
+            £ {{ "%.2f" % (Bag[1]['total-price']) }}
+            {% endif %}
+            </div>
+        </div>
+        <div class="finals">
+            <div class="text">Shipping:</div> 
+            <div class="digits">£ 0.00</div>
+        </div>
+        <hr>
+        <div class="finals">
+            <div class="text">Total:</div>
+            <div class="digits">
+            {% if Len == 4 %}
+            £ {{ "%.2f" % (Bag[1]['total-price'] + Bag[3]['total-price'] + Bag[5]['total-price'] + Bag[7]['total-price']) }}
+            {% endif %}
+            {% if Len == 3 %}
+            £ {{ "%.2f" % (Bag[1]['total-price'] + Bag[3]['total-price'] + Bag[5]['total-price']) }}
+            {% endif %}
+            {% if Len == 2 %}
+            £ {{ "%.2f" % (Bag[1]['total-price'] + Bag[3]['total-price']) }}
+            {% endif %}
+            {% if Len == 1 %}
+            £ {{ "%.2f" % (Bag[1]['total-price']) }}
+            {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        <a class="checkout" href="/buy-now?function=buybag"><div class="lock"></div><div class="checkout-text">Secure Checkout</div></a>
+        
+        {% else %}
+        <div class="heart" style="background-image: url('/static/img/icons/sad-bag.png');"></div>
+        <div class="tit">Your bag is currently empty.</div>
+        <a href="/all-products" class="add-now">Continue Shopping</a>
+        {% endif %}
+    </main>
+
+
+    <!-- FOOTER !-->
+    <footer class="footer">
+        <div class="social-media">
+            <div class="sub-social-media">Connect with us</div>
+            <div class="sub-social-media smimg">
+                <div class="media-icons"><a href="https://www.facebook.com/N-Fitness-104132791607635" target="_blank"><div class="social" style="background-image: url('../static/img/social/facebook.webp');"></div></a></div>
+                <div class="media-icons"><a href="https://www.instagram.com/nfit.ig/" target="_blank"><div class="social" style="background-image: url('../static/img/social/instagram.svg');"></div></a></div>
+                <div class="media-icons"><a href="https://www.pinterest.co.uk/nfitpinterest" target="_blank"><div class="social" style="background-image: url('../static/img/social/pinterest.svg');"></div></a></div>
+            </div>
+        </div>
+        <div class="main-menu">
+            <li class="sub-main-menu"><a href="/terms-of-use">Terms of Use</a></li>
+            <li class="sub-main-menu"><a href="/privacy-policy">Privacy Policy</a></li>
+            <li class="sub-main-menu"><a href="/send-feedback">Send Feedback</a></li>
+            <li class="sub-main-menu"><a href="/our-mission">Our Mission</a></li>
+            <li class="sub-main-menu"><a href="/contact-us">Contact Us</a></li>
+            <li id="copyright" class="sub-main-menu">Copyright &#169; 2021 N Fitness Technologies. All rights reserved.</li>
+        </div>
+        <div class="disclaimer">
+            Always consult with a qualified healthcare professional prior to using any product or technology. 
+            The products are intended to help you and not harm you in any way, so we recommend you 
+            read the description of the products carefully and seek advice from a medical expert, if needed.
+        </div>
+    </footer>
+
+
+    <!-- TOP BUTTON !-->
+    <!-- <button onclick="gotop()" id="top-btn" title="Go to top">&#8593</button> !-->
+
+
+</div>

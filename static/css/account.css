@@ -1,0 +1,492 @@
+@media only screen and (orientation: landscape)
+{
+    .input, .input2, .button, .button2, #count-input, .button3
+    {
+        border-radius: 1vh;
+    }
+    .f2
+    {
+        padding-left: 10%;
+    }
+    .rem
+    {
+        width: 15%;
+        margin: 2% 2% 2% 0;
+        padding: 1%;
+        color: white;
+        background: rgb(0,162,232);
+        border-radius: 1vh;
+    }
+    .mobile
+    {
+        display: none;
+    }
+    .content
+    {
+        height: 91%;
+        width: 90%;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
+    .menu
+    {
+        height: 85%;
+        width: 25%;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    .desktop
+    {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        width: 100%;
+        padding: 10%;
+        background: rgb(0,162,232);
+        cursor: pointer;
+        transition: .3s;
+        border-radius: 1vh;
+        border: .1vh solid rgb(0,162,232);
+    }
+    .desktop:hover
+    {
+        background: white !important;
+        color: rgb(0,162,232) !important;
+        transition: .3s;
+    }
+    .newsletter
+    {
+        font-size: 3vh;
+    }
+    .desktop, .sub-info, button, legend
+    {
+        font-size: 3vh;
+    }
+    #count-input, .input2, .twin, .input
+    {
+        font-size: 2.5vh;
+    }
+    .rfield
+    {
+        font-size: 2vh;
+    }
+    #count-input
+    {
+        background-size: 3vh 3vh;
+    }
+    .info
+    {
+        background: rgb(241,241,241);
+        width: 72%;
+        height: 85%;
+        justify-content: center;
+        align-items: left;
+        flex-direction: column;
+        border-radius: 1vh;
+    }
+    .form2
+    {
+        justify-content: center;
+        align-items: left;
+        flex-direction: column;
+        height: 100%;
+        width: 70%;
+        margin: auto;
+    }
+    .input, button
+    {
+        outline: none;
+        border: none;
+        margin: 3% 0;
+        padding: 3%;
+    }
+    .input2, #count-input, .button2
+    {
+        outline: none;
+        border: none;
+        margin: 2% 0;
+        padding: 2%;
+    }
+    .twin
+    {
+        outline: none;
+        border: none;
+        margin: 4% 0;
+        padding: 4%;
+    }
+    .button3
+    {
+        outline: none;
+        border: none;
+        margin-left: 10%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding: 2%;
+        text-align: center;
+    }
+    .button, .button2, .button3
+    {
+        transition: .3s;
+    }
+    .button:hover, .button2:hover, .button3:hover
+    {
+        transition: .3s;
+        opacity: .7;
+    }
+    .del-confirm
+    {
+        height: 40vh;
+        margin-top: -20vh;
+        width: 70vh;
+        margin-left: -35vh;
+        border-radius: 1vh;
+        font-size: 3vh;
+    }
+    .x-menu
+    {
+        width: 4vh; 
+        height: 4vh;
+        margin: 1%;
+    }
+    .del-confirm button, .del-confirm a
+    {
+        margin: 0; padding: 3%; width: 30%;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .input, .input2, .button, .button2, #count-input, .button3
+    {
+        border-radius: 5vw;
+    }
+    .f2
+    {
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .rem
+    {
+        width: 40%;
+        color: white;
+        background: rgb(0,162,232);
+        border-radius: 5vw;
+    }
+    .desktop
+    {
+        display: none !important;
+    }
+    .content
+    {
+        width: 100%;
+        justify-content: first baseline;
+        align-items: center;
+        flex-direction: column;
+    }
+    .newsletter
+    {
+        font-size: 6vw;
+    }
+    .menu
+    {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
+    .mobile
+    {
+        justify-content: center;
+        align-items: center;
+        color: white;
+        height: 20vw;
+        width: 20vw;
+        background: rgb(0,162,232);
+        cursor: pointer;
+        transition: .3s;
+        background-size: 50% 50%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .mobile, .sub-info, .input, button
+    {
+        font-size: 6vw;
+    }
+    #count-input, .input2, .twin, legend
+    {
+        font-size: 5vw;
+    }
+    .rfield
+    {
+        font-size: 4vw;
+    }
+    #count-input
+    {
+        background-size: 5vw 5vw;
+    }
+    .info
+    {
+        height: 85%;
+        width: 100%;
+        background: rgb(241,241,241);
+        justify-content: center;
+        align-items: left;
+        flex-direction: column;
+        padding: 10% 0;
+    }
+    .form2
+    {
+        height: 100%;
+        width: 90%;
+        margin:auto;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .input
+    {
+        width: 100%;
+    }
+    .input, button
+    {
+        outline: none;
+        border: none;
+        margin: 5% 0;
+        padding: 5%;
+    }
+    .input2, #count-input, .button2
+    {
+        outline: none;
+        border: none;
+        margin: 4% 0;
+        padding: 4%;
+    }
+    .twin
+    {
+        outline: none;
+        border: none;
+        margin: 8% 0;
+        padding: 8%;
+    }
+    .button, .button2
+    {
+        width: 100%;
+    }
+    .button3
+    {
+        margin-left: 10%;
+        margin-top: 15%;
+        margin-bottom: 15%;
+        padding: 4%;
+        outline: none;
+        border: none;
+        text-align: center;
+    }
+    .del-confirm
+    {
+        height: 80vw;
+        margin-top: -40vw;
+        width: 95%;
+        margin-left: -47.5%;
+        border-radius: 5vw;
+        font-size: 6vw;
+    }
+    .del-confirm button, .del-confirm a
+    {
+        font-size: 6vw;
+        margin: 0; 
+        padding: 3%; 
+        width: 40%;
+    }
+    .x-menu
+    {
+        width: 7vw; 
+        height: 7vw;
+        margin: 4%;
+        opacity: 0;
+    }
+}
+html, body, .wrapper
+{
+    height: 100%;
+}
+.menu a
+{
+    text-decoration: none;
+}
+.info
+{
+    box-shadow: 
+    0px 0px 0px 0.5px rgba(50, 50, 93, 0.1), 
+    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 
+    0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+}
+.sub-info
+{
+    padding-left: 10%;
+}
+button
+{
+    cursor: pointer;
+}
+.input:focus, .input2:focus, .twin:focus, #count-input
+{
+    background: white;
+    border:1px solid rgba(0, 162, 232, 1) !important;
+}
+.input, .input2, .twin, #count-input
+{
+    border: 1px solid rgba(0, 162, 232, 0) !important;
+}
+.rfield
+{
+    width: 100%;
+    color: red;
+    text-align: left;
+    opacity: 0;
+}
+#count-input
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+option
+{
+    color: gray;
+}
+.input2, #count-input, .twin, option
+{
+    width: 100%;
+}
+.secur
+{
+    position: relative;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.rem
+{
+    transition: .3s;
+    text-align: center;
+}
+.rem:hover
+{
+    transition: .3s;
+    opacity: 0.5;
+}
+.del-confirm
+{
+    position: fixed;
+    color: white;
+    background: rgb(0,162,232);
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+}
+.dim
+{
+    background: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.h4
+{
+    justify-content: space-around; 
+    align-items: center; 
+    width: 90%;
+    text-align: center;
+    margin: auto;
+}
+.b-menu
+{
+    justify-content: space-around; 
+    align-items: center; 
+    width: 100%; 
+    margin: 7% 0;
+}
+.x-menu
+{
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    cursor: pointer; 
+    margin: 1%;
+}
+.del-confirm, .dim
+{
+    display: none;
+}
+.x-menu:hover
+{
+    transition: .3s;
+    opacity: 0.5;
+}
+.newsletter
+{
+    text-align: center;
+}
+.bg
+{
+    background: rgb(0,162,232);
+    color: white;
+}
+.wh
+{
+    background: white;
+    color: rgb(0,162,232);
+}
+.center, .space
+{
+    width: 100%;
+    align-items: center;
+}
+.center
+{
+    justify-content: center;
+    flex-direction: column;
+}
+.space
+{
+    justify-content: space-between;
+}
+.w-45
+{
+    height: 100%;
+    width: 45%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.button, .button2, .button3
+{
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.button
+{
+    background-size: 5% 50%;
+}
+.button2
+{
+    background-size: 5% 50%;
+}
+.button3
+{
+    background-size: 15% 50%;
+}

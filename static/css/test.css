@@ -1,0 +1,92 @@
+body
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top-wrapper
+{
+    height: 600px;
+    width: 500px;
+}
+.slider
+{
+    position: relative;
+    margin: auto;
+    height: 500px;
+    width: 500px;
+    margin-bottom: 5%;
+}
+/****************************************/
+.thumb-slide
+{
+    position: relative;
+    margin: auto;
+    height: 100px;
+    width: 500px;
+}
+.thumbnails
+{
+    height: 100%;
+    width: 600px;
+    display: flex;
+}
+.sub-thumbs
+{
+    height: 100px;
+    width: 100px;
+    transition: .3s;
+    background-size: 100% 100%;
+    background-position-x: center;
+    background-position-y: center;
+}
+.sub-thumbs:hover
+{
+    opacity: .5;
+    transition: .3s;
+    background-size: 110% 110%;
+    cursor: pointer;
+}
+.slider-wrapper
+{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.slideshow
+{
+    height: 100%;
+    width: 600%;
+    display: flex;
+    position: relative;
+    transition: 1s;
+    cursor: grab;
+}
+.sub-slider
+{
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+}
+
+.thumb-wrapper
+{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.thumbnails
+{
+    position: relative;
+    transition: 1s;
+}
+.sub-thumbs
+{
+    transition: 1s;
+}
+#active
+{
+    border: 3px solid red;
+    border-radius: 10px;
+}

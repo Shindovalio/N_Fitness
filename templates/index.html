@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta property="og:image" content="../static/img/icon-square.png">
+        <meta name="description" content="UK's #1 brand for Massage Guns helping athletes at all ages all around the world to enhance their recovery and promote fitness.">
+        <meta name="keywords" content="nfit, nfit uk, nfit home page, nfitness, nfitness uk, nfit co uk">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>N Fit - Home</title>
+        <link rel="icon" href="../static/img/icon.png">
+        <link rel="stylesheet" type="text/css" href="../static/css/index-first.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/main-style.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/top-nav.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/footer.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/index-slideshow.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/referral.css">
+        <style>
+            .cart-menu, .buttons-mobile, .search-field, .top-nav, .top-nav-mobile, .search-input::placeholder
+            {
+                background: rgba(0, 162, 232, 0); 
+            }
+            .triangle
+            {
+                border-bottom: 2vh solid rgba(0, 162, 232, 0);
+            }
+            .top-nav, .top-nav-mobile
+            {
+                position: fixed;
+            }
+            .top-nav2, .top-nav2-mobile
+            {
+                background: rgba(2, 177, 2, 0);
+                color: rgba(2, 177, 2, 1);
+            }
+        </style>
+        {% if g.ip['user-id'] != 0 %}
+        <style>
+            .profile
+            {
+                background-image: url('../static/img/icons/signin-tr.png');
+            }
+        </style>
+        {% else %}
+        <style>
+            .profile
+            {
+                background-image: url('../static/img/icons/account-tr.png');
+            }
+        </style>
+        {% endif %}
+        {% if g.ip['cookies'] %}
+
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '389532615472007');
+            fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=389532615472007&ev=PageView&noscript=1"
+        /></noscript>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN1TT6XH8F"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-EN1TT6XH8F');
+        </script>
+
+        {% endif %}
+        <!-- Search Style -->
+        <link rel="stylesheet" type="text/css" href="../static/css/search.css">
+        <style>
+            #ngun-classic
+            {
+                background-image: url('{{g.product["1"]["thumbnail"]}}');
+            }
+            #ngun-mini
+            {
+                background-image: url('{{g.product["2"]["thumbnail"]}}');
+            }
+            #ngun-pro
+            {
+                background-image: url('{{g.product["3"]["thumbnail"]}}');
+            }
+            #neck-massager
+            {
+                background-image: url('{{g.product["4"]["thumbnail"]}}');
+            }
+        </style>
+        <!-- End Search Style -->
+        <link rel="stylesheet" type="text/css" href="../static/css/cookies.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            {% if g.ip['cookies-message'] %}
+            <div class="cookies-wrapper">
+                <div class="cookies-message">
+                    We use cookies on our websites for a number of purposes, 
+                    including analytics, performance and website functionality. 
+                    <a href="/privacy-policy#cookies">Learn more about N Fit’s use of cookies.</a>
+                </div>
+                <div class="opts">
+                    <a class="opt" href="/reject?cookies=0&page=index">Reject non-essential</a>
+                    <a class="opt" href="/reject?cookies=1&page=index" onclick="hideCookies()">Accept all</a>
+                </div>
+            </div>
+            {% endif %}
+            <div class="dimcho"></div>
+            <!-- REFERRAL -->
+            {% if PTM == 0 and g.ip['receiver'] == 0 %}
+            <div class="dimcho2" onclick="referBack('referral' , 'message=close')"></div>
+            <div class="referral">
+                <div class="hicks" onclick="referBack('referral' , 'message=close')">X</div>
+                <div class="ref-title">
+                    Give your friend the gift of health!
+                </div>
+                <div class="ref-title2">
+                    Refer a friend and get 15% off of any product
+                </div>
+                <div class="ref-img-wrap">
+                    <div class="ref1 ref-img"></div>
+                    <div class="ref2 ref-img"></div>
+                    <div class="ref3 ref-img"></div>
+                </div>
+                <div class="ref-copy">
+                    <div class="howitworks">How it works?</div>
+                    <br>
+                    1. You receive a link.<br>
+                    2. Your friend opens the link.<br>
+                    3. You both receive a 15% discount code for all our products.
+                </div>
+                <div class="ref-buttons">
+                    <div onclick="referBack('referral' , 'message=close')" class="ref-butt" style="background: white; color:rgb(0, 162, 232);">No thanks</div>
+                    <div class="ref-butt" onclick="referBack('referral' , 'message=get')">Get the link</div>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if discounts %}
+            <div class="the-codes">
+                <div class="codes-msg">Here are your discount codes.<br>Happy shopping!</div>
+                <input class="code1" value="{{code1}}"><div onclick="copyCode1()" class="code1-copy">Copy</div>
+                <input class="code2" value="{{code2}}"><div onclick="copyCode2()" class="code2-copy">Copy</div>
+                <div class="codes-close" onclick="closecodes()">Close</div>
+            </div>
+            {% endif %}
+            <!-- TOP NAVIGATION !-->
+            {% if Ssigned or Ddelete or Llog %}
+            <div class="top-nav2">
+                {% if Ssigned %}
+                Successfully signed in!
+                {% endif %}
+                {% if Ddelete %}
+                Successfully deleted account!
+                {% endif %}
+                {% if Llog %}
+                Successfully signed out!
+                {% endif %}
+            </div>
+            {% endif %}
+            <nav class="top-nav">
+                <a href="/"><li id="logo" class="top-nav-items"></li></a>
+                <li class="top-nav-items text-items"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+                <li id="search" class="top-nav-items" onclick="opensearch()"></li>
+                <li class="top-nav-items search-field">
+                    <form onsubmit="return validateSearch()" class="search-formec">
+                        <input oninput="searchFunc(0)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                        <input type="submit" value="Submit" style="display: none;">
+                        <div class="search-box">
+                            {% for i in range(1,5) %}
+                            <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                                <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                                <div class="prod-text">
+                                    {{g.product[i|string]['name']}}
+                                    <br>
+                                    £ {{g.product[i|string]['total']}}
+                                    <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                                </div>
+                                
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </form>
+                </li>
+                <li id="bag" class="top-nav-items" onclick="opencart()">
+                    <aside class="triangle"></aside>
+                    {% if g.wishlist['count'] + g.ip['ip-bag']['count'] != 0 %}
+                    <div class="bag-num">{{g.wishlist['count'] + g.ip['ip-bag']['count']}}</div>
+                    {% endif %}
+                    
+                </li>
+            </nav>
+
+
+            <!-- MOBILE !-->
+            {% if Ssigned or Ddelete or Llog %}
+            <div class="top-nav2-mobile">
+                {% if Ssigned %}
+                Successfully signed in!
+                {% endif %}
+                {% if Ddelete %}
+                Successfully deleted Account!
+                {% endif %}
+                {% if Llog %}
+                Successfully signed out!
+                {% endif %}
+            </div>
+            {% endif %}
+            <nav class="top-nav-mobile">
+                <li id="linebar" class="top-nav-items" onclick="openmenu(1)"></li>
+                <a href="/"><li id="logo" class="top-nav-items"></li></a>
+                <li id="bag" class="top-nav-items" onclick="opencart(1)">
+                    {% if g.wishlist['count'] + g.ip['ip-bag']['count'] != 0 %}
+                    <div class="bag-num">
+                        {{g.wishlist['count'] + g.ip['ip-bag']['count']}}
+                    </div>
+                    {% endif %}
+                </li>
+            </nav>
+            <aside class="buttons-mobile">
+                <li class="top-nav-items search-field">
+                    <div class="search-img"></div>
+                    <div class="search-box">
+                        {% for i in range(1,5) %}
+                        <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                            <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                            <div class="prod-text">
+                                {{g.product[i|string]['name']}}
+                                <br>
+                                £ {{g.product[i|string]['total']}}
+                                <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                            </div>
+                            
+                        </a>
+                        {% endfor %}
+                    </div>
+                    <form onsubmit="return validateSearch()" class="search-formec">
+                        <input oninput="searchFunc(1)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                        <input type="submit" value="Submit" style="display: none;">
+                    </form>
+                </li>
+                <li class="top-nav-items text-items" style="border-top: none;"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+            </aside>
+
+
+            <!-- CART !-->
+            <aside class="cart-menu">
+                {% if g.ip['ip-bag']['count'] != 0 %}
+                <div class="cart-menu-items" id="your-bag">You have {{g.ip['ip-bag']['count']}} 
+                    {% if g.ip['ip-bag']['count'] %}
+                    item
+                    {% else %}
+                    items
+                    {% endif %}
+                    in your bag.</div>
+                {% else %}
+                <div class="cart-menu-items" id="your-bag">Your Bag is empty.</div>
+                {% endif %}
+                <div class="cart-menu-items"><a href="/bag">
+                    <div class="cart-img mini-b">
+                        {% if g.wishlist['count'] + g.ip['ip-bag']['count'] != 0 and g.ip['ip-bag']['count'] != 0 %}
+                        <div class="m-b">
+                            {{g.ip['ip-bag']['count']}}
+                        </div>
+                        {% endif %}
+                    </div>Bag</a></div>
+                <div class="cart-menu-items"><a href="/wishlist">
+                    <div class="cart-img w-list">
+                        {% if g.wishlist['count'] + g.ip['ip-bag']['count'] != 0 and g.wishlist['count'] != 0 %}
+                        <div class="w-l">
+                            {{g.wishlist['count']}}
+                        </div>
+                        {% endif %}
+                    </div>Wishlist</a></div>
+                <div class="cart-menu-items">
+                    <a href="/account">
+                        <div class="cart-img profile"></div>
+                        {% if g.ip['user-id'] != 0 %}
+                        {{g.user['first-name']}} {{g.user['last-name'][0]}}.
+                        {% else %}
+                        Account
+                        {% endif %}
+                    </a>
+                </div>
+                {% if g.ip['user-id'] != 0 %}
+                <div class="cart-menu-items"><a href="/sign-out"><div class="cart-img s-out"></div>Sign out</a></div>
+                {% else %}
+                <div class="cart-menu-items"><a href="/sign-in"><div class="cart-img s-in"></div>Sign in</a></div>
+                {% endif %}
+            </aside>
+
+            <!-- MAIN !-->
+            <main class="main-content">
+                <div class="big-wrapper">
+                    <div class="the-future-wrapper"><div class="the-future">THE FUTURE OF FITNESS IS HERE.</div></div>
+                    <div class="ready-wrapper"><div class="ready">ARE YOU READY?</div></div>
+                </div>
+                <div class="shop-now-wrapper"><a href="/all-products" class="shop-now">Shop now</a></div>
+            </main>
+
+
+            <!-- LOWER !-->
+            <div class="lower-content">
+                <div class="features">
+                    <div id="slider" class="slider">
+                        <div class="slider-wrapper">
+                            <div id="slideshow" class="slideshow" style="user-select: none;">
+                                <span id="one" class="sub-slider">
+                                    <p class="header">The New N Fit Massage Gun</p>
+                                    <p class="text">
+                                        This new electric massager is your solution to muscle soreness and joint stiffness. 
+                                        It will boost your muscle recovery and loosen your body from the stressful everyday life
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-info"><a href="/{{g.product['1']['menu-code']}}">More information &#8594</a></div>
+                </div>
+                <div class="top-product"></div>
+            </div>
+
+
+            <!-- FOOTER !-->
+            <footer class="footer">
+                <div class="social-media">
+                    <div class="sub-social-media">Connect with us</div>
+                    <div class="sub-social-media smimg">
+                        <div class="media-icons"><a href="https://www.facebook.com/N-Fitness-104132791607635" target="_blank"><div class="social" style="background-image: url('../static/img/social/facebook.webp');"></div></a></div>
+                        <div class="media-icons"><a href="https://www.instagram.com/nfit.ig/" target="_blank"><div class="social" style="background-image: url('../static/img/social/instagram.svg');"></div></a></div>
+                        <div class="media-icons"><a href="https://www.pinterest.co.uk/nfitpinterest" target="_blank"><div class="social" style="background-image: url('../static/img/social/pinterest.svg');"></div></a></div>
+                    </div>
+                </div>
+                <div class="main-menu">
+                    <li class="sub-main-menu"><a href="/terms-of-use">Terms of Use</a></li>
+                    <li class="sub-main-menu"><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li class="sub-main-menu"><a href="/send-feedback">Send Feedback</a></li>
+                    <li class="sub-main-menu"><a href="/our-mission">Our Mission</a></li>
+                    <li class="sub-main-menu"><a href="/contact-us">Contact Us</a></li>
+                    <li id="copyright" class="sub-main-menu">Copyright &#169; 2021 N Fitness Technologies. All rights reserved.</li>
+                </div>
+                <div class="disclaimer">
+                    Always consult with a qualified healthcare professional prior to using any product or technology. 
+                    The products are intended to help you and not harm you in any way, so we recommend you 
+                    read the description of the products carefully and seek advice from a medical expert, if needed.
+                </div>
+            </footer>
+
+
+            <!-- TOP BUTTON !-->
+            <!-- <button onclick="gotop()" id="top-btn" title="Go to top">&#8593</button> !-->
+
+
+        </div>
+
+
+        <!-- SCRIPTS !-->
+        <script language="javascript" type="text/javascript" src="../static/js/top-nav.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/index.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/main.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/top-nav-search-submit.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/search.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/referral.js"></script>
+    </body>
+</html>

@@ -1,0 +1,293 @@
+@media only screen and (orientation: landscape)
+{
+    .input, .button
+    {
+        border-radius: 1vh;
+    }
+    .form
+    {
+        width: 110vh;
+    }
+    .legend
+    {
+        width: 100%;
+        font-size: 4vh;
+        text-align: center;
+        padding: 1.5vh 5vh 1.5vh 5vh;
+    }
+    .input, .button, .signup, .sign-in-instead
+    {
+        font-size: 2.5vh;
+    }
+    .button:hover
+    {
+        transition: .5s;
+        opacity: .5;
+    }
+    .signup:hover
+    {
+        color: white;
+        transition: .5s;
+        background: rgba(0, 162, 232, 1);
+    }
+    .forgot-pass
+    {
+        font-size: 3vh;
+        margin: 5% 0;
+    }
+    .email-missing, .password-missing, .password2-missing, .fname-missing, .lname-missing, .something-missing
+    {
+        font-size: 1.5vh;
+    }
+    .names, .passwords
+    {
+        flex-direction: row;
+    }
+    .names input, .passwords input
+    {
+        width: 45%;
+    }
+    .sub
+    {
+        width: 45%;
+    }
+    .input
+    {
+        padding: 3vh 5vh;
+        margin: 1vh 0;
+    }
+    .fname-missing, .lname-missing, .password-missing, .password2-missing, .email-missing, .something-missing
+    {
+        margin-left: 5vh;
+    }
+    .check
+    {
+        font-size: 2vh;
+        margin: 2% 0;
+    }
+    #capt
+    {
+        margin: 1% 0;
+    }
+    .sign-in-instead
+    {
+        border: .1vh solid rgba(0, 162, 232, 1);
+        border-radius: 1vh;
+    }
+    .button, .sign-in-instead
+    {
+        width: 30%;
+        text-align: center;
+        padding: 3% 0;
+        margin: 2% 0;
+    }
+    .butts
+    {
+        flex-direction: row;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    #capt
+    {
+        margin-bottom: 10%;
+    }
+    .input, .button
+    {
+        border-radius: 5vw;
+    }
+    .form
+    {
+        width: 90vw;
+        margin: 15vw 0;
+    }
+    .legend
+    {
+        width: 100%;
+        font-size: 10vw;
+        text-align: center;
+        padding: 5%;
+    }
+    .input, .button, .signup, .sign-in-instead
+    {
+        font-size: 5vw;
+    }
+    .forgot-pass
+    {
+        font-size: 5vw;
+    }
+    .email-missing, .password-missing, .password2-missing, .fname-missing, .lname-missing
+    {
+        font-size: 4vw;
+    }
+    .names, .passwords
+    {
+        flex-direction: column;
+    }
+    .sub
+    {
+        width: 100%;
+    }
+    .input
+    {
+        padding: 3vw 5vw;
+        margin: 3vw 0;
+    }
+    .fname-missing, .lname-missing, .password-missing, .password2-missing, .email-missing
+    {
+        margin-left: 5vw;
+    }
+    .check
+    {
+        font-size: 4vw;
+        margin-bottom: 10%;
+    }
+    .sign-in-instead
+    {
+        border: .5vw solid rgba(0, 162, 232, 1);
+        border-radius: 5vw;
+        
+    }
+    .button, .sign-in-instead
+    {
+        text-align: center;
+        width: 75%;
+        padding: 5% 0;
+        margin: 5% 0;
+    }
+    .butts
+    {
+        flex-direction: column-reverse;
+    }
+}
+html, body, .wrapper, form
+{
+    height: 100%;
+}
+.content, form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    outline: none;
+}
+.input, .signup
+{
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.input:focus
+{
+    border:1px solid rgba(0, 162, 232, 1) !important;
+    background: rgb(241, 241, 241) !important;
+}
+.input
+{
+    background: rgb(241, 241, 241);
+    border: 1px solid rgba(0, 162, 232, 0) !important;
+}
+.button
+{
+    transition: .5s;
+    color: white;
+    cursor: pointer;
+    background: rgba(0, 162, 232, 1);
+    outline: none;
+    border: none;
+    background-size: 10% 25%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.signup
+{
+    text-decoration: none;
+    transition: .5s;
+    cursor: pointer;
+    text-align: center;
+    color:rgba(0, 162, 232, 1);
+    border: 3px solid rgba(0, 162, 232, 1);
+}
+.forgot-pass
+{
+    text-align: center;
+    color:gray;
+}
+.fname-missing, .lname-missing, .password-missing, .password2-missing, .email-missing, .feedback-missing, .something-missing
+{
+    width: 100%;
+    color: red;
+    text-align: left;
+    opacity: 0;
+}
+.names, .passwords, .emails
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.emails
+{
+    flex-direction: column;
+}
+.sub
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.sub input
+{
+    width: 100%;
+}
+.butts
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sign-in-instead
+{
+    transition: .3s;
+    cursor: pointer;
+}
+.sign-in-instead:hover
+{
+    background-color: rgba(0, 162, 232, 1);
+    transition: .3s;
+}
+.sign-in-instead a
+{
+    text-decoration: none;
+    color:rgba(0, 162, 232, 1);
+    transition: .3s;
+}
+.sign-in-instead:hover a
+{
+    transition: .3s;
+    color: white;
+}
+.check
+{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.check a
+{
+    color:rgba(0, 162, 232, 1);
+}
+.feedbacks
+{
+    width: 100%;
+}
+#feedback
+{
+    width: 100%;
+}

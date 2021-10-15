@@ -1,0 +1,16 @@
+@media only screen and (max-width: 1279px){#top-btn{visibility: hidden;}}
+#top-btn
+{
+    color: white;
+    display: none; position: fixed;
+    bottom: 2%; right: 1%; font-size: 30px;
+    border: none; outline: none; cursor: pointer;
+    background: rgba(0, 162, 232, 1);
+    padding: 0.8%;
+    border-radius: 20%;
+    transition: .3s;
+}
+#top-btn:hover
+{
+    opacity: .5;
+}

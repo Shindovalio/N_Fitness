@@ -1,0 +1,276 @@
+@media only screen and (orientation: landscape)
+{
+    .referral
+    {
+        height: 90vh;
+        width: 50vw;
+        border-radius: 1vh;
+        padding: 2%;
+    }
+    .ref-title
+    {
+        font-size: 6vh;
+    }
+    .ref-title2
+    {
+        font-size: 4vh;
+    }
+    .ref-img
+    {
+        width: 25vh;
+        height: 25vh;
+        border-radius: 1vh;
+    }
+    .ref-copy
+    {
+        font-size: 2.5vh;
+    }
+    .hicks
+    {
+        position: absolute;
+        top: 1%;
+        right: -4%;
+        color: lightgray;
+        font-weight: bolder;
+        font-size: 3vh;
+        height: 3vh;
+        width: 3vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+    }
+    .howitworks
+    {
+        font-size: 3.5vh;
+    }
+    .codes-msg
+    {
+        font-size: 4vh;
+    }
+    .code1, .code2
+    {
+        font-size: 2.5vh;
+        border: none;
+        outline: none;
+        text-align: center;
+    }
+    .ref-buttons
+    {
+        justify-content: space-around;
+    }
+    .ref-butt
+    {
+        width: 30%;
+        padding: 2% 0;
+        font-size: 2.5vh;
+        border-radius: 1vh;
+    }
+    .the-codes
+    {
+        width: 50vw;
+        height: 50vh;
+        border-radius: 1vh;
+        z-index: 100000000000000000000000000000000;
+    }
+    .codes-close
+    {
+        font-size: 2.5vh;
+        color: white;
+        background-color: rgb(0, 162, 232);
+        padding: 2% 0;
+        width: 30%;
+        text-align: center;
+        border-radius: 1vh;
+        cursor: pointer;
+    }
+    .linkec
+    {
+        font-size: 2.5vh;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .referral
+    {
+        height: 95vh;
+        width: 95vw;
+        border-radius: 5vw;
+        padding: 5%;
+    }
+    .ref-title
+    {
+        font-size: 8vw;
+    }
+    .ref-title2
+    {
+        font-size: 6vw;
+    }
+    .ref-img
+    {
+        width: 25vw;
+        height: 25vw;
+        border-radius: 1vw;
+    }
+    .ref-copy
+    {
+        font-size: 5vw;
+    }
+    .hicks
+    {
+        display: none;
+    }
+    .howitworks
+    {
+        font-size: 6vw;
+    }
+    .codes-msg
+    {
+        font-size: 4vh;
+    }
+    .code1, .code2
+    {
+        font-size: 5vw;
+        border: none;
+        outline: none;
+        text-align: center;
+    }
+    .ref-buttons
+    {
+        justify-content: space-between;
+    }
+    .ref-butt
+    {
+        width: 45%;
+        padding: 5% 0;
+        font-size: 5vw;
+        border-radius: 5vw;
+    }
+    .the-codes
+    {
+        width: 95vw;
+        height: 80vh;
+        border-radius: 5vw;
+        z-index: 100000000000000000000000000000000;
+    }
+    .codes-close
+    {
+        font-size: 8vw;
+        color: white;
+        background-color: rgb(0, 162, 232);
+        padding: 2% 0;
+        width: 50%;
+        text-align: center;
+        border-radius: 5vw;
+        cursor: pointer;
+    }
+}
+.referral
+{
+    background: white;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100000000000000000000000000000000;
+}
+.ref-title
+{
+    font-family: 'Norwester', sans-serif;
+    color: rgb(0, 162, 232);
+    text-align: center;
+}
+.ref-title2
+{
+    font-family: 'Norwester', sans-serif;
+    color: rgb(0, 162, 232);
+    text-align: center;
+}
+.ref-img-wrap
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.ref1
+{
+    background-image: url('../img/products/p1/massager1.png');
+}
+.ref2
+{
+    background-image: url('../img/products/p2/back1.png');
+}
+.ref3
+{
+    background-image: url('../img/products/p3/neck.png');
+}
+.ref-img
+{
+    background-size: 100% 100%;
+}
+.ref-copy
+{
+    color: rgb(0, 162, 232);
+    padding-left: 5%;
+    width: 100%;
+}
+.ref-buttons
+{
+    width: 100%;
+    display: flex;
+}
+.ref-butt
+{
+    background-color: rgb(0, 162, 232);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+}
+.ref-butt:hover
+{
+    opacity: .7;
+}
+.dimcho2
+{
+    display: none;
+    background: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.howitworks
+{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+.the-codes
+{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 5%;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 162, 232);
+    background-color: white;
+}
+.codes-msg
+{
+    font-family: 'Norwester', sans-serif;
+    text-align: center;
+    width: 100%;
+    user-select: none;
+}

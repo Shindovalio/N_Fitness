@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta name=”robots” content="noindex, nofollow">
+        <meta charset="UTF-8">
+        <meta property="og:image" content="../static/img/icon-square.png">
+        <meta name="description" content="Thank you for choosing N Fit">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thank You - N Fit</title>
+        <link rel="icon" href="../static/img/icon.png">
+        <link rel="stylesheet" type="text/css" href="../static/css/main-style.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/thank-you.css">
+        {% if g.ip['cookies'] %}
+
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '389532615472007');
+            fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=389532615472007&ev=PageView&noscript=1"
+        /></noscript>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN1TT6XH8F"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-EN1TT6XH8F');
+        </script>
+
+        {% endif %}
+        <link rel="stylesheet" type="text/css" href="../static/css/cookies.css">
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <h1>Thank you for Your purchase!</h1>
+            <div class="tick"></div>
+            <form method="POST">
+                <input type="hidden" id="h" class="imps" name="happy" value="0">
+                <input type="hidden" id="n" class="imps" name="neutral" value="0">
+                <input type="hidden" id="s" class="imps" name="sad" value="0">
+                <label style="color: black; text-align:center;">How happy were you with the overall buying experience?</label>
+                <div class="faces-wrap">
+                    <div id="happy" class="faces" onclick="changeFace(0)"></div>
+                    <div id="neutral" class="faces" onclick="changeFace(1)"></div>
+                    <div id="sad" class="faces" onclick="changeFace(2)"></div>
+                </div>
+                <hr>
+                <label style="color: black;">Can you tell us more about your experiece, so we can get it right next time?</label>
+                <textarea onfocus="border()" onfocusout="border2()" id="feedback" class="input" name="feedback" rows="6" style="color:black;resize: vertical; background: rgb(241, 241, 241) none repeat scroll 0% 0%;"></textarea>
+                <div class="sub-wrap">
+                    <button class="sub" type="submit">Submit</button>
+                </div>
+                
+            </form>
+            <a href="/" class="backt">Back to N Fit</a>
+        </div>
+
+        <script>
+            function changeFace(n)
+            {
+                for(var i=0; i<3; i++)
+                {
+                    document.querySelectorAll('.faces')[i].style.opacity = ".5";
+                    document.querySelectorAll('.imps')[i].value = "0";
+                }
+                document.querySelectorAll('.faces')[n].style.opacity = "1";
+                document.querySelectorAll('.imps')[n].value = "1";
+            }
+            function border()
+            {
+                document.querySelector('#feedback').style.borderColor = "rgb(0,162,232)";
+            }
+            function border2()
+            {
+                document.querySelector('#feedback').style.borderColor = "rgba(0,0,0,0)";
+            }
+        </script>
+    </body>
+</html>

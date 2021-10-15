@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta property="og:image" content="../static/img/icon-square.png">
+        <meta name="description" content="By using our website, you agree to the N Fit terms of use. If you disagree with any paragraph of our terms of use, discontinue using our services">
+        <meta name="keywords" content="nfit terms of use, terms of use nfit, nfit terms of service, terms of service nfit">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Terms of Use - N Fit</title>
+        <link rel="icon" href="../static/img/icon.png">
+        <link rel="stylesheet" type="text/css" href="../static/css/main-style.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/top-nav.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/footer.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/top-btn.css">
+        <style>
+            @media only screen and (orientation: landscape)
+            {
+                .content
+                {
+                    width: 75%;
+                    margin: auto;
+                }
+            }
+            @media only screen and (orientation: portrait)
+            {
+                .content
+                {
+                    text-align: left;
+                    width: 95%;
+                    margin: auto;
+                }
+                ul
+                {
+                    padding: 0;
+                }
+                h2
+                {
+                    font-size: 25px;
+                }
+                .main-menu
+                {
+                    margin: 0;
+                }
+            }
+            a
+            {
+                color: rgb(0,162,232);
+            }
+            a:hover
+            {
+                transition: .3s;
+                opacity: 0.7;
+            }
+            footer a:hover
+            {
+                transition: .3s;
+                opacity: 0.5;
+            }
+            #copyright:hover
+            {
+                color: black;
+            }
+        </style>
+        {% if g.ip['user-id'] != 0 %}
+        <style>
+            .profile
+            {
+                background-image: url('../static/img/icons/signin-tr.png');
+            }
+        </style>
+        {% else %}
+        <style>
+            .profile
+            {
+                background-image: url('../static/img/icons/account-tr.png');
+            }
+        </style>
+        {% endif %}
+        {% if g.ip['cookies'] %}
+
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '389532615472007');
+            fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=389532615472007&ev=PageView&noscript=1"
+        /></noscript>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN1TT6XH8F"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-EN1TT6XH8F');
+        </script>
+
+        {% endif %}
+    <!-- Search Style -->
+        <link rel="stylesheet" type="text/css" href="../static/css/search.css">
+        <style>
+            #ngun-classic
+            {
+                background-image: url('{{g.product["1"]["thumbnail"]}}');
+            }
+            #ngun-mini
+            {
+                background-image: url('{{g.product["2"]["thumbnail"]}}');
+            }
+            #ngun-pro
+            {
+                background-image: url('{{g.product["3"]["thumbnail"]}}');
+            }
+            #neck-massager
+            {
+                background-image: url('{{g.product["4"]["thumbnail"]}}');
+            }
+        </style>
+        <!-- End Search Style -->
+        <link rel="stylesheet" type="text/css" href="../static/css/cookies.css">
+    </head>
+    <body>
+        <div class="wrapper">
+
+            <div class="dimcho"></div>
+
+            <!-- TOP NAVIGATION !-->
+            <nav class="top-nav">
+                <a href="/"><li id="logo" class="top-nav-items"></li></a>
+                <li class="top-nav-items text-items"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+                <li id="search" class="top-nav-items" onclick="opensearch()"></li>
+                <li class="top-nav-items search-field">
+                    <form onsubmit="return validateSearch()" class="search-formec">
+                        <input oninput="searchFunc(0)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                        <input type="submit" value="Submit" style="display: none;">
+                        <div class="search-box">
+                            {% for i in range(1,5) %}
+                            <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                                <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                                <div class="prod-text">
+                                    {{g.product[i|string]['name']}}
+                                    <br>
+                                    £ {{g.product[i|string]['total']}}
+                                    <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                                </div>
+                                
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </form>
+                </li>
+                <li id="bag" class="top-nav-items" onclick="opencart()">
+                    <aside class="triangle"></aside>
+                    {% if g.wishlist['count'] + g.bag['count'] != 0 %}
+                    <div class="bag-num">
+                        {{g.wishlist['count'] + g.bag['count']}}
+                    </div>
+                    {% endif %}
+                    
+                </li>
+            </nav>
+
+
+            <!-- MOBILE !-->
+            <nav class="top-nav-mobile">
+                <li id="linebar" class="top-nav-items" onclick="openmenu()"></li>
+                <a href="/"><li id="logo" class="top-nav-items"></li></a>
+                <li id="bag" class="top-nav-items" onclick="opencart()">
+                    {% if g.wishlist['count'] + g.bag['count'] != 0 %}
+                    <div class="bag-num">
+                        {{g.wishlist['count'] + g.bag['count']}}
+                    </div>
+                    {% endif %}
+                </li>
+            </nav>
+            <aside class="buttons-mobile">
+                <li class="top-nav-items search-field">
+                    <div class="search-img"></div>
+                    <div class="search-box">
+                        {% for i in range(1,5) %}
+                        <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                            <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                            <div class="prod-text">
+                                {{g.product[i|string]['name']}}
+                                <br>
+                                £ {{g.product[i|string]['total']}}
+                                <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                            </div>
+                            
+                        </a>
+                        {% endfor %}
+                    </div>
+                    <form onsubmit="return validateSearch()" class="search-formec">
+                        <input oninput="searchFunc(1)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                        <input type="submit" value="Submit" style="display: none;">
+                    </form>
+                </li>
+                <li class="top-nav-items text-items" style="border-top: none;"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+            </aside>
+
+            
+            <!-- CART !-->
+            <aside class="cart-menu">
+                {% if g.bag['count'] != 0 %}
+                <div class="cart-menu-items" id="your-bag">You have {{g.bag['count']}} 
+                    {% if g.bag['count'] == 1 %}
+                    item
+                    {% else %}
+                    items
+                    {% endif %}
+                    in your bag.</div>
+                {% else %}
+                <div class="cart-menu-items" id="your-bag">Your Bag is empty.</div>
+                {% endif %}
+                <div class="cart-menu-items"><a href="/bag">
+                    <div class="cart-img mini-b">
+                        {% if g.wishlist['count'] + g.bag['count'] != 0 and g.bag['count'] != 0 %}
+                        <div class="m-b">
+                            {{g.bag['count']}}
+                        </div>
+                        {% endif %}
+                    </div>Bag</a></div>
+                <div class="cart-menu-items"><a href="/wishlist">
+                    <div class="cart-img w-list">
+                        {% if g.wishlist['count'] + g.bag['count'] != 0 and g.wishlist['count'] != 0 %}
+                        <div class="w-l">
+                            {{g.wishlist['count']}}
+                        </div>
+                        {% endif %}
+                    </div>Wishlist</a></div>
+                <div class="cart-menu-items">
+                    <a href="/account">
+                        <div class="cart-img profile"></div>
+                        {% if g.ip['user-id'] != 0 %}
+                        {{g.user['first-name']}} {{g.user['last-name'][0]}}.
+                        {% else %}
+                        Account
+                        {% endif %}
+                    </a>
+                </div>
+                {% if g.ip['user-id'] != 0 %}
+                <div class="cart-menu-items"><a href="/sign-out"><div class="cart-img s-out"></div>Sign out</a></div>
+                {% else %}
+                <div class="cart-menu-items"><a href="/sign-in"><div class="cart-img s-in"></div>Sign in</a></div>
+                {% endif %}
+            </aside>
+
+
+            <!-- MAIN !-->
+            <div class="content" style="font-size: 20px;">
+                <h1 style="text-align: center;">N Fit Website Terms of Use</h1><hr>
+                <ul style="list-style-type:none; margin: 10% 0;">
+                    <li>
+                        <h2>I.) AGREEMENT TO TERMS</h2>
+                        <p>
+                            These Terms of Use constitute a legally binding agreement made between you,
+                            whether personally or on behalf of an entity (''you'') and N FITNESS LTD.,
+                            (''Company'', ''we'', ''us'', or ''our''),
+                            concerning your access to and use of <a href="/" style="color: rgb(0,162,232); transition: .3s;">https://www.nfit.co.uk</a> website as well as any other media form,
+                            media channel, mobile website or mobile application related, linked, or otherwise connected thereto
+                            (collectively, the ''Site''). You agree that by accessing the Site, you have read, understood,
+                            and agreed to be bound by all of these Terms of Use.
+                        </p>
+                        <p>
+                            <h4 style="text-decoration: underline;">
+                                IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE,
+                                THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE YOU AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+                            </h4>
+                        </p>
+                        <p>
+                            Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly
+                            incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these
+                            Terms of Use at any time and for any reason. We will alert you about any changes by updating the ''Last updated''
+                            date of these Terms of Use, and you will waive any right to receive specific notice of each such change.
+                            It is your responsibility to periodically review these Terms of Use to stay informed of updates. You will be subject to,
+                            and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms of Use by your
+                            continued use of the Site after the date such revised Terms of Use are posted. The information provided on the Site is
+                            not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution
+                            or use would be contrary to law or regulation or which would subject us to make any registration requirement within
+                            such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on
+                            their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are
+                            applicable.
+                        </p>
+                        <p>
+                            The Site is intended or users who are at least 13 years of age.
+                            All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the
+                            permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor,
+                            you must have your parent or guardian read and agree to these Terms of Use prior to you using the Site.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>II.) INTELLECTUAL PROPERTY RIGHTS</h2>
+                        <p>
+                            Unless otherwise indicated, the Site is our proprietary property and all source code, databases,
+                            functionality, software, website designs, audio, video, text, photographs, and graphics on the Site
+                            (collectively, the ''Content'') and the trademarks, service marks, and logos contained therein
+                            (the ''Marks'') are owned or controlled by us or licensed to us, and are protected by copyright and
+                            trademark laws and various other intellectual property rights and unfair competition laws of the United Kingdom,
+                            International copyright laws, and international conventions. The Content and the Marks are provided on the Site
+                            ''AS IS"' for your information and personal use only. Except as expressly provided in these Terms of Use,
+                            no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted,
+                            publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any
+                            commercial purpose whatsoever, without our express prior written permission.
+                        </p>
+                        <p>
+                            Provided that you are eligible to use the Site, you are granted a limited license to access and use the Site and to
+                            download or print a copy of any portion of the Content to which you have properly gained access solely for your personal,
+                            non-commercial use. We reserve all rights not expressly granted to you in and to the Site, the Content, and the Marks.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>III.) USER REPRESENTATIONS</h2>
+                        <p>
+                            By using the Site, you present and warrant that:
+                            <ol style="line-height: 175%;">
+                                <li>All registration information you submit will be true, accurate, current, and complete;</li>
+                                <li>You will maintain the accuracy of such information and promptly update such registration information as necessary; </li>
+                                <li>You have the legal capacity and you agree to comply with these Terms of Use; </li>
+                                <li>You are not under the age of 13; </li>
+                                <li>You are not a minor in the jurisdiction in which you reside, or if a minor, you have received parental permission to use the Site; </li>
+                                <li>You will not access the Site through automated or non-human means, whether through a bot, script or otherwise; </li>
+                                <li>You will not use the Site for any illegal or unauthorized purpose;</li>
+                                <li>Your use of the Site will not violate any applicable law or regulation.</li>
+                            </ol>
+                        </p>
+                        <p>
+                            If you provide any information that is untrue, inaccurate, not current, or incomplete,
+                            we have the right to suspend or terminate your account and refuse all current or
+                            future use of the Site (or any portion thereof)
+                        </p>
+                    </li>
+                    <li>
+                        <h2>IV.) USER REGISTRATION</h2>
+                        <p>
+                            You may be required to register with the Site.
+                            You agree to keep your password confidential and will be responsible for all use
+                            of your account and password. We reserve the right to remove, reclaim, or change a
+                            username you select if we determine, in our sole discretion, that such username is
+                            inappropriate, obscene, or otherwise objectionable.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>V.) PRODUCTS</h2>
+                        <p>
+                            We make every effort to display as accurately as possible the colours, features,
+                            specifications, and details of the products available on the Site. However,
+                            we do not guarantee that the colours, features, specifications, and details of
+                            the products will be accurate, complete, reliable, current, or free of other errors,
+                            and your electronic display may not accurately reflect the actual colours and details
+                            of the products. All products are subject to availability, and we cannot guarantee
+                            that items will be in stock. We reserve the right to discontinue any products at any
+                            time for any reason. Prices for all products are subject to change. We do not warrant
+                            that the quality of any products, services, information, or other material purchased
+                            or obtained by you will meet your expectations, or that any errors in the Service
+                            will be corrected.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>VI.) PURCHASES AND PAYMENT</h2>
+                        <p>
+                            We accept the following forms of payment:
+                            <ul style="line-height: 175%;">
+                                <li>Visa</li>
+                                <li>Mastercard</li>
+                                <li>Maestrocard</li>
+                                <li>AMEX</li>
+                                <li>PayPal</li>
+                            </ul>
+                        </p>
+                        <p>
+                            You agree to provide current, complete, and accurate purchase and account
+                            information for all purchases made via the Site. You further agree to
+                            promptly update account and payment information, including email address,
+                            payment method, and payment card expiration date, so that we can complete
+                            your transactions and contact you as needed. We may change prices at any time.
+                            All payments shall be in British Pound Sterling.
+                        </p>
+                        <p>
+                            You agree to pay all charges at the prices then in effect for your purchases and
+                            we will provide you with free shipping, and you will authorize us to charge your
+                            chosen payment provider or any such amounts upon placing your order. We reserve
+                            the right to correct any errors or mistakes in pricing, even if we have already
+                            requested or received payment.
+                        </p>
+                        <p>
+                            We reserve the right to refuse any order placed through the Site.
+                            We may, in our sole discretion, limit or cancel quantities purchased per person,
+                            per household, or per order. These restrictions may include orders placed by or
+                            under the same customer account, the same payment method, and/or orders that use
+                            the same billing or shipping address. We reserve the right to limit or prohibit
+                            orders that, in our sole judgement, appear to be placed by dealers, re-sellers,
+                            or distributors.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>VII.) RETURN POLICY</h2>
+                        <p>
+                            Please review our Return Policy posted on the Site prior to making any purchases at
+                            <a href="/return-policy"  style="color: rgb(0,162,232); transition: .3s;">https://nfit.co.uk/return-policy</a>.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>VIII.) PROHIBITED ACTIVITIES</h2>
+                        <p>
+                            You may not access or use the Site for any purpose other than that for which we make the
+                            Site available. The Site may not be used in connection with any commercial endeavors
+                            except those that are specifically endorsed or approved by us.
+                        </p>
+                        <p>
+                            <strong style="text-decoration: underline;">As a user of the Site, you agree not to:</strong>
+                            <ol>
+                                <li>Make any unauthorized use of the Site, including collecting usernames and/or email addressed of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li><br>
+                                <li>Use the Site to advertise or offer to sell goods and services.</li><br>
+                                <li>Engage in unauthorized framing of or linking to the Site.</li><br>
+                                <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li><br>
+                                <li>Make improper use of our support services or submit false reports of abuse or misconduct.</li><br>
+                                <li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li><br>
+                                <li>Interfere with, disrupt, or create an undue burden on the Site or the networks or services connected to the Site. </li><br>
+                                <li>Attempt to impersonate another user or person or use the username of another user.</li><br>
+                                <li>Sell or otherwise transfer your profile.</li><br>
+                                <li>Use any information obtained from the Site to harass, abuse, or harm another person.</li><br>
+                                <li>Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any revenue-generating endeavor or commercial enterprise.</li><br>
+                                <li>Decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making us a part of the Site.</li><br>
+                                <li>Attempt to bypass any measures of the Site designed to prevent or restrict access to the Site, or any portion of the Site.</li><br>
+                                <li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Site to you.</li><br>
+                                <li>Copy or adapt the Site's software, including but not limited to HTML, CSS, JavaScript, SQL, or other code.</li><br>
+                                <li>Delete the copyright or other proprietary rights notice from any Content.</li><br>
+                                <li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party's uninterrupted use and enjoyment of the Site or modifies, impairs, disrupts, alters, or interferes with the use features, functions, operation, or maintenance of the Site.</li><br>
+                                <li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (''gifs''), 1x1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as ''spyware'' or ''passive collection mechanisms'' or ''pcms'').</li><br>
+                                <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Site.</li><br>
+                                <li>Use the Site in a manner inconsistent with any applicable laws or regulations.</li><br>
+                                <li>Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Site, or using or launching any unauthorized script or other software. </li><br>
+                            </ol>
+                        </p>
+                    </li>
+                    <li>
+                        <h2>IX.) USER GENERATED CONTRIBUTIONS</h2>
+                        <p>
+                            The Site does not offer users to submit or post content. We may provide you with the opportunity to create,
+                            submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Site,
+                            including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal
+                            information or other material (collectively, ''Contributions''). Contributions may be viewable by other users of the
+                            Site and through third-party websites. As such, any Contributions you transmit may be treated in accordance with the
+                            Site Privacy Policy. When you create or make available any Contributions, you thereby represent and warrant that:
+                            <ol>
+                                <li>The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.</li><br>
+                                <li>You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Site, and other users of the Site to use your Contributions in any manner contemplated by the Site and these Terms of Use</li><br>
+                                <li>You have the written consent, release, and/or permission of each identifiable individual person in your Contributions to use the name or likeness of each such identifiable individual person to enable inclusion and use of your Contributions in any manner contemplated by the Site and these Terms of Use.</li><br>
+                                <li>Your Contributions are not false, inaccurate, or misleading.</li><br>
+                                <li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation. </li><br>
+                                <li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable (as determined by us).</li><br>
+                                <li>Your Contributions do not ridicule, mock, disparage, intimidate, or abuse anyone and if we see that there is such Contribution, we will then proceed to remove it.</li><br>
+                                <li>Your Contributions are not used to harass or threaten (in the legal sense of those terms) any other person and to promote violence against a specific person or class of people.</li><br>
+                                <li>Your Contributions do not violate the privacy or publicity rights of any third party.</li><br>
+                                <li>Your Contributions do not violate any applicable law, regulation, or rule.</li><br>
+                                <li>Your Contributions do not contain any material that solicits personal information from anyone under the age of 18 or exploits people under the age of 18 in a sexual or violent manner.</li><br>
+                                <li>Your Contributions do not violate any applicable law concerning child pornography, or otherwise intended to protect the health or well-being of minors.</li><br>
+                                <li>Your Contributions do not include any offensive comments that are connected to race, national origin, gender, sexual preference, or physical handicap.</li><br>
+                                <li>Your Contributions do not otherwise violate, or link to material that violates, any provision of these Terms of Use, or any applicable law or regulation.</li><br>
+                            </ol>
+                        </p>
+                        <p>
+                            Any use of the Site or the Marketplace Offerings in violation of the foregoing violates these Terms of Use
+                            and may result in, among other things, termination, or suspensions of your rights to use the Site and the Marketplace
+                            Offerings.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>X.) CONTRIBUTION LICENSE</h2>
+                        <p>
+                            You and Site agree that we may access, store, process, and use any information and personal data that you provide
+                            following the terms of the Privacy Policy and your choices (including settings). By submitting suggestions or other feedback regarding the Site,
+                            you agree that we can use and share such feedback for any purpose without compensation to you.
+                            We do not assert any ownership over your Contributions. You retain full ownership of all your Contributions and any intellectual property
+                            rights, or other proprietary rights associated with your Contributions. We are not liable for any statements or representations in your Contributions
+                            provided by you in any rea of the Site. You are solely responsible for your Contributions to the Site and you expressly agree to exonerate us
+                            from all responsibility and to refrain from any legal action against us regarding your Contributions.
+
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XI.) GUIDELINES FOR REVIEWS</h2>
+                        <p>
+                            We may provide you areas on the Site to leave reviews or ratings.
+                            When posting a review, you must comply with the following criteria:
+                            <ol style="line-height: 175%;">
+                                <li>You should have firsthand experience with the person/entity reviewed; </li>
+                                <li>Your reviews should not contain offensive profanity, or abusive, racist, offensive, or hate language; </li>
+                                <li>Your reviews should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability; </li>
+                                <li>Your reviews should not contain references to illegal activity; </li>
+                                <li>You should not be affiliated with competitors if posting negative reviews; </li>
+                                <li>You should not make any conclusions as to the legality of conduct; </li>
+                                <li>You may not post any false or misleading statements;</li>
+                                <li>You may not organize a campaign encouraging others to post reviews, whether positive or negative.</li>
+                            </ol>
+                        </p>
+                        <p>
+                            We may accept, reject, or remove reviews in our sole discretion. Reviews are not endorsed by us, and do not
+                            necessarily represent our opinions or the views of any of our affiliates or partners. We do not assume liability
+                            for any review or for any claims, liabilities, or losses resulting from any review. By posting a review, you hereby
+                            grant to us a perpetual, non-exclusive, worldwide, royalty-free, fully paid, assignable, and sublicensable right and
+                            license to reproduce, modify, translate, transmit by any means, display, perform, and/or distribute all content relating to reviews.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XII.) SUBMISSIONS</h2>
+                        <p>
+                            You acknowledge and agree that any questions, suggestions, ideas, feedback, or other information
+                            regarding the Site or the Marketplace Offerings (''Submissions'') provided by you to us are
+                            non-confidential and shall become our sole property. We shall own exclusive rights, including
+                            all intellectual property rights, and shall be entitled to the unrestricted use and dissemination
+                            of these Submissions for any lawful purpose, commercial or otherwise, without acknowledgement or
+                            compensation to you. You hereby waive all moral rights to any such Submissions, and you hereby
+                            warrant that any such Submissions are original with you or that you have right to submit
+                            such Submissions. You agree there shall be no resource against us for any alleged or actual
+                            infringement or misappropriation of any proprietary right in your Submissions.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XIII.) SITE MANAGEMENT</h2>
+                        <p>
+                            We reserve the right, but not to obligation, to:
+                            <ol>
+                                <li>Monitor the Site for violations of these Terms of Use; </li><br>
+                                <li>Take appropriate legal action against who, in our sole discretion, violates the law or these Terms of Use, including without limitation, reporting such user to law enforcement authorities; </li><br>
+                                <li>In our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; </li><br>
+                                <li>In our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all file and content that are excessive in size or any in any way burdensome to our systems;</li><br>
+                                <li>Otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site and the Marketplace Offerings.</li><br>
+                            </ol>
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XIV.) PRIVACY POLICY</h2>
+                        <p>
+                            We care about data privacy and security.
+                            Please review our Privacy Policy: <a href="/privacy-policy" style="color: rgb(0,162,232);">https://nfit.co.uk/privacy-policy</a>.
+                            By using the Site or the Marketplace Offerings, you agree to be bound by our Privacy Policy,
+                            which is incorporated into these Terms of Use. Please be advised the Site and the Marketplace
+                            Offerings are hosted in the United Kingdom. If you access the Site or the Marketplace Offerings
+                            from any other region of the world with laws or other requirements governing personal data
+                            collection, use, or disclosure that differ from applicable laws in the United Kingdom,
+                            then through your continued use of the Site, you are transferring your data to the
+                            United Kingdom, and you expressly consent to have your data transferred to and processed
+                            in the United Kingdom.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XV.) TERM AND TERMINATION</h2>
+                        <p>
+                            These Terms of Use shall remain in full force and effect while you use the Site.<br>
+                        </p>
+                        <p>
+                            <strong>
+                                WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF USE, WE RESERVE THE RIGHT TO,
+                                IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SITE
+                                AND THE MARKETPLACE OFFERINGS (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR
+                                ANY REASON OR FOR NO REASON, INCLUDING WITHOUT LIMITATION FOR BREACH OF ANY REPRESENTATION,
+                                WARRANTY, OR COVENANT CONTAINED IN THESE TERMS OF USE OR ANY OF ANY APPLICABLE LAW OR REGULATION.
+                                WE MAY TERMINATE YOUR USE OR PARTICIPATION IN THE SITE AND THE MARKETPLACE OFFERINGS OR DELETE
+                                YOUR ACCOUNT AND ANY CONTENT OR INFORMATION THAT YOU POSTED AT ANY TIME, WITHOUT WARNING,
+                                IN OUR SOLE DISCRETION.
+                            </strong>
+                        </p>
+                        <p>
+                            If we terminate or suspend your account for any reason, you are prohibited from registering and 
+                            creating a new account under your name, a fake or borrowed name, or the name of any third party, 
+                            even if you may be acting on behalf of the third party. In addition to terminating or suspending 
+                            your account, we reserve the right to take appropriate legal action, including without limitation 
+                            pursuing civil, criminal, and injunctive redress.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XVI.) MODIFICATIONS AND INTERRUPTIONS</h2>
+                        <p>
+                            We reserve the right to change, modify, or remove the contents of the Site at any time or for any 
+                            reason at our sole discretion without notice. However, we have no obligation to update any 
+                            information on our Site. We also reserve the right to modify or discontinue all or part of 
+                            the Marketplace Offerings without notice at any time. We will not be liable to you or any 
+                            third party for any modification, price change, suspension, or discontinuance of the Site or 
+                            the Marketplace Offerings.
+                        </p>
+                        <p>
+                            We cannot guarantee the Site and the Marketplace Offerings will be available at all times. 
+                            We may experience hardware, software, or other problems or need to perform maintenance 
+                            related to the Site, resulting in interruptions, delays, or errors. We reserve the right to 
+                            change, revise, update, suspend, discontinue, or otherwise modify the Site or the Marketplace 
+                            Offerings at any time or for any reason without notice to you. You agree that we have no 
+                            liability whatsoever for any loss, damage, or inconvenience caused by your inability to access 
+                            or use the Site or the Marketplace Offerings during any downtime or discontinuance of the Site 
+                            or the Marketplace Offerings. Nothing in these Terms of Use will be construed to obligate us to 
+                            maintain and support the Site or the Marketplace Offerings or to supply any corrections, updates, 
+                            or releases in connection therewith. 
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XVII.) GOVERNING LAW</h2>
+                        <p>
+                            These conditions are governed by and interpreted following the laws of the United Kingdom 
+                            and use of the United Nations Convention of Contracts for the International Sales of Goods is expressly excluded. 
+                            If your habitual residence is in the EU, and you are a consumer, you additionally possess the protection provided 
+                            to you by obligatory provisions of the law in your country to residence. N FITNESS LTD., and yourself both agree to submit 
+                            to the non-exclusive jurisdiction of the courts of Kent, which means that you may make a claim to defend your 
+                            consumer protection rights regarding to these Conditions of Use in the United Kingdom, or in the EU country in which you reside.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XVIII.) DISCLAIMER</h2>
+                        <p>
+                            <h5>THE SITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. 
+                            YOU AGREE THAT YOUR USE OF THE SITE SERVICES WILL BE AT YOUR SOLE RISK. 
+                            TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESSED OR IMPLIED, 
+                            IN CONNECTION WITH THE SITE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE 
+                            IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. 
+                            WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SITE'S 
+                            CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THIS SITE AND WE WILL ASSUME NO LIABILITY OR 
+                            RESPONSIBILITY FOR ANY 
+                            (1) ERRORS, MISTAKES, INACCURACIES OF CONTENT AND MATERIALS, 
+                            (2) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF THE SITE AND OUR PRODUCTS, 
+                            (3) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STOPPED THEREIN, 
+                            (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SITE,
+                            (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH THE SITE BY ANY THIRD PARTY, AND/OR 
+                            (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT AND MATERIALS OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS 
+                            A RESULT OF THE USE OF ANY CONTENT POSTED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SITE. 
+                            WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED 
+                            OR OFFERED BY A THIRD PARTY THROUGH THE SITE, ANY HYPERLINKED WEBSITE, OR ANY WEBSITE OR MOBILE APPLICATION 
+                            FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND WE WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE 
+                            FOR MONITORING ANY TRANSACTION BETWEEN YOU AND ANY THIRD-PARTY PROVIDERS OF PRODUCTS AND SERVICES. 
+                            AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE 
+                            YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.
+                            </h5>
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XIX.) LIMITATIONS OF LIABILITY</h2>
+                        <p>
+                            <h5>
+                                IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU RO ANY THIRD PARTY FOR 
+                                ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING 
+                                LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE AND THE 
+                                PRODUCTS, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. NOTWITHSTANDING ANYTHING 
+                                TO THE CONTRARY CONTAINED HEREIN, OUR LIABILITY TO YOU FOR ANY CAUSE WHATSOEVER AND REGARDLESS OF 
+                                THE FORM OF THE ACTION, WILL AT ALL TIMES BE LIMITED TO THE AMOUNT PAID, IF ANY, BY YOU TO US. 
+                                CERTAIN UK LAWS AND INTERNATIONAL LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE 
+                                EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE 
+                                DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MAY HAVE ADDITIONAL RIGHTS.
+                            </h5>
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XX.) INDEMNIFICATION</h2>
+                        <p>
+                            You agree to defend, indemnify, and hold us harmless, including our 
+                            subsidiaries, affiliates, and all of our respective officers, agents, 
+                            partners, and employees, from and against any loss, damage, liability, 
+                            claim, or demand, including reasonable attorneys' fees and expenses, 
+                            made by any third party due to or arising out of:
+                            <ol>
+                                <li>Use of the Site;</li><br>
+                                <li>Breach of these Terms of Use; </li><br>
+                                <li>Any breach of your representations and warranties set forth in these Terms of Use; </li><br>
+                                <li>Your violation of the rights of a third party, including but not limited to intellectual property rights;</li><br>
+                                <li>Any overt harmful act toward any other user of the Site with whom you connected via the Site. Notwithstanding the foregoing, 
+                                we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to 
+                                indemnify us, and you agree to cooperate, at your expense, without defense of such claims. We will use reasonable efforts to 
+                                notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.</li><br>
+                            </ol>
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XXI.) USER DATA</h2>
+                        <p>
+                            We will maintain certain data that you transmit to the Site for the purpose of managing the performance of the Site, 
+                            as well as data relating to your use of the Site. Although we perform regular routine backups of data, 
+                            you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Site. 
+                            You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right 
+                            of action against us arising from any such loss or corruption of such data. 
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XXII.) ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</h2>
+                        <p>
+                            Visiting the Site, sending us emails, and completing online forms constitute electronic communications. 
+                            You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and 
+                            other communications we provide to you electronically, via email and on the Site, satisfy any legal requirement that such 
+                            communication be in writing.
+                            <h5>
+                                YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, 
+                                POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SITE.
+                            </h5>
+                            You hereby waive any rights or requirements under any statues, regulations, rules, ordinances, or other laws in any 
+                            jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the 
+                            granting of credits by any means other than electronic means.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>XXIII.) MISCELLANEOUS</h2>
+                        <p>
+                            These Terms of Use and any policies or operating rules posted by us on the Site or in respect to the Site constitute the entire 
+                            agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Terms of Use 
+                            shall not operate as a waiver of such right or provision. These Terms of Use operate to the fullest extent permissible by law. 
+                            We may assign any or all our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, 
+                            delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Terms of Use 
+                            is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Terms of Use 
+                            and does not affect the validity and enforceability of any remaining provisions. There is no joint venture, partnership, employment, 
+                            or agency relationship created between you and us as a result of these Terms of Use or use of the Site. You agree that these Terms of 
+                            Use will not be construed against us by virtue of having drafted them. You hereby waive all defenses you may have based on the electronic 
+                            form of these Terms of Use and the lack of signing by the parties hereto to execute these Terms of Use. 
+                        </p>
+                    </li>
+                    <li>
+                        <h2>CONTACT US</h2>
+                        <p>
+                            In order to resolve a complaint regarding the Site or the products, or to receive further information regarding use of the Site, 
+                            please <a href="/contact-us" style="color: rgb(0,162,232);">contact us</a> at: <b>nfitness.business@gmail.com</b>
+                        </p>
+                    </li>
+                    <br><br><br>
+                    <span style="text-decoration: underline;">Last Updated by The N Fit Legal Team on Mar. 28, 2021</span>
+                </ul>
+            </div>
+
+
+            <!-- FOOTER !-->
+            <footer class="footer" style="background: rgb(241,241,241);">
+                <div class="main-menu">
+                    <li class="sub-main-menu"><a href="/terms-of-use" style="color: black;">Terms of Use</a></li>
+                    <li class="sub-main-menu"><a href="/privacy-policy" style="color: black;">Privacy Policy</a></li>
+                    <li class="sub-main-menu"><a href="/send-feedback" style="color: black;">Send Feedback</a></li>
+                    <li class="sub-main-menu"><a href="/our-mission" style="color: black;">Our Mission</a></li>
+                    <li class="sub-main-menu"><a href="/contact-us" style="color: black;">Contact Us</a></li>
+                    <li id="copyright" class="sub-main-menu" style="color: black;">Copyright &#169; 2021 N Fitness Technologies. All rights reserved.</li>
+                </div>
+            </footer>
+
+
+            <!-- TOP BUTTON !-->
+            <button onclick="gotop()" id="top-btn" title="Go to top">&#8593</button>
+
+
+        </div>
+
+
+        <!-- SCRIPTS !-->
+        <script language="javascript" type="text/javascript" src="../static/js/main.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/top-nav-search-submit.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/missing.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/top-btn.js"></script>
+
+
+        <script language="javascript" type="text/javascript" src="../static/js/search.js"></script>
+    </body>
+</html>

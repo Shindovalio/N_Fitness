@@ -1,0 +1,87 @@
+@media only screen and (orientation: landscape)
+{
+    .cookies-wrapper, .cookies-message
+    {
+        font-size: 2.5vh;
+        
+    }
+    .cookies-wrapper
+    {
+        width: 100%;
+        padding: 1%;
+    }
+    .cookies-message
+    {
+        margin-bottom: 2%;
+    }
+    .opts
+    {
+        justify-content: center;
+    }
+    .opt
+    {
+        border-radius: 1vh;
+        padding: 1%;
+        margin: 0 5%;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .cookies-wrapper, .cookies-message
+    {
+        font-size: 5vw;
+    }
+    .cookies-wrapper
+    {
+        width: 100%;
+        padding: 5%;
+    }
+    .cookies-message
+    {
+        margin-bottom: 5%;
+    }
+    .opts
+    {
+        justify-content: space-between;
+    }
+    .opt
+    {
+        border-radius: 5vw;
+        padding: 3%;
+    }
+}
+.cookies-wrapper
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(0,162,232);
+    color: white;
+    z-index: 999999999;
+}
+.cookies-message a
+{
+    color: blue;
+    transition: .3s;
+}
+.opts
+{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.opt
+{
+    cursor: pointer;
+    text-decoration: none;
+    background-color: white;
+    color: rgb(0,162,232);
+    transition: .3s;
+}
+.opt:hover,.cookies-message a:hover
+{
+    opacity: .7;
+}

@@ -1,0 +1,34 @@
+html, body, .wrapper
+{
+    height: 100%;
+}
+.wrapper
+{
+    background-color: rgb(0, 162, 232);
+    background-size: 100% 100%;
+}
+.footer
+{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.content
+{
+    color: white;
+    padding: 0 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 85%;
+}
+.content h1
+{
+    font-size: 7vh;
+}
+.content p
+{
+    font-size: 3vh;
+}

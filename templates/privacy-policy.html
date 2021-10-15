@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta property="og:image" content="../static/img/icon-square.png">
+        <meta name="description" content="By using our website, you agree to the N Fit privacy policy. If you disagree with any paragraph of our privacy policy, discontinue using our services">
+        <meta name="keywords" content="nfit privacy policy, privacy policy nfit">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Privacy Policy - N Fit</title>
+        <link rel="icon" href="../static/img/icon.png">
+        <link rel="stylesheet" type="text/css" href="../static/css/main-style.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/top-nav.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/footer.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/top-btn.css">
+        <style>
+            @media only screen and (orientation: landscape)
+            {
+                .content
+                {
+                    width: 75%;
+                    margin: auto;
+                }
+            }
+            @media only screen and (orientation: portrait)
+            {
+                .content
+                {
+                    text-align: left;
+                    width: 95%;
+                    margin: auto;
+                }
+                ul
+                {
+                    padding: 0;
+                }
+                h2
+                {
+                    font-size: 25px;
+                }
+                .main-menu
+                {
+                    margin: 0;
+                }
+            }
+            a
+            {
+                color: rgb(0,162,232);
+            }
+            a:hover
+            {
+                transition: .3s;
+                opacity: 0.7;
+            }
+            footer a:hover
+            {
+                transition: .3s;
+                opacity: 0.5;
+            }
+            #copyright:hover
+            {
+                color: black;
+            }
+            table
+            {
+                border-collapse: collapse;
+            }
+            table, tr, td
+            {
+                text-align: center;
+            }
+            .t-title
+            {
+                font-weight: bold;
+            }
+            td 
+            {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            tr:nth-child(even)
+            {
+                background-color: #dddddd;
+            }
+        </style>
+        {% if g.ip['user-id'] != 0 %}
+        <style>
+            .profile
+            {
+                background-image: url('../static/img/icons/signin-tr.png');
+            }
+        </style>
+        {% else %}
+        <style>
+            .profile
+            {
+                background-image: url('../static/img/icons/account-tr.png');
+            }
+        </style>
+        {% endif %}
+        {% if g.ip['cookies'] %}
+
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '389532615472007');
+            fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=389532615472007&ev=PageView&noscript=1"
+        /></noscript>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EN1TT6XH8F"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-EN1TT6XH8F');
+        </script>
+
+        {% endif %}
+    <!-- Search Style -->
+        <link rel="stylesheet" type="text/css" href="../static/css/search.css">
+        <style>
+            #ngun-classic
+            {
+                background-image: url('{{g.product["1"]["thumbnail"]}}');
+            }
+            #ngun-mini
+            {
+                background-image: url('{{g.product["2"]["thumbnail"]}}');
+            }
+            #ngun-pro
+            {
+                background-image: url('{{g.product["3"]["thumbnail"]}}');
+            }
+            #neck-massager
+            {
+                background-image: url('{{g.product["4"]["thumbnail"]}}');
+            }
+        </style>
+        <!-- End Search Style -->
+        <link rel="stylesheet" type="text/css" href="../static/css/cookies.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            {% if g.ip['cookies-message'] %}
+            <div class="cookies-wrapper">
+                <div class="cookies-message">
+                    We use cookies on our websites for a number of purposes, 
+                    including analytics, performance and website functionality. 
+                    <a href="/privacy-policy#cookies">Learn more about N Fit’s use of cookies.</a>
+                </div>
+                <div class="opts">
+                    <a class="opt" href="/reject?cookies=0&page=privacy_policy">Reject non-essential</a>
+                    <a class="opt" href="/reject?cookies=1&page=privacy_policy" onclick="hideCookies()">Accept all</a>
+                </div>
+            </div>
+            {% endif %}
+            <div class="dimcho"></div>
+
+
+            <!-- TOP NAVIGATION !-->
+            <nav class="top-nav">
+                <a href="/"><li id="logo" class="top-nav-items"></li></a>
+                <li class="top-nav-items text-items"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+                <li id="search" class="top-nav-items" onclick="opensearch()"></li>
+                <li class="top-nav-items search-field">
+                    <form onsubmit="return validateSearch()" class="search-formec">
+                        <input oninput="searchFunc(0)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                        <input type="submit" value="Submit" style="display: none;">
+                        <div class="search-box">
+                            {% for i in range(1,5) %}
+                            <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                                <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                                <div class="prod-text">
+                                    {{g.product[i|string]['name']}}
+                                    <br>
+                                    £ {{g.product[i|string]['total']}}
+                                    <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                                </div>
+                                
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </form>
+                </li>
+                <li id="bag" class="top-nav-items" onclick="opencart()">
+                    <aside class="triangle"></aside>
+                    {% if g.wishlist['count'] + g.bag['count'] != 0 %}
+                    <div class="bag-num">
+                        {{g.wishlist['count'] + g.bag['count']}}
+                    </div>
+                    {% endif %}
+                    
+                </li>
+            </nav>
+
+
+            <!-- MOBILE !-->
+            <nav class="top-nav-mobile">
+                <li id="linebar" class="top-nav-items" onclick="openmenu()"></li>
+                <a href="/"><li id="logo" class="top-nav-items"></li></a>
+                <li id="bag" class="top-nav-items" onclick="opencart()">
+                    {% if g.wishlist['count'] + g.bag['count'] != 0 %}
+                    <div class="bag-num">
+                        {{g.wishlist['count'] + g.bag['count']}}
+                    </div>
+                    {% endif %}
+                </li>
+            </nav>
+            <aside class="buttons-mobile">
+                <li class="top-nav-items search-field">
+                    <div class="search-img"></div>
+                    <div class="search-box">
+                        {% for i in range(1,5) %}
+                        <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                            <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                            <div class="prod-text">
+                                {{g.product[i|string]['name']}}
+                                <br>
+                                £ {{g.product[i|string]['total']}}
+                                <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                            </div>
+                            
+                        </a>
+                        {% endfor %}
+                    </div>
+                    <form onsubmit="return validateSearch()" class="search-formec">
+                        <input oninput="searchFunc(1)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                        <input type="submit" value="Submit" style="display: none;">
+                    </form>
+                </li>
+                <li class="top-nav-items text-items" style="border-top: none;"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+                <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+            </aside>
+
+            
+            <!-- CART !-->
+            <aside class="cart-menu">
+                {% if g.bag['count'] != 0 %}
+                <div class="cart-menu-items" id="your-bag">You have {{g.bag['count']}} 
+                    {% if g.bag['count'] == 1 %}
+                    item
+                    {% else %}
+                    items
+                    {% endif %}
+                    in your bag.</div>
+                {% else %}
+                <div class="cart-menu-items" id="your-bag">Your Bag is empty.</div>
+                {% endif %}
+                <div class="cart-menu-items"><a href="/bag">
+                    <div class="cart-img mini-b">
+                        {% if g.wishlist['count'] + g.bag['count'] != 0 and g.bag['count'] != 0 %}
+                        <div class="m-b">
+                            {{g.bag['count']}}
+                        </div>
+                        {% endif %}
+                    </div>Bag</a></div>
+                <div class="cart-menu-items"><a href="/wishlist">
+                    <div class="cart-img w-list">
+                        {% if g.wishlist['count'] + g.bag['count'] != 0 and g.wishlist['count'] != 0 %}
+                        <div class="w-l">
+                            {{g.wishlist['count']}}
+                        </div>
+                        {% endif %}
+                    </div>Wishlist</a></div>
+                <div class="cart-menu-items">
+                    <a href="/account">
+                        <div class="cart-img profile"></div>
+                        {% if g.ip['user-id'] != 0 %}
+                        {{g.user['first-name']}} {{g.user['last-name'][0]}}.
+                        {% else %}
+                        Account
+                        {% endif %}
+                    </a>
+                </div>
+                {% if g.ip['user-id'] != 0 %}
+                <div class="cart-menu-items"><a href="/sign-out"><div class="cart-img s-out"></div>Sign out</a></div>
+                {% else %}
+                <div class="cart-menu-items"><a href="/sign-in"><div class="cart-img s-in"></div>Sign in</a></div>
+                {% endif %}
+            </aside>
+            
+
+            <!-- MAIN !-->
+            <div class="content" style="font-size: 20px;">
+                <h1 style="text-align: center;">N Fit Website Privacy Policy</h1><hr>
+                <ul style="list-style-type:none; margin: 10% 0;">
+                    <li>
+                        <h2>I.) OVERVIEW</h2>
+                        <p>
+                            This Privacy Policy describes the policies of NFit United, 
+                            email: <b>nfitness.business@gmail.com</b> on the collection, 
+                            use and disclosure of your information that we collect when you use our 
+                            website (<a href="/">https://www.nfit.co.uk</a>) or (the “Service”). 
+                            By accessing or using the Service, you are consenting to the collection, 
+                            use and disclosure of your information in accordance with this Privacy Policy. 
+                            If you do not consent to the same, please do not access or use the Service. 
+                        </p>
+                        <p>
+                            We may modify this Privacy Policy at any time without any prior notice to you and 
+                            will post the revised Privacy Policy on the Service. The revised Policy will be 
+                            effective 180 days from when the revised Policy is posted in the Service and your 
+                            continued access or use of the Service after such time will constitute your acceptance 
+                            of the revised Privacy Policy. We therefore recommend that you periodically review this page. 
+                        </p>
+                    </li>
+                    <li>
+                        <h2>II.) HOW WE USE YOUR INFORMATION</h2>
+                        <p>
+                            We will use the information that we collect about you for the following purposes:
+                            <ul>
+                                <li>Marketing/ Promotional</li>
+                                <li>Creating user account</li>
+                                <li>Testimonials</li>
+                                <li>Customer feedback collection</li>
+                                <li>Processing payment</li>
+                                <li>Targeted advertising</li>
+                                <li>Manage customer order</li>
+                                <li>Site protection</li>
+                                <li>Manage user account</li>                              
+                            </ul>
+                        </p>
+                        <p>
+                            If we want to use your information for any other purpose, we will ask you for consent and 
+                            will use your information only on receiving your consent and then, only for the purpose(s) 
+                            for which grant consent unless we are required to do otherwise by law.
+                        </p>
+                    </li>
+                    <li>
+                        <h2>III.) YOUR RIGHTS</h2>
+                        <p>
+                            Depending on the law that applies, you may have a right to access and rectify or 
+                            erase your personal data or receive a copy of your personal data, restrict or object 
+                            to the active processing of your data, ask us to share (port) your personal information 
+                            to another entity, withdraw any consent you provided to us to process your data, a right 
+                            to lodge a complaint with a statutory authority and such other rights as may be relevant 
+                            under applicable laws. To exercise these rights, you can write to us at 
+                            <b>nfitness.business@gmail.com</b>. We will respond to your request in accordance with 
+                            applicable law.
+                        </p>
+                        <p>
+                            You may opt-out of direct marketing communications or the profiling we carry out for marketing purposes 
+                            by writing to us at <b>nfitness.business@gmail.com</b>.
+                        </p>
+                        <p>
+                            Do note that if you do not allow us to collect or process the required personal information or withdraw 
+                            the consent to process the same for the required purposes, you may not be able to access or use the 
+                            services for which your information was sought. 
+                        </p>
+                    </li>
+                    <li id="cookies">
+                        <h2>IV.) COOKIE POLICY</h2>
+                        <p>
+                            This Cookie Policy explains how <u><b>N FITNESS TECHNOLOGIES LTD</b></u> ("Company", "we", "us", and "our") uses cookies and similar
+                            technologies to recognize when you visit our websites at <a href="/" style="color: rgb(0,162,232);">https://nfit.co.uk</a>,
+                            ("Websites"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.
+                        </p>
+                        <p>
+                            In some cases we may use cookies to collect personal information, or that becomes personal information if we combine it with other
+                            information.
+                        </p>
+                        <h3>What are cookies?</h3>
+                        <p>
+                            Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by 
+                            website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.
+                        </p>
+                        <p>
+                            Cookies set by the website owner (in this case, <u><b>N FITNESS TECHNOLOGIES LTD</b></u>) are called "first party cookies". Cookies set by parties other than the website 
+                            owner are called "third party cookies". 
+                            Third party cookies enable third party features or functionality to be provided on or through the website 
+                            (e.g. like advertising, interactive content and analytics). The parties that set these third party cookies can recognize your 
+                            computer both when it visits the website in question and also when it visits certain other websites.
+                        </p>
+                        <h3>Why do we use cookies?</h3>
+                        <p>
+                            We use first party and third party cookies for several reasons. Some cookies are required for technical reasons in order for our 
+                            Websites to operate, and we refer to these as "essential" or "strictly necessary" cookies. 
+                            Other cookies also enable us to track and target the interests of our users to enhance the experience on our Online Properties. 
+                            Third parties serve cookies through our Websites for advertising, analytics and other purposes. This is described in more detail below.
+                        </p>
+                        <p>
+                            The specific types of first and third party cookies served through our Websites and the purposes they perform are described below 
+                            (please note that the specific cookies served may vary depending on the specific Online Properties you visit):
+                        </p>
+                        <h3>How can I control cookies?</h3>
+                        <p>
+                            You have the right to decide whether to accept or reject cookies. You can exercise your cookie rights by setting your preferences 
+                            in the Cookie Consent Manager. The Cookie Consent Manager allows you to select which categories of cookies you accept or reject. 
+                            Essential cookies cannot be rejected as they are strictly necessary to provide you with services.
+                        </p>
+                        <p>
+                            The Cookie Consent Manager can be found in the notification banner and on our website. If you choose to reject cookies, you may still 
+                            use our website though your access to some functionality and areas of our website may be restricted. You may also set or amend your web 
+                            browser controls to accept or refuse cookies. As the means by which you can refuse cookies through your web browser controls vary from 
+                            browser-to-browser, you should visit your browser's help menu for more information.
+                        </p>
+                        <p>
+                            The specific types of first and third party cookies served through our Websites and the purposes they perform are described in the table below 
+                            (please note that the specific cookies served may vary depending on the specific Online Properties you visit):
+                        </p>
+                        <h3><u>Essential website cookies:</u></h3>
+                        <table style="width: 100%;">
+                            <tr>
+                                <td class="t-title">Name</td>
+                                <td>session</td>
+                            </tr>
+                            <tr>
+                                <td class="t-title">Country</td>
+                                <td>United Kingdom</td>
+                            </tr>
+                            <tr>
+                                <td class="t-title">Purpose</td>
+                                <td>Used for keeping users logged in during their usage of the website. Also used for tracking changes in account details.</td>
+                            </tr>
+                            <tr>
+                                <td class="t-title">Provider</td>
+                                <td><a href="/">https://nfit.co.uk</a></td>
+                            </tr>
+                            <tr>
+                                <td class="t-title">Expires</td>
+                                <td>When the browsing session ends</td>
+                            </tr>
+                        </table>
+                        <h3>What about other tracking technologies, like web beacons?</h3>
+                        <p>
+                            Cookies are not the only way to recognize or track visitors to a website. We may use other, similar technologies from time to time, 
+                            like web beacons (sometimes called "tracking pixels" or "clear gifs"). These are tiny graphics files that contain a unique identifier 
+                            that enable us to recognize when someone has visited our Websites the traffic patterns of users from one page within a website to another, 
+                            to deliver or communicate with cookies, to understand whether you have come to the website from an online advertisement displayed on a 
+                            third-party website, to improve site performance, and to measure the success of e-mail marketing campaigns. In many instances, these technologies 
+                            are reliant on cookies to function properly, and so declining cookies will impair their functioning.
+                        </p>
+                        <h3>Do you serve targeted advertising?</h3>
+                        <p>
+                            Third parties may serve cookies on your computer or mobile device to serve advertising through our Websites. 
+                            These companies may use information about your visits to this and other websites in order to provide relevant advertisements about 
+                            goods and services that you may be interested in. They may also employ technology that is used to measure the effectiveness of 
+                            advertisements. This can be accomplished by them using cookies or web beacons to collect information about your visits to this and other 
+                            sites in order to provide relevant advertisements about goods and services of potential interest to you. The information collected 
+                            through this process does not enable us or them to identify your name, contact details or other details that directly identify you 
+                            unless you choose to provide these.
+                        </p>
+                        <h3>How often will you update this Cookie Policy?</h3>
+                        <p>
+                            We may update this Cookie Policy from time to time in order to reflect, for example, changes to the cookies we use or for 
+                            other operational, legal or regulatory reasons. Please therefore re-visit this Cookie 
+                            Policy regularly to stay informed about our use of cookies and related technologies.
+                        </p>
+                        <h3>Where can I get further information?</h3>
+                        <p>
+                            If you have any questions about our use of cookies or other technologies, please email us at <b>nfitness.business@gmail.com</b>.
+                        </p>
+                    </li>
+                    <li id="return-policy">
+                        <h2>V.) RETURN POLICY</h2>
+                        <p>
+                            <p>We have a 30-day return policy, which means you have 30 days after receiving your item to request a return.</p>
+                            <p>To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, 
+                            with tags, and in its original packaging. You will also need the receipt or proof of purchase.</p>
+                            <p>To start a return, you can contact us at nfitness.business@gmail.com. 
+                            If your return is accepted, we will send you a return shipping label, as well as instructions on how and where to 
+                            send your package. Items sent back to us without first requesting a return will not be accepted.
+                            You can always contact us for any return question at nfitness.business@gmail.com</p>
+                            <h3>Damages and Issues</h3>
+                            <p>Please inspect your order upon reception and contact us immediately if the item is defective, 
+                            damaged or if you receive the wrong item, so that we can evaluate the issue and make it right.</p>
+                            <h3>Exceptions / Non-returnable items</h3>
+                            <p>Unfortunately, we cannot accept returns on sale items, gift cards or discounted items.</p>
+                            <h3>Exchanges</h3>
+                            <p>The fastest way to ensure you get what you want is to return the item you have, and once the return is accepted, 
+                            make a separate purchase for the new item.</p>
+                            <h3>Refunds</h3>
+                            <p>We will notify you once we have received and inspected your return, and let you know if the refund was approved or not. 
+                            If approved, you will be automatically refunded on your original payment method. Please remember it can take some time 
+                            for your bank or credit card company to process and post the refund too.</p>
+                        </p>
+                    </li>
+                    <li>
+                        <h2>V.) SECURITY</h2>
+                        <p>
+                            The security of your information is important to us and we will use reasonable security measures to 
+                            prevent the loss, misuse or unauthorized alteration of your information under our control. However, 
+                            given the inherent risks, we cannot guarantee absolute security and consequently, we cannot ensure 
+                            or warrant the security of any information you transmit to us and you do so at your own risk. 
+                        </p>
+                    </li>
+                    <li>
+                        <h2>VI.) GRIEVANCE / DATA PROTECTION OFFICER</h2>
+                        <p>
+                            If you have any queries or concerns about the processing of your information that is available with us, 
+                            you may email our Grievance Officer at NFit, Swanscombe, 32, email: <b>nfitness.business@gmail.com</b>. 
+                            We will address your concerns in accordance with applicable law. 
+                        </p>
+                    </li>
+                    <br><br><br>
+                    <span style="text-decoration: underline;">Last Updated by The N Fit Legal Team on Mar. 28, 2021</span>
+                </ul>
+            </div>
+
+
+            <!-- FOOTER !-->
+            <footer class="footer" style="background: rgb(241,241,241);">
+                <div class="main-menu" style="color: black;">
+                    <li class="sub-main-menu"><a href="/terms-of-use" style="color: black;">Terms of Use</a></li>
+                    <li class="sub-main-menu"><a href="/privacy-policy" style="color: black;">Privacy Policy</a></li>
+                    <li class="sub-main-menu"><a href="/send-feedback" style="color: black;">Send Feedback</a></li>
+                    <li class="sub-main-menu"><a href="/our-mission" style="color: black;">Our Mission</a></li>
+                    <li class="sub-main-menu"><a href="/contact-us" style="color: black;">Contact Us</a></li>
+                    <li id="copyright" class="sub-main-menu">Copyright &#169; 2021 N Fitness Technologies. All rights reserved.</li>
+                </div>
+            </footer>
+
+
+            <!-- TOP BUTTON !-->
+            <button onclick="gotop()" id="top-btn" title="Go to top">&#8593</button>
+
+
+        </div>
+
+        <!-- SCRIPTS !-->
+        <script language="javascript" type="text/javascript" src="../static/js/main.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/top-nav-search-submit.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/missing.js"></script>
+        <script language="javascript" type="text/javascript" src="../static/js/top-btn.js"></script>
+
+
+        <script language="javascript" type="text/javascript" src="../static/js/search.js"></script>
+    </body>
+</html>

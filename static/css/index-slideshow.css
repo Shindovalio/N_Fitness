@@ -1,0 +1,107 @@
+.slider
+{
+    position: relative;
+    width: 90%;
+}
+.slider-wrapper
+{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.slideshow
+{
+    width: 100%;
+    display: flex;
+    position: relative;
+    transition: .5s;
+    cursor: grab;
+}
+.sub-slider
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header
+{
+    width: 80%;
+    background-image: linear-gradient(to right, rgba(0, 162, 232, 1), aqua);
+    color:white;
+    font-weight: bold;
+    text-align: center;
+}
+.text
+{
+    width: 80%;
+    height: 80%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.prev, .next
+{
+    color: white;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-image: linear-gradient(to right, rgba(0, 162, 232, 1), aqua);
+    top: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.prev
+{
+    display: none;
+}
+.next
+{
+    right: 0;
+}
+.prev:active, .next:active
+{
+	transform: scale(.9);
+}
+@media only screen and (orientation: landscape)
+{
+    .header
+    {
+        font-size: 4.5vh;
+        padding: 1%;
+        border-radius: 1vh;
+    }
+    .text
+    {
+        font-size: 3.5vh;
+    }
+    .prev, .next
+    {
+        height: 7vh;
+        width: 7vh;
+        font-size: 4vh;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .header
+    {
+        font-size: 6vw;
+        padding: 1vw;
+        border-radius: 1vw;
+    }
+    .text
+    {
+        font-size: 5vw;
+    }
+    .prev, .next
+    {
+        height: 7vw;
+        width: 7vw;
+        font-size: 4vw;
+    }
+}

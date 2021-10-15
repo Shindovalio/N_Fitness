@@ -1,0 +1,234 @@
+@media only screen and (orientation: landscape)
+{
+    label
+    {
+        font-size: 2.5vh; /* Responsive */
+        width: 100%;
+        margin: 2% 0;
+    }
+    .plug-type-wrapper
+    {
+        height: 7vh; /* Responsive */
+        width: 100%;
+    }
+    .plug-type
+    {
+        font-size: 2.5vh; /* Responsive */
+        height: 100%;
+        width: 100%;
+        background: rgb(241, 241, 241);
+        padding-left: 3%;
+        background-image: url("../img/icons/down.png");
+        background-size: 5vh 5vh;
+        background-repeat: no-repeat;
+        background-position-x: 98%;
+        background-position-y: 50%;
+        cursor: pointer;
+    }
+    .quantity-wrapper
+    {
+        height: 7vh; /* Responsive */
+        width: 100%;
+    }
+    .quantity
+    {
+        font-size: 2.5vh; /* Responsive */
+        height: 100%;
+        width: 90%;
+        text-align: center;
+        background: rgb(241, 241, 241);
+        padding: 0;
+    }
+    .minus, .plus
+    {
+        height: 7vh; /* Responsive */
+        width: 7vh; /* Responsive */
+        font-size: 5vh; /* Responsive */
+        background: rgb(241, 241, 241);
+        padding: 0;
+        cursor: pointer;
+    }
+    .add, .buy
+    {
+        font-size: 2.5vh; /* Responsive */
+        font-weight: bold;
+        width: 100%;
+        padding: 3%;
+        cursor: pointer;
+    }
+    .add
+    {
+        background-image: linear-gradient(to right, rgba(0, 162, 232, 1), aqua);
+        color: white;
+        margin-top: 3%;
+        transition: .3s;
+    }
+    #paypal-button-container, .cards
+    {
+        width: 100%;
+        margin-top: 3%;
+        font-size: 2.5vh;
+    }
+    .cards
+    {
+        height: 9vh;
+    }
+    .buy
+    {
+        color: white;
+        margin-top: 3%;
+        transition: .5s;
+    }
+    .buy:hover
+    {
+        transition: .3s;
+        opacity: .6;
+    }
+    .add:hover
+    {
+        opacity: .6;
+        transition: .3s;
+    }
+    .add-img
+    {
+        height: 3vh; /* Responsive */
+        width: 3vh; /* Responsive */
+        margin-right: 2%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    label
+    {
+        font-size: 5vw; /* Responsive */
+        width: 100%;
+        margin: 4% 0;
+    }
+    .plug-type-wrapper
+    {
+        height: 12vw; /* Responsive */
+        width: 100%;
+    }
+    .plug-type
+    {
+        font-size: 5vw; /* Responsive */
+        height: 100%;
+        width: 100%;
+        background: rgb(241, 241, 241);
+        padding-left: 3%;
+        background-image: url("../img/icons/down.png");
+        background-size: 7vw 7vw;
+        background-repeat: no-repeat;
+        background-position-x: 98%;
+        background-position-y: 50%;
+    }
+    .quantity-wrapper
+    {
+        height: 12vw; /* Responsive */
+        width: 100%;
+    }
+    .quantity
+    {
+        font-size: 5vw; /* Responsive */
+        height: 100%;
+        width: 72%;
+        text-align: center;
+        background: rgb(241, 241, 241);
+        padding: 0;
+    }
+    .minus, .plus
+    {
+        height: 12vw; /* Responsive */
+        width: 12vw; /* Responsive */
+        font-size: 8vw; /* Responsive */
+        background: rgb(241, 241, 241);
+        padding: 0;
+        cursor: pointer;
+    }
+    .add, .buy
+    {
+        font-size: 5vw; /* Responsive */
+        font-weight: bold;
+        width: 100%;
+        padding: 4%;
+        cursor: pointer;
+    }
+    .add
+    {
+        background-image: linear-gradient(to right, rgba(0, 162, 232, 1), aqua);
+        color: white;
+        margin-top: 10%;
+    }
+    .buy
+    {
+        margin-top: 5%;
+    }
+    #paypal-button-container, .cards
+    {
+        width: 100%;
+        margin-top: 5%;
+        font-size: 5vw;
+    }
+    .cards
+    {
+        height: 17vw;
+    }
+    .add-img
+    {
+        height: 6vw; /* Responsive */
+        width: 6vw; /* Responsive */
+        margin-right: 2%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+form, .quantity-wrapper, .minus, .plus, .add, .buy
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buy
+{
+    text-decoration: none;
+}
+form
+{
+    width: 90%;
+    flex-direction: column;
+}
+.plug-type, option, .quantity, .minus, .plus, .add
+{
+    outline: none;
+    border: none;
+}
+select
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+option
+{
+    background: white;
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] 
+{
+    -moz-appearance: textfield;
+}
+.cards
+{
+    background-image: url('../img/cards.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

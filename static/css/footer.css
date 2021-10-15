@@ -1,0 +1,186 @@
+.footer
+{
+    background-image: linear-gradient(to bottom right, aqua, rgb(207, 0, 207));
+}
+.main-menu
+{
+    color: aqua;
+}
+.sub-main-menu
+{
+    transition: 0.3s;
+    border-right: 1px solid white;
+    list-style: none;
+    text-align: center;
+    padding: 0 1%;
+}
+.sub-main-menu a
+{
+    transition: 0.3s;
+    text-decoration: none;
+    color: aqua;
+}
+#copyright
+{
+    border-right: none;
+}
+.disclaimer
+{
+    color: white;
+    text-align: center;
+}
+#copyright, .disclaimer
+{
+    user-select: text;
+}
+.main-menu, .disclaimer
+{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub-social-media
+{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.perks
+{
+    display: flex;
+    width: 100%;
+    background: rgb(241, 241, 241);
+    justify-content: space-between;
+}
+.sub-perks
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.perks-icons, .social
+{
+    background-size: 100% 100%;
+}
+.contact-infor div
+{
+    text-align: center;
+}
+@media only screen and (orientation: landscape)
+{
+    .footer
+    {
+        padding: 1% 0;
+    }
+    .main-menu, .disclaimer, .contact-infor
+    {
+        font-size: 2.5vh;
+        padding: 1% 5%;
+    }
+    .sub-perks, .social-media
+    {
+        font-size: 4vh;
+    }
+    .sub-social-media
+    {
+        padding: 1%;
+        font-size: 4vh;
+    }
+    .social, .perks-icons
+    {
+        height: 6vh;
+        width: 6vh;
+    }
+    .sub-main-menu a:hover
+    {
+        transition: 0.3s;
+        color: white;
+        cursor: pointer;
+    }
+    #copyright:hover
+    {
+        color: aqua;
+        cursor: auto;
+    }
+    .perks
+    {
+        justify-content: space-around;
+        align-items: center;
+    }
+    .sub-perks
+    {
+        margin: 3vh 0;
+    }
+    .perks-icons
+    {
+        margin-right: 3vh;
+    }
+    .media-icons
+    {
+        margin: 0 .5%;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .footer
+    {
+        padding: 5% 0;
+    }
+    .main-menu, .contact-infor
+    {
+        font-size: 5vw;
+        margin: 5% 0;
+        display: block;
+    }
+    .sub-main-menu
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid white;
+        padding: 2%;
+    }
+    .disclaimer
+    {
+        font-size: 5vw;
+        padding: 0 5% 5% 5%;
+        text-align: center;
+    }
+    .sub-perks
+    {
+        font-size: 7vw;
+    }
+    .social, .perks-icons
+    {
+        height: 12vw;
+        width: 12vw;
+    }
+    .social-media
+    {
+        font-size: 7vw;
+        margin: 5% 0;
+    }
+    .sub-social-media
+    {
+        padding: 2%;
+        font-size: 7vw;
+    }
+    .media-icons
+    {
+        margin: 0 2%;
+    }
+    .perks
+    {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .sub-perks
+    {
+        margin: 5vw 0;
+    }
+    .perks-icons
+    {
+        margin-right: 3vw;
+    }
+}

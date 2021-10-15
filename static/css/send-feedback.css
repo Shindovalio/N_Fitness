@@ -1,0 +1,271 @@
+@media only screen and (orientation: landscape)
+{
+    .input, .button
+    {
+        border-radius: 1vh;
+    }
+    .form
+    {
+        width: 100vh;
+        margin-bottom: 5vh;
+    }
+    .legend
+    {
+        width: 100%;
+        font-size: 5vh;
+        text-align: center;
+    }
+    #demo
+    {
+        font-size: 5vh;
+    }
+    .input, .button, .signup, .sign-in-instead
+    {
+        font-size: 3vh;
+    }
+    .button:hover
+    {
+        transition: .5s;
+        opacity: .5;
+    }
+    .signup:hover
+    {
+        color: white;
+        transition: .5s;
+        background: rgba(0, 162, 232, 1);
+    }
+    .forgot-pass
+    {
+        font-size: 4vh;
+        margin: 5% 0;
+    }
+    .email-missing, .password-missing, .password2-missing, .fname-missing, .lname-missing, .something-missing
+    {
+        font-size: 2vh;
+    }
+    .names, .passwords
+    {
+        flex-direction: row;
+    }
+    .names input, .passwords input
+    {
+        width: 45%;
+    }
+    .sub
+    {
+        width: 45%;
+    }
+    .input
+    {
+        padding: 3vh 5vh;
+        margin: 2vh 0;
+    }
+    .legend
+    {
+        padding: 3vh 5vh;
+        margin: 2vh 0;
+    }
+    .fname-missing, .lname-missing, .password-missing, .password2-missing, .email-missing, .something-missing
+    {
+        margin-left: 5vh;
+    }
+    .check
+    {
+        font-size: 2vh;
+        margin: 2% 0;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .input, .button
+    {
+        border-radius: 5vw;
+    }
+    .form
+    {
+        width: 90vw;
+        margin: 15vw 0;
+    }
+    .legend
+    {
+        width: 100%;
+        font-size: 6vw;
+        text-align: center;
+        padding: 5%;
+    }
+    #demo
+    {
+        font-size: 6vw;
+    }
+    .input, .button, .signup, .sign-in-instead
+    {
+        font-size: 4vw;
+    }
+    .forgot-pass
+    {
+        font-size: 3vw;
+    }
+    .email-missing, .password-missing, .password2-missing, .fname-missing, .lname-missing
+    {
+        font-size: 3vw;
+    }
+    .names, .passwords
+    {
+        flex-direction: column;
+    }
+    .sub
+    {
+        width: 100%;
+    }
+    .input
+    {
+        padding: 3vw 5vw;
+        margin: 3vw 0;
+    }
+    .fname-missing, .lname-missing, .password-missing, .password2-missing, .email-missing
+    {
+        margin-left: 5vw;
+    }
+    .check
+    {
+        font-size: 5vw;
+        margin-bottom: 10%;
+    }
+}
+.content, form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    outline: none;
+}
+.input, .signup
+{
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.input:focus
+{
+    border:1px solid rgba(0, 162, 232, 1) !important;
+    background: rgb(241, 241, 241) !important;
+}
+.input
+{
+    background: rgb(241, 241, 241);
+    border: 1px solid rgba(0, 162, 232, 0);
+}
+.button
+{
+    transition: .5s;
+    color: white;
+    cursor: pointer;
+    background: rgba(0, 162, 232, 1);
+    outline: none;
+    border: none;
+    width: 45%;
+    padding: 3% 5%;
+    margin: 3% 0;
+}
+.signup
+{
+    text-decoration: none;
+    transition: .5s;
+    cursor: pointer;
+    text-align: center;
+    color:rgba(0, 162, 232, 1);
+    border: 3px solid rgba(0, 162, 232, 1);
+}
+.forgot-pass
+{
+    text-align: center;
+    color:gray;
+}
+.fname-missing, .lname-missing, .password-missing, .password2-missing, .email-missing, .feedback-missing, .something-missing
+{
+    width: 100%;
+    color: red;
+    text-align: left;
+    opacity: 0;
+}
+.names, .passwords, .emails
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.emails
+{
+    flex-direction: column;
+}
+.sub
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.sub input
+{
+    width: 100%;
+}
+.butts
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.sign-in-instead
+{
+    width: 45%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    transition: .3s;
+}
+.sign-in-instead a
+{
+    text-decoration: none;
+    color:rgba(0, 162, 232, 1);
+    transition: .3s;
+}
+.sign-in-instead a:hover
+{
+    text-decoration: underline;
+    transition: .3s;
+}
+.check
+{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.check a
+{
+    color:rgba(0, 162, 232, 1);
+}
+.feedbacks
+{
+    width: 100%;
+}
+#feedback
+{
+    width: 100%;
+}
+#demo
+{
+    cursor: pointer;
+    color: rgb(0,162,232);
+}
+.button
+{
+    background-size: 10% 40%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}

@@ -1,0 +1,128 @@
+@media only screen and (orientation: landscape)
+{
+    .slider
+    {
+        position: relative;
+        margin: auto;
+        height: 65vh;
+        width: 65vh;
+        border-radius: 1vh;
+    }
+    .sub-thumbs
+    {
+        height: 15vh;
+        width: 15vh;
+        margin: 0 1vh;
+        transition: .3s;
+        background-size: 100% 100%;
+        background-position-x: center;
+        background-position-y: center;
+        border-radius: 1vh;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .slider
+    {
+        position: relative;
+        margin: auto;
+        height: 90vw;
+        width: 90vw;
+        border-radius: 5vw;
+    }
+    .thumbnails
+    {
+        justify-content: center;
+        align-items: center;
+    }
+    .sub-thumbs
+    {
+        height: 14vw;
+        width: 14vw;
+        margin: 0 1vw;
+        transition: .3s;
+        background-size: 100% 100%;
+        background-position-x: center;
+        background-position-y: center;
+        border-radius: 5vw;
+    }
+}
+@media only screen and (max-width: 1367px) and (orientation: landscape)
+{
+    .slider
+    {
+        position: relative;
+        margin: auto;
+        height: 65vh;
+        width: 65vh;
+        border-radius: 1vh;
+    }
+    .sub-thumbs
+    {
+        height: 10vh;
+        width: 10vh;
+        transition: .3s;
+        background-size: 100% 100%;
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+@media only screen and (max-width: 1025px) and (orientation: landscape)
+{
+    .slider
+    {
+        position: relative;
+        margin: auto;
+        height: 60vh;
+        width: 60vh;
+        border-radius: 1vh;
+    }
+    .sub-thumbs
+    {
+        height: 10vh;
+        width: 10vh;
+        transition: .3s;
+        background-size: 100% 100%;
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+.slider
+{
+    margin-bottom: 5%;
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.slideshow
+{
+    height: 100%;
+    width: 600%;
+    display: flex;
+    position: relative;
+    transition: .5s;
+    cursor: grab;
+}
+.sub-slider
+{
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+}
+.thumb-wrapper
+{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.thumbnails
+{
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    transition: 1s;
+}
+.sub-thumbs
+{
+    transition: 1s;
+}

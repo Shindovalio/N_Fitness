@@ -1,0 +1,130 @@
+@media only screen and (orientation: landscape)
+{
+    .main-content
+    {
+        height: 100vh;
+        background: url("../img/background/wallpaper.jpg");
+        justify-content: center;
+    }
+    .big-wrapper
+    {
+        justify-content: center;
+        align-items: center;
+    }
+    .the-future
+    {
+        text-align: center;
+        font-size: 10vh;
+        width: 35%;
+    }
+    .ready
+    {
+        padding: 1% 0;
+        text-align: center;
+        font-size: 3vh;
+        width: 35%;
+    }
+    .shop-now
+    {
+        background-image: linear-gradient(to right, rgba(0, 162, 232, 1), aqua);
+        font-size: 5vh;
+        padding: 2vh 4vh;
+        border-radius: 1vh;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .main-content
+    {
+        height: 100vh;
+        background: url("../img/background/wallpaper2.jpg");
+        justify-content: space-evenly;
+        padding-top: 15vw;
+    }
+    .big-wrapper
+    {
+        justify-content: center;
+        align-items: center;
+    }
+    .the-future
+    {
+        text-align: center;
+        font-size: 15vw;
+        width: 70%;
+    }
+    .ready-wrapper
+    {
+        margin-top: 1%;
+    }
+    .ready
+    {
+        padding: 3% 0;
+        text-align: center;
+        width: 70%;
+        font-size: 7vw;
+    }
+    .shop-now
+    {
+        background-image: linear-gradient(to right, rgba(0, 162, 232, 1), aqua);
+        font-size: 10vw;
+        padding: 5%;
+        border-radius: 1vw;
+    }
+}
+.main-content
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-size: 100% 100%;
+}
+.big-wrapper
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.the-future-wrapper, .ready-wrapper, .shop-now-wrapper
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.the-future
+{
+    font-family: 'Norwester', arial;
+    color: white;
+}
+.ready
+{
+    font-weight: bold;
+    font-family: 'Glacial';
+    background: white;
+    color: rgba(0, 162, 232, 1);
+    margin: 1% 0;
+}
+.big-wrapper, .shop-now-wrapper
+{
+    margin: 5% 0;
+}
+.shop-now-wrapper a
+{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: block; /* important */
+}
+.shop-now-wrapper a:hover
+{
+    color:rgba(0, 162, 232, 1);
+}
+.shop-now
+{
+    transition: 0.5s;
+}
+.shop-now:hover
+{
+    background: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}

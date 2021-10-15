@@ -1,0 +1,204 @@
+@media only screen and (orientation: landscape)
+{
+    .nfo, .remove
+    {
+        padding: 10%;
+    }
+    .tit
+    {
+        font-size: 5vh;
+        margin: 3% 0;
+    }
+    .title
+    {
+        border-radius: 10vh;
+        width: 40%;
+        padding: 1%;
+    }
+    .product-container
+    {
+        border: .1vh solid rgb(241,241,241);
+        border-radius: 1vh;
+    }
+    .pic
+    {
+        height: 40vh;
+        width: 40vh;
+    }
+    .name
+    {
+        font-size: 4vh;
+        width: 30%;
+    }
+    .price
+    {
+        font-size: 3vh;
+    }
+    .butt-wrapper
+    {
+        width: 10%;
+    }
+    .nfo, .remove
+    {
+        border: .1vh solid rgb(0,162,232);
+        border-radius: 1vh;
+        font-size: 2.5vh;
+    }
+    .add-now
+    {
+        font-size: 4vh;
+        padding: 1%;
+        margin-bottom: 5%;
+        border: .1vh solid rgb(0,162,232);
+        border-radius: 1vh;
+    }
+    .heart
+    {
+        height: 30vh;
+        width: 35vh;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .nfo, .remove
+    {
+        padding: 5%;
+    }
+    .tit
+    {
+        font-size: 10vw;
+        margin: 10% 0;
+    }
+    .title
+    {
+        width: 100%;
+        padding: 5%;
+    }
+    .product-container
+    {
+        flex-direction: column;
+        border: .5vw solid rgb(241,241,241);
+        border-radius: 5vw;
+    }
+    .pic
+    {
+        height: 90vw;
+        width: 90vw;
+    }
+    .name
+    {
+        font-size: 6vw;
+        width: 90%;
+        text-align: center;
+        margin: 5% 0;
+    }
+    .price
+    {
+        font-size: 6vw;
+        margin: 5% 0;
+    }
+    .butt-wrapper
+    {
+        width: 80%;
+    }
+    .nfo, .remove
+    {
+        border: .5vw solid rgb(0,162,232);
+        border-radius: 5vw;
+        font-size: 6vw;
+    }
+    .add-now
+    {
+        font-size: 7vw;
+        padding: 5%;
+        margin-bottom: 10%;
+        border: .5vw solid rgb(0,162,232);
+        border-radius: 5vw;
+    }
+    .heart
+    {
+        height: 30vw;
+        width: 35vw;
+    }
+}
+.cont
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.tit
+{
+    text-align: center;
+}
+.title
+{
+    background-color: rgb(241,241,241);
+}
+.product-container
+{
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2% auto;
+    transition: .3s;
+    padding: 0 1%;
+}
+.name, .pic
+{
+    transition: .3s;
+}
+.name:hover, .pic:hover
+{
+    opacity: .5;
+    transition: .3s;
+}
+.pic
+{
+    background-size: 100% 100%;
+}
+.name
+{
+    text-decoration: none;
+    color: black;
+}
+.butt-wrapper a
+{
+    text-decoration: none;
+}
+.nfo, .remove
+{
+    color: rgb(0,162,232);
+    margin: 10% 0;
+    text-align: center;
+    transition: .3s;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nfo:hover, .remove:hover
+{
+    transition: .3s;
+    color: white;
+    background-color: rgb(0,162,232);
+}
+.add-now
+{
+    text-decoration: none;
+    color: rgb(0,162,232);
+    transition: .3s;
+}
+.add-now:hover
+{
+    background: rgb(0,162,232);
+    color: white;
+    transition: .3s;
+}
+.heart
+{
+    background-size: 100% 100%;
+}

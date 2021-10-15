@@ -1,0 +1,214 @@
+@media only screen and (orientation: landscape)
+{
+    *
+    {
+        font-size: 3vh;
+    }
+    h1
+    {
+        width: 60%;
+        font-size: 10vh;
+    }
+    .tick
+    {
+        height: 20vh;
+        width: 20vh;
+    }
+    .faces
+    {
+        background-size: 100% 100%;
+        height: 10vh;
+        width: 10vh;
+    }
+    form, .input, .backt, .sub
+    {
+        border-radius: 1vh;
+    }
+    .input
+    {
+        font-size: 2.5vh;
+        width: 60%;
+        padding: 2%;
+    }
+    form
+    {
+        width: 70%;
+    }
+    label, .faces-wrap
+    {
+        width: 60%;
+    }
+    .sub-wrap
+    {
+        width: 60%;
+    }
+    .sub
+    {
+        padding: 3%;
+    }
+    .backt
+    {
+        padding: 2%;
+    }
+    hr
+    {
+        width: 70%;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    *
+    {
+        font-size: 5vw;
+    }
+    h1
+    {
+        font-size: 10vw;
+    }
+    .tick
+    {
+        height: 30vw;
+        width: 30vw;
+    }
+    .faces
+    {
+        background-size: 100% 100%;
+        height: 25vw;
+        width: 25vw;
+    }
+    .input, .backt, .sub
+    {
+        border-radius: 5vw;
+    }
+    .input
+    {
+        font-size: 5vw;
+        width: 90%;
+        padding: 5%;
+    }
+    form
+    {
+        width: 100%;
+    }
+    label, .faces-wrap
+    {
+        width: 90%;
+    }
+    .sub-wrap
+    {
+        width: 90%;
+    }
+    .sub
+    {
+        padding: 6%;
+    }
+    .backt
+    {
+        padding: 5%;
+    }
+    hr
+    {
+        width: 80%;
+    }
+}
+*
+{
+    color: white;
+}
+.wrapper
+{
+    background-color: rgb(0,162,232);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1
+{
+    text-align: center;
+    font-family: 'Norwester';
+}
+.faces-wrap
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2% 0;
+}
+.tick
+{
+    background-image: url('../img/tick.png');
+    background-size: 100% 100%;
+}
+
+form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 5%;
+    margin: 5% 0;
+}
+label
+{
+    font-family: 'Roboto';
+    margin: 2% 0;
+    font-weight: bolder;
+}
+#happy
+{
+    background-image: url('../img/happy.png');
+}
+#neutral
+{
+    background-image: url('../img/neutral.png');
+}
+#sad
+{
+    background-image: url('../img/sad.png');
+}
+.faces
+{
+    opacity: .5;
+    transition: .3s;
+    cursor: pointer;
+}
+.faces:hover
+{
+    opacity: 1;
+}
+.input
+{
+	border: 1px solid rgba(0, 0, 0, 0);
+	outline: none;
+    font-family: 'Roboto';
+}
+.backt
+{
+    text-decoration: none;
+    color: rgb(0,162,232);
+    background-color: white;
+    margin-bottom: 5%;
+    font-weight: bold;
+    transition: .3s;
+}
+.backt:hover
+{
+    opacity: .7;
+}
+.sub
+{
+    background: rgb(0,162,232);
+    color: white;
+    outline: none;
+    border: none;
+    margin-top: 10%;
+    transition: .3s;
+    cursor: pointer;
+}
+.sub:hover
+{
+    opacity: .7;
+}

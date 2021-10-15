@@ -1,0 +1,758 @@
+@media only screen and (orientation: landscape)
+{
+    *
+    {
+        font-size: 2.5vh;
+    }
+    .percussion
+    {
+        margin: 5% 0;
+        width: 95%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .per-img1
+    {
+        background-image: url('../img/products/p1/percussion1.webp');
+        width: 45vw;
+        height: 45vw;
+    }
+    .per-img2
+    {
+        background-image: url('../img/products/p2/percussion2.png');
+        width: 45vw;
+        height: 30vw;
+    }
+    .per-img3
+    {
+        background-image: url('../img/products/p3/percussion.png');
+        width: 45vw;
+        height: 33.75vw;
+    }
+    .percussion-img
+    {
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .percussion-header
+    {
+        width: 45vw;
+        font-size: 5vh;
+        text-align: center;
+        font-style: italic;
+    }
+    .percussion-body
+    {
+        width: 45vw;
+        text-align: center;
+    }
+    .tw-img
+    {
+        width: 75vh; 
+        height: 75vh;
+    }
+    .overview
+    {
+        font-size: 5vh;
+    }
+    .copy
+    {
+        font-weight: bold;
+        width: 75%;
+    }
+    .description
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 5% 0;
+    }
+    .text-wrapper
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        background: rgb(41, 53, 66);
+        padding: 5% 0;
+    }
+    .cop-wrap
+    {
+        width: 55%; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column;
+    }
+    .feature-wrapper
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 90%;
+        margin: 5% auto;
+    }
+    .wrapper2
+    {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        flex-direction: row;
+        width: 100%;
+    }
+    .feature
+    {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .feature p
+    {
+        text-align: center;
+    }
+    .feature-icon
+    {
+        background-size: 100% 100%;
+        width: 10vh;
+        height: 10vh;
+    }
+    .overview, .copy
+    {
+        text-align: center;
+        color: white;
+    }
+    .overview
+    {
+        width: 40%;
+        padding: 2% 0;
+        border-radius: 10vh;
+        border: 1px solid white;
+        box-shadow: 
+        0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 
+        0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+    }
+    .usage-wrapper
+    {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        margin: 3% 0;
+    }
+    .usage-img
+    {
+        height: 90vh;
+        width: 90vh;
+        background-size: 100% 100%;
+        border-radius: 1vh;
+    }
+    .usage-text
+    {
+        width: 40%;
+    }
+    .specs-wrapper
+    {
+        width: 100%;
+        height: 95vh;
+        background-image: url('../img/products/p1/specs.png');
+        background-size: 100% 100%;
+        margin: 5% 0;
+    }
+    .specs-text
+    {
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        color: white;
+        flex-direction: column;
+    }
+    .specs-text h1
+    {
+        font-size: 5vh;
+    }
+    .specs-text ul
+    {
+        list-style-type: circle;
+    }
+    .specs-text li
+    {
+        margin: 4% 0;
+    }
+    .heads-wrapper
+    {
+        width: 100%;
+        margin: 10% 0;
+    }
+    .heads-menu
+    {
+        width: 75%;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .heads
+    {
+        width: 25%;
+        text-align: center;
+        padding: 1% 0;
+        border-radius: 1vh;
+        cursor: pointer;
+        border-bottom: .1vh solid rgb(241,241,241);
+    }
+    .hactive
+    {
+        border-bottom: .1vh solid rgb(0,162,232);
+    }
+    .heads-desc
+    {
+        margin: 5% auto;
+        display: none;
+        width: 70%;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .heads-img
+    {
+        background-size: 100% 100%;
+        height: 30vh;
+        width: 30vh;
+    }
+    .heads-text
+    {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .active2
+    {
+        display: flex;
+    }
+    .bonus-wrapper
+    {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+    .bonus-text
+    {
+        height: 75vh;
+        width: 20%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+    .img-wrap
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bonus-img
+    {
+        height: 75vh;
+        width: 75vh;
+        background-image: url('../img/products/p1/massager1.png');
+        background-size: 100% 100%;
+    }
+    .bonus-text h3
+    {
+        text-align: center;
+        color: rgb(0,162,232);
+    }
+    .bonus-text p
+    {
+        text-align: center;
+    }
+    .num-img
+    {
+        font-family: 'Norwester';
+        font-size: 25vh;
+    }
+    .benefits-wrapper h1
+    {
+        font-size: 5vh;
+        text-align: center;
+    }
+    .benefits
+    {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 70%;
+        border: .1vh solid lightgray;
+        box-shadow: 
+        0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 
+        0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+        margin-bottom: 5%;
+    }
+    .benefits p
+    {
+        width: 75%;
+    }
+    .left
+    {
+        border-radius: 0 5vh 5vh 0;
+    }
+    .right
+    {
+        border-radius: 5vh 0 0 5vh;
+    }
+    .installation
+    {
+        margin: 5% 0;
+        height: 150vh;
+        width: 160vh;
+        background-image: url('../img/products/p2/steps.jpg');
+        background-size: 100% 100%;
+    }
+    .p3-list
+    {
+        list-style-type: none;
+    }
+    .collage-wrapper
+    {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 2% 0;
+    }
+    .blocks
+    {
+        width: 100vw;
+        height: 100vw;
+        background-size: 100% 100%;
+    }
+    .main-benefits
+    {
+        font-size: 5vh;
+    }
+}
+@media only screen and (orientation: portrait)
+{
+    .main-benefits
+    {
+        font-size: 8vw;
+    }
+    .percussion
+    {
+        margin: 15% 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .per-img1
+    {
+        background-image: url('../img/products/p1/percussion1.webp');
+        width: 95vw;
+        height: 95vw;
+    }
+    .per-img2
+    {
+        background-image: url('../img/products/p2/percussion2.png');
+        width: 95vw;
+        height: 65vw;
+    }
+    .per-img3
+    {
+        background-image: url('../img/products/p3/percussion.png');
+        width: 95vw;
+        height: 71.25vw;
+    }
+    .percussion-img
+    {
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .percussion-header
+    {
+        font-size: 8vw;
+        width: 95vw;
+        text-align: center;
+        font-style: italic;
+    }
+    .percussion-body
+    {
+        width: 75vw;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    *
+    {
+        font-size: 5vw;
+    }
+    .overview
+    {
+        font-size: 8vw;
+    }
+    .copy
+    {
+        width: 90%;
+        font-weight: bold;
+    }
+    .description
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 5% 0;
+    }
+    .text-wrapper
+    {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        justify-content: space-evenly;
+        width: 100%;
+        background: rgb(41, 53, 66);
+        padding: 5% 0;
+    }
+    #twrap
+    {
+        flex-direction: column-reverse;
+    }
+    #twrap2
+    {
+        flex-direction: column;
+    }
+    .cop-wrap
+    {
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column;
+    }
+    .feature-wrapper
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        margin: 5% 0;
+    }
+    .tw-img
+    {
+        width: 100vw; 
+        height: 100vw;
+    }
+    .wrapper2
+    {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .feature
+    {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 3% 0;
+    }
+    .feature p
+    {
+        text-align: center;
+    }
+    .feature-icon
+    {
+        background-size: 100% 100%;
+        width: 30vw;
+        height: 30vw;
+    }
+    .overview, .copy
+    {
+        text-align: center;
+        color: white;
+    }
+    .overview
+    {
+        width: 90%;
+        padding: 2% 0;
+        border-radius: 10vh;
+        border: 1px solid white;
+        box-shadow: 
+        0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 
+        0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+    }
+    .u1
+    {
+        flex-direction: column-reverse;
+    }
+    .u2
+    {
+        flex-direction: column;
+    }
+    .usage-wrapper
+    {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        margin: 3% 0;
+    }
+    .usage-img
+    {
+        height: 100vw;
+        width: 100vw;
+        background-size: 100% 100%;
+        border-radius: 1vh;
+    }
+    .usage-text
+    {
+        width: 95%;
+    }
+    .specs-wrapper
+    {
+        width: 100%;
+        height: 95vw;
+        background-size: 100% 100%;
+        margin: 35% 0;
+    }
+    .specs-text
+    {
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        color: white;
+        flex-direction: column;
+    }
+    .specs-text h1
+    {
+        font-size: 8vw;
+    }
+    .specs-text ul
+    {
+        list-style-type: circle;
+    }
+    .specs-text li
+    {
+        margin: 4% 0;
+    }
+    .heads-wrapper
+    {
+        width: 100%;
+        margin: 15% 0;
+    }
+    .heads-menu
+    {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .heads
+    {
+        text-align: center;
+        padding: 1% 0;
+        border-radius: 1vh;
+        cursor: pointer;
+        border-bottom: .1vh solid rgb(241,241,241);
+    }
+    .hactive
+    {
+        border-bottom: .1vh solid rgb(0,162,232);
+    }
+    .heads-desc
+    {
+        margin: 5% auto;
+        display: none;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .heads-img
+    {
+        background-size: 100% 100%;
+        height: 30vw;
+        width: 30vw;
+    }
+    .heads-text
+    {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .active2
+    {
+        display: flex;
+    }
+    .bonus-wrapper
+    {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        margin: 35% 0;
+    }
+    .bonus-text
+    {
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        margin: 5% 0;
+    }
+    .img-wrap
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bonus-img
+    {
+        height: 100vw;
+        width: 100vw;
+        background-image: url('../img/products/p1/massager1.png');
+        background-size: 100% 100%;
+    }
+    .bonus-text h3
+    {
+        text-align: center;
+        color: rgb(0,162,232);
+    }
+    .bonus-text p
+    {
+        text-align: center;
+    }
+    .num-img
+    {
+        font-family: 'Norwester';
+        font-size: 25vw;
+    }
+    .benefits-wrapper h1
+    {
+        font-size: 8vw;
+        text-align: center;
+    }
+    .benefits
+    {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 95%;
+        border: .1vh solid lightgray;
+        box-shadow: 
+        0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 
+        0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+        margin-bottom: 25%;
+    }
+    .benefits p
+    {
+        width: 75%;
+    }
+    .left
+    {
+        border-radius: 0 5vh 5vh 0;
+    }
+    .right
+    {
+        border-radius: 5vh 0 0 5vh;
+    }
+    .installation
+    {
+        margin: 5% 0;
+        height: 100vw;
+        width: 100vw;
+        background-image: url('../img/products/p2/steps.jpg');
+        background-size: 100% 100%;
+    }
+    .p3-list
+    {
+        list-style-type: none;
+    }
+    .collage-wrapper
+    {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 10%;
+    }
+    .blocks
+    {
+        width: 100vw;
+        height: 100vw;
+        background-size: 100% 100%;
+        margin: 10% 0;
+    }
+}
+
+#feat1
+{
+    background-image: url('../img/products/p1/blood.png');
+}
+#feat2
+{
+    background-image: url('../img/products/p1/sore.png');
+}
+#feat3
+{
+    background-image: url('../img/products/p1/warmup.png');
+}
+#feat4
+{
+    background-image: url('../img/products/p1/pain.webp');
+}
+#feat5
+{
+    background-image: url('../img/products/p1/sleep.webp');
+}
+#feat6
+{
+    background-image: url('../img/products/p1/mobility.png');
+}
+#b1
+{
+    background-image: url('../img/products/p3/b1.webp');
+}
+#b2
+{
+    background-image: url('../img/products/p3/b2.png');
+}
+#b3
+{
+    background-image: url('../img/products/p3/b3.webp');
+}
+#b4
+{
+    background-image: url('../img/products/p3/b4.webp');
+}

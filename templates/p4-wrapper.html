@@ -1,0 +1,442 @@
+<div class="wrapper">
+    {% if g.ip['cookies-message'] %}
+    <div class="cookies-wrapper">
+        <div class="cookies-message">
+            We use cookies on our websites for a number of purposes, 
+            including analytics, performance and website functionality. 
+            <a href="/privacy-policy#cookies">Learn more about N Fit’s use of cookies.</a>
+        </div>
+        <div class="opts">
+            <a class="opt" href="/reject?cookies=0&page=neck_massager">Reject non-essential</a>
+            <a class="opt" href="/reject?cookies=1&page=neck_massager" onclick="hideCookies()">Accept all</a>
+        </div>
+    </div>
+    {% endif %}
+    <div class="dimcho"></div>
+    <!-- REFERRAL!-->
+    {% if PTM == 0 and g.ip['receiver'] == 0 %}
+    <div class="dimcho2" onclick="referBack('referral' , 'message=close')"></div>
+    <div class="referral">
+        <div class="hicks" onclick="referBack('referral' , 'message=close')">X</div>
+        <div class="ref-title">
+            Give your friend the gift of health!
+        </div>
+        <div class="ref-title2">
+            Refer a friend and get 15% off of any product
+        </div>
+        <div class="ref-img-wrap">
+            <div class="ref1 ref-img"></div>
+            <div class="ref2 ref-img"></div>
+            <div class="ref3 ref-img"></div>
+        </div>
+        <div class="ref-copy">
+            <div class="howitworks">How it works?</div>
+            <br>
+            1. You receive a link.<br>
+            2. Your friend opens the link.<br>
+            3. You both receive a 15% discount code for all our products.
+        </div>
+        <div class="ref-buttons">
+            <div onclick="referBack('referral' , 'message=close')" class="ref-butt" style="background: white; color:rgb(0, 162, 232);">No thanks</div>
+            <div class="ref-butt" onclick="referBack('referral' , 'message=get')">Get the link</div>
+        </div>
+    </div>
+    {% endif %} 
+    
+    {% if Added == 1 %}
+    <div class="top-nav2">
+        {% if Added == 1 %}
+        Successfully added to your bag!
+        {% endif %}
+    </div>
+    {% endif %}
+    <!-- TOP NAVIGATION !-->
+    <nav class="top-nav">
+        <a href="/"><li id="logo" class="top-nav-items"></li></a>
+        <li class="top-nav-items text-items"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}" style="font-weight: bold;">{{g.product['4']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+        <li id="search" class="top-nav-items" onclick="opensearch()"></li>
+        <li class="top-nav-items search-field">
+            <form onsubmit="return validateSearch()" class="search-formec">
+                <input oninput="searchFunc(0)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                <input type="submit" value="Submit" style="display: none;">
+                <div class="search-box">
+                    {% for i in range(1,5) %}
+                    <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                        <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                        <div class="prod-text">
+                            {{g.product[i|string]['name']}}
+                            <br>
+                            £ {{g.product[i|string]['total']}}
+                            <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                        </div>
+                        
+                    </a>
+                    {% endfor %}
+                </div>
+            </form>
+        </li>
+        <li id="bag" class="top-nav-items" onclick="opencart()">
+            <aside class="triangle"></aside>
+            {% if w_count + b_count != 0 %}
+            <div class="bag-num">
+                {{w_count + b_count}}
+            </div>
+            {% endif %}
+            
+        </li>
+    </nav>
+
+
+    {% if Added == 1 %}
+    <div class="top-nav2-mobile">
+        {% if Added == 1 %}
+        Successfully added to your bag!
+        {% endif %}
+    </div>
+    {% endif %}
+    <!-- MOBILE !-->
+    <nav class="top-nav-mobile">
+        <li id="linebar" class="top-nav-items" onclick="openmenu()"></li>
+        <a href="/"><li id="logo" class="top-nav-items"></li></a>
+        <li id="bag" class="top-nav-items" onclick="opencart()">
+            {% if w_count + b_count != 0 %}
+            <div class="bag-num">
+                {{w_count + b_count}}
+            </div>
+            {% endif %}
+        </li>
+    </nav>
+    <aside class="buttons-mobile">
+        <li class="top-nav-items search-field">
+            <div class="search-img"></div>
+            <div class="search-box">
+                {% for i in range(1,5) %}
+                <a style="color: black;" class="prod-box" href="/{{g.product[i|string]['menu-code']}}">
+                    <div id="{{g.product[i|string]['menu-code']}}" class="prod-img"></div>
+                    <div class="prod-text">
+                        {{g.product[i|string]['name']}}
+                        <br>
+                        £ {{g.product[i|string]['total']}}
+                        <input type="hidden" class="search-keywords" value="{{g.product[i|string]['menu-name']}}">
+                    </div>
+                    
+                </a>
+                {% endfor %}
+            </div>
+            <form onsubmit="return validateSearch()" class="search-formec">
+                <input oninput="searchFunc(1)" type="search" class="search-input" name="Search" placeholder="Search N Fit...">
+                <input type="submit" value="Submit" style="display: none;">
+            </form>
+        </li>
+        <li class="top-nav-items text-items" style="border-top: none;"><a href="/{{g.product['1']['menu-code']}}">{{g.product['1']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['2']['menu-code']}}">{{g.product['2']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['3']['menu-code']}}">{{g.product['3']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/{{g.product['4']['menu-code']}}">{{g.product['4']['menu-name']}}</a></li>
+        <li class="top-nav-items text-items"><a href="/all-products">All Products</a></li>
+    </aside>
+
+    
+    <!-- CART !-->
+    <aside class="cart-menu">
+        {% if b_count != 0 %}
+        <div class="cart-menu-items" id="your-bag">You have {{b_count}} 
+            {% if b_count == 1 %}
+            item
+            {% else %}
+            items
+            {% endif %}
+            in your bag.</div>
+        {% else %}
+        <div class="cart-menu-items" id="your-bag">Your Bag is empty.</div>
+        {% endif %}
+        <div class="cart-menu-items"><a href="/bag">
+            <div class="cart-img mini-b">
+                {% if w_count + b_count != 0 and b_count != 0 %}
+                <div class="m-b">
+                    {{b_count}}
+                </div>
+                {% endif %}
+            </div>Bag</a></div>
+        <div class="cart-menu-items"><a href="/wishlist">
+            <div class="cart-img w-list">
+                {% if w_count + b_count != 0 and w_count != 0 %}
+                <div class="w-l">
+                    {{w_count}}
+                </div>
+                {% endif %}
+            </div>Wishlist</a></div>
+        <div class="cart-menu-items">
+            <a href="/account">
+                <div class="cart-img profile"></div>
+                {% if g.ip['user-id'] != 0 %}
+                {{g.user['first-name']}} {{g.user['last-name'][0]}}.
+                {% else %}
+                Account
+                {% endif %}
+            </a>
+        </div>
+        {% if g.ip['user-id'] != 0 %}
+        <div class="cart-menu-items"><a href="/sign-out"><div class="cart-img s-out"></div>Sign out</a></div>
+        {% else %}
+        <div class="cart-menu-items"><a href="/sign-in"><div class="cart-img s-in"></div>Sign in</a></div>
+        {% endif %}
+    </aside>
+
+
+    <!-- MAIN !-->
+    <div class="content">
+        <div class="sub-content">
+            <div class="title-2">{{g.product['4']['name']}}</div>
+            <div class="title-3">{{g.product['4']['sub-name']}}</div>
+            <a href="#review" class="star-box">
+                <div id="one-star" class="stars">&#9733;</div>
+                <div id="two-star" class="stars">&#9733;</div>
+                <div id="three-star" class="stars">&#9733;</div>
+                <div id="four-star" class="stars">&#9733;</div>
+                <div id="five-star" class="stars">&#9733;</div>
+                <div class="ratings" class="stars" style="text-decoration: underline;">{{g.product['4']['ratings']}} ratings</div>
+            </a>
+            <div class="price">
+                <div class="currency">£</div>
+                <div class="value-1">{{g.product['4']['total']}}</div>
+            </div>
+            <div class="top-wrapper">
+                <div class="slider" style="background-image: url('../static/img/products/p4/neck1.png');">
+                        {% if g.ip['user-id'] != 0 and '3' in w_list %}
+                        <button type="button" class="wishlist-box-added" onclick="goBack('mod-wishlist', 'uname=3&act=remove&template=p4-wrapper.html')"></button>
+                        {% endif %}
+                        {% if g.ip['user-id'] != 0 and '3' not in w_list %}
+                        <button type="button" class="wishlist-box" onclick="goBack('mod-wishlist', 'uname=3&act=add&template=p4-wrapper.html')"></button>
+                        {% endif %}
+                        {% if g.ip['user-id'] == 0 %}
+                        <a class="wishlist-box" href="/wishlist"></a>
+                        {% endif %}
+                </div>
+                <div class="thumbnails">
+                    <div onmouseover="changeImage4('1', this.id)" ontouchstart="changeImage4('1', this.id)" id="one" class="sub-thumbs" style="background-image: url('../static/img/products/p4/neck1.png'); border: 3px solid rgb(0, 162, 232);"></div>
+                    <div onmouseover="changeImage4('2', this.id)" ontouchstart="changeImage4('2', this.id)" id="two" class="sub-thumbs" style="background-image: url('../static/img/products/p4/neck2.png');"></div>
+                    <div onmouseover="changeImage4('3', this.id)" ontouchstart="changeImage4('3', this.id)" id="three" class="sub-thumbs" style="background-image: url('../static/img/products/p4/neck3.png');"></div>
+                    <div onmouseover="changeImage4('4', this.id)" ontouchstart="changeImage4('4', this.id)" id="four" class="sub-thumbs" style="background-image: url('../static/img/products/p4/neck4.png');"></div>
+                </div>
+            </div>
+            <div class="desktop">
+                <div class="title-2-2">{{g.product['4']['name']}}</div>
+                <div class="title-3-3">{{g.product['4']['sub-name']}}</div>
+                <a href="#review" class="star-box-2">
+                    <div id="one-star" class="stars">&#9733;</div>
+                    <div id="two-star" class="stars">&#9733;</div>
+                    <div id="three-star" class="stars">&#9733;</div>
+                    <div id="four-star" class="stars">&#9733;</div>
+                    <div id="five-star" class="stars">&#9733;</div>
+                    <div class="ratings" class="stars" style="text-decoration: underline;">{{g.product['4']['ratings']}} ratings</div>
+                </a>
+                <div class="price-2">
+                    <div class="currency">£</div>
+                    <div class="value-1">{{g.product['4']['total']}}</div>
+                </div>
+                <div class="shipping">
+                    <div class="sub-shipping"><div class="sub-ship-img" style="background-image: url('../static/img/icons/worldwide-black.png'); background-size: 80% 80%;"></div><div class="sub-ship-text"><b>Free</b> Shipping Worldwide</div></div>
+                    <div class="sub-shipping"><div class="sub-ship-img" style="background-image: url('../static/img/icons/inventory.png'); background-size: 80% 80%;"></div><div class="sub-ship-text"><b>Only 3 items</b> left in stock</div></div>
+                </div>
+                <form name="add-cart" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
+                    <input type="hidden" id="product-price" name="product-price" value="{{g.product['4']['total']}}">
+                    <input id="key" type="hidden" name="key" value="4">
+                    <label class="plug-label">Colour</label>
+                    <div class="plug-type-wrapper">
+                        <select name="properties" class="plug-type" data-index="option1" onchange="changeSelect(4)">
+                            <option value="White" selected>White</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Pink">Pink</option>
+                        </select>
+                    </div>
+                    <label class="quantity-label">Quantity</label>
+                    <div class="quantity-wrapper">
+                        <button class="minus" type="button" onclick="subquant()">-</button>
+                        <input name="quantity" class="quantity" type="number" min="1" value="1">
+                        <button class="plus"  type="button" onclick="addquant()">+</button>
+                    </div>
+                    <button class="add" type="submit">ADD TO BAG</button>
+                    <div id="paypal-button-container"></div>
+                    <div class="cards"></div>
+                </form>
+            </div>
+        </div>
+        <div id="review" class="reviews">
+            <div class="reviews-details">
+                <h1 class="reviews-product">{{g.product['4']['menu-name']}}</h1>
+                <h3 class="reviews-overall">Overall rating</h3>
+                <div class="reviews-rating">
+                    <h1 class="rating-1">4.8</h1>
+                    <h2 class="rating-2">/ 5</h2>
+                </div>
+                <div class="reviews-stars">
+                    <span class="stars-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 29 Reviews
+                </div>
+                <span class="reviews-recc">97.3% of reviewers would recommend to a friend.</span>
+            </div>
+            <div class="reviews-slider">
+                <div class="reviews-previous" onclick="changeSlide(-1)">&#171;</div>
+                <div class="reviews-next" onclick="changeSlide(1)">&#187;</div>
+                <div class="reviews-bubbles">
+                    <div class="bubbles" onclick="changeBub(1)"></div>
+                    <div class="bubbles" onclick="changeBub(2)"></div>
+                    <div class="bubbles" onclick="changeBub(3)"></div>
+                </div>
+                <div class="reviews-window">
+                    <div class="reviews-ss">
+                        <span class="reviews-span">
+                            <div class="reviews-box">
+                                <div class="reviews-date">Reviewed on 19 May 2021</div>
+                                <div class="reviews-body">
+                                    My office job requires me to look at a screen for 9 hours a day so, 
+                                    eventually, my neck started aching. Ever since I got this neck massager, 
+                                    I have been able to sleep properly and it heavily reduced my neck pain.
+                                </div>
+                            </div>
+                            <div class="reviews-triangle"></div>
+                            <h3 class="reviews-name">Lucas Flynn, Wichester</h3>
+                        </span>
+                        <span class="reviews-span">
+                            <div class="reviews-box">
+                                <div class="reviews-date">Reviewed on 10 May 2021</div>
+                                <div class="reviews-body">
+                                    Thank you!! My son had neck pain after playing computer games for so long and 
+                                    I got him this massager and he has been feeling pretty well!
+                                </div>
+                            </div>
+                            <div class="reviews-triangle"></div>
+                            <h3 class="reviews-name">Emily Roberts, Bath</h3>
+                        </span>
+                        <span class="reviews-span">
+                            <div class="reviews-box">
+                                <div class="reviews-date">Reviewed on 2 May 2021</div>
+                                <div class="reviews-body">
+                                    I was initially unsure whether I should buy this product but it turned out to be life-saving! 
+                                    I have been having neck pain for a while now but now I can say that I am sleeping well!
+                                </div>
+                            </div>
+                            <div class="reviews-triangle"></div>
+                            <h3 class="reviews-name">Felix Robinson, Liverpool</h3>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="desc" class="description">
+            <div style="background: white;" id="twrap" class="text-wrapper">
+                <div class="tw-img" style="background-image: url('../static/img/products/p4/over.webp'); background-size: 100% 100%;"></div>
+                <div class="cop-wrap">
+                    <h1 style="color: black; width: 75%;" class="overview">Overview</h1>
+                    <p style="color: black;" class="copy">
+                        Is your neck feeling sore after a tough day at work, a gaming session or just feels like 
+                        out of nowhere? Don't worry. You just need the right treatment!
+                        <br><br>
+                        Our affordable NFitness Electric Neck Massager will relieve your neck pain and stiffness, 
+                        cervical pain and body tension combining low cycle Acupulse Technology and constant heat for 
+                        calming relief at the fraction of the cost that a therapist would want. 
+                        <br><br>
+                        Take your moment of recovery whether at the desk, in the commute, or at the comfort of your 
+                        home and use the electric massager for 15 minutes a day to see deep effective pain relief on 
+                        your neck and shoulder.
+                    </p>
+                </div>
+            </div>
+
+            <div style="background: white;" id="twrap2" class="text-wrapper">
+                <div class="cop-wrap">
+                    <h2 style="color: black; width: 75%;" class="overview">Benefits for the body</h2>
+                    <h2 style="text-align: center;">But what is the full scope of its effectiveness?</h2>
+                    <p style="color: black;" class="copy">
+                        <ul class="p3-list">
+                            <li>✔️ Neck pain and cervical stiffness</li>
+                            <li>✔️ Arthritis in shoulders and upper back</li>
+                            <li>✔️ Irritability and fatigue due to sleep disorders (can be caused by cervical dispositions)</li>
+                            <li>✔️ Edema and inflammation</li>
+                            <li>✔️ Dizziness and loss of balance</li>
+                            <li>✔️ Headaches (especially at the back of the head)</li>
+                            <li>✔️ Cervical nerve pain</li>
+                            <li>✔️ Muscular spasms or shooting pains/ trigger points</li>
+                            <li>✔️ Knotted neck and shoulders</li>
+                        </ul>
+                    </p>
+                </div>
+                <div  class="tw-img" style="background-image: url('../static/img/products/p4/benefit.webp'); background-size: 100% 100%;"></div>
+            </div>
+
+            <div class="benefits-wrapper" style="position: relative;">
+                <h1>How does it work?</h1>
+                <div class="benefits left">
+                    <p>
+                        The N Fit neck massager provides a constant temperature massage. 
+                        The heating function reaches 107°F (41° C) but do not worry, it relaxes muscles, 
+                        accelerates your blood circulation, and can help you relieve your neck pain.
+                    </p>
+                    <span class="num-img">1</span>
+                </div>
+                <div class="benefits right" style="float: right;">
+                    <span class="num-img">2</span>
+                    <p>
+                        Just click the buttons on the remote control, and you can choose the mode and intensity that suits you. 
+                        (The intensity restores to level 0 when the mode is changed).  
+                    </p>
+                </div>
+                <div class="benefits left">
+                    <p>
+                        Experience nerve stimulation, a deeply effective massage through the stimulation of nerves and muscles. 
+                        Soothes tired muscles reduces stress, and relieves aches and stiffness by imitating the effects of a real massage.
+                        <br><br><b>Duration: 15 minutes per day</b>
+                    </p>
+                    <span class="num-img">3</span>
+                </div>
+                <div class="benefits right" style="float: right;">
+                    <span class="num-img">4</span>
+                    <p>
+                        Rechargeable and cordless. Comes with a Micro USB cord for charging and a 450mAh battery. 
+                        Once fully charged provides up to 4 hours or 16 massage sessions(15 minutes per session).
+                    </p>
+                </div>
+            </div>
+            <h1 style="text-align: center;">Disclaimer</h1>
+            <h1 style="text-align: center; width: 60%;">
+                If you have a Pacemaker / implantable electronic device or metal implants in the neck area, we apologize, but you can not use this.
+            </h1>
+        </div>
+    </div>
+
+
+    <!-- FOOTER !-->
+    <footer class="footer">
+        <div class="social-media">
+            <div class="sub-social-media">Connect with us</div>
+            <div class="sub-social-media smimg">
+                <div class="media-icons"><a href="https://www.facebook.com/N-Fitness-104132791607635" target="_blank"><div class="social" style="background-image: url('../static/img/social/facebook.webp');"></div></a></div>
+                <div class="media-icons"><a href="https://www.instagram.com/nfit.ig/" target="_blank"><div class="social" style="background-image: url('../static/img/social/instagram.svg');"></div></a></div>
+                <div class="media-icons"><a href="https://www.pinterest.co.uk/nfitpinterest" target="_blank"><div class="social" style="background-image: url('../static/img/social/pinterest.svg');"></div></a></div>
+            </div>
+        </div>
+        <div class="main-menu">
+            <li class="sub-main-menu"><a href="/terms-of-use">Terms of Use</a></li>
+            <li class="sub-main-menu"><a href="/privacy-policy">Privacy Policy</a></li>
+            <li class="sub-main-menu"><a href="/send-feedback">Send Feedback</a></li>
+            <li class="sub-main-menu"><a href="/our-mission">Our Mission</a></li>
+            <li class="sub-main-menu"><a href="/contact-us">Contact Us</a></li>
+            <li id="copyright" class="sub-main-menu">Copyright &#169; 2021 N Fitness Technologies. All rights reserved.</li>
+        </div>
+        <div class="contact-infor" style="color: white;">
+            <div>Email: nfitness.business@gmail.com</div>
+            <div>Mobile: +44 7788241596</div>
+            <div>Office: Swanscombe Street 38, Kent, DA10 0BN</div>
+        </div>
+        <div class="disclaimer">
+            Always consult with a qualified healthcare professional prior to using any product or technology. 
+            The products are intended to help you and not harm you in any way, so we recommend you 
+            read the description of the products carefully and seek advice from a medical expert, if needed.
+        </div>
+    </footer>
+
+   
+</div>
